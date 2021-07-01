@@ -1,0 +1,23 @@
+name = "Pure Mathematics with Lean"
+version = "1.0.0"
+extra_files = "extras"
+intro = "src/game/intro.lean"
+
+[[worlds]]
+name = "Equations"
+id = 1
+levels = [
+	"src/equations/refl/level.lean",
+	"src/equations/commutativity_rw/level.lean",
+]
+
+[[worlds]]
+name = "Functions"
+id = 2
+parents = [1]
+levels = [
+	"src/function/domain_codomain_map/level.lean",
+
+]
+
+
