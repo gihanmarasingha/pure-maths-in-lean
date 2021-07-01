@@ -1,6 +1,4 @@
-import tactic.structure_helper tactic.pure_maths
-
---import myint.basic
+import myint.basic -- hide
 
 /-
 # Equations
@@ -45,11 +43,13 @@ left and right sides are *definitionally equal*.
 
 namespace exlean -- hide
 
---open MyInt --hide
+namespace MyInt  -- hide
 
---variables (myint : Type) [MyInt myint] -- hide
+open MyInt -- hide
 
---local notation `ℤ` := myint -- hide
+variable [@MyInt myint] -- hide
+
+open_locale MyInt -- hide
 
 variables (x y : ℤ) -- Declare `x` and `y` to be integers.
 
@@ -60,5 +60,7 @@ theorem x_plus_y_eq_x_plus_y : x + y = x + y :=
 begin
   refl,
 end
+
+end MyInt -- hide
 
 end exlean -- hide

@@ -1,4 +1,4 @@
-import tactic.structure_helper tactic.pure_maths
+import  tactic.structure_helper tactic.pure_maths
 
 namespace MyInt
 
@@ -16,5 +16,11 @@ variables {G : Type} [@MyInt G]
 instance add_group_has_sub : has_sub G := ⟨MyInt.sub⟩
 
 lemma sub_eq_add_neg (a b : G) : a - b = a + -b := rfl
+
+constants (myint : Type) [myint_inst : @MyInt myint]
+
+localized "notation `ℤ` := myint" in MyInt
+
+export MyInt (myint myint_inst)
 
 end MyInt
