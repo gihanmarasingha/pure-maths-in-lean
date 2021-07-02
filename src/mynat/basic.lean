@@ -12,7 +12,7 @@ namespace mynat
 
 open mynat
 
-local notation `ℕ` := mynat
+localized "notation `ℕ` := mynat" in mynum
 
 instance : has_zero ℕ := ⟨zero⟩
 

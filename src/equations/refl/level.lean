@@ -43,9 +43,9 @@ left and right sides are *definitionally equal*.
 
 namespace exlean -- hide
 
-open myint
+open myint -- hide
 
-local notation `ℤ` := myint
+open_locale mynum -- hide
 
 variables (x y : ℤ) -- Declare `x` and `y` to be integers.
 

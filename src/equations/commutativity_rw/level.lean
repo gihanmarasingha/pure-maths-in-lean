@@ -2,7 +2,7 @@ import tactic.structure_helper tactic.pure_maths
 
 import myint.basic -- hide
 
-local notation `ℤ` := myint -- hide
+open_locale mynum -- hide
 
 /-
 # Equations
@@ -33,7 +33,6 @@ To apply this theorem, we'll use the `rw` (short for `rewrite`) tactic.
 
 Replace 
 -/
-
 
 namespace exlean -- hide
 

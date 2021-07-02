@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0\n"
-"POT-Creation-Date: 2021-07-01 16:44:07.682149\n"
+"POT-Creation-Date: 2021-07-02 10:23:46.337743\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 
@@ -119,10 +119,6 @@ msgstr ""
 
 #: Equations level 1
 msgid "`x + y = x + y`, for all integers `x` and `y`.\n"
-msgstr ""
-
-#: Equations level 2
-msgid "--import myint.basic"
 msgstr ""
 
 #: Equations level 2

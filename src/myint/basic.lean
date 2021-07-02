@@ -4,8 +4,6 @@ The contents of this file is a selection of text from `data.int.basic`.
 
 import mynat.basic
 
-#check int.add_assoc
-
 inductive myint : Type
 | of_nat : mynat → myint
 | neg_succ_of_nat : mynat → myint
@@ -18,9 +16,9 @@ instance : has_coe mynat myint := ⟨myint.of_nat⟩
 
 open mynat
 
-local notation `ℕ` := mynat
+open_locale mynum
 
-local notation `ℤ` := myint
+localized "notation `ℤ` := myint" in mynum
 
 notation `-[1+ ` n `]` := myint.neg_succ_of_nat n
 
