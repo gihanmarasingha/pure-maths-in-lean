@@ -6,6 +6,9 @@
 This is an interactive book aimed at beginning mathematics undergraduates. You'll learn to prove
 theorems online using a computer tool called Lean.
 
+Each chapter is indicated by a coloured circular button on the right-hand pane. Blue indicates your
+current position, green is for completed chapters, and grey is for unread or uncompleted chapters.
+
 At every stage in a theorem, there is a *target*, the thing you want to prove, and a *context*, the
 set of things you have already proved or assumed at the beginning of your argument.
 The target and context change through the proof.

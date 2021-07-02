@@ -1,4 +1,3 @@
-# Maze game
+# Pure maths README
 
-Move `n`,`s`,`e`,`w`, and `out` to get out.
-
+Put something in here?
