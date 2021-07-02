@@ -4,6 +4,8 @@ Portions of this file are lifted from `data.nat.basic` and `data.nat.lemmas`
 
 import  tactic.structure_helper tactic.pure_maths
 
+namespace exlean
+
 inductive mynat : Type
 | zero : mynat
 | succ : mynat → mynat
@@ -425,3 +427,5 @@ protected lemma right_distrib : ∀ (n m k : ℕ), (n + m) * k = n * k + m * k
   begin simp [mul_succ, right_distrib n m k], sort_add end
 
 end mynat
+
+end exlean

@@ -1,7 +1,5 @@
 import myint.basic equations.commutativity_rw.level -- hide
 
-open_locale mynum -- hide
-
 /-
 # Equations
 
@@ -40,6 +38,8 @@ Use arguments, where necessary, to prove the theorem below.
 -/
 
 namespace exlean -- hide
+
+open_locale mynum -- hide
 
 variables (x y z : ℤ) -- Declare `x`, `y`, and `z` to be integers.
 

@@ -2,8 +2,6 @@ import tactic.structure_helper tactic.pure_maths -- hide
 
 import myint.basic -- hide
 
-open_locale mynum -- hide
-
 /-
 # Equations
 
@@ -46,6 +44,8 @@ Write the proof on the line after the `rw add_comm`.
 -/
 
 namespace exlean -- hide
+
+open_locale mynum -- hide
 
 variables (x y : ℤ) -- Declare `x` and `y` to be integers.
 

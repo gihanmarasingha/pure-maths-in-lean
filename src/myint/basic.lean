@@ -4,6 +4,8 @@ The contents of this file is a selection of text from `data.int.basic`.
 
 import mynat.basic
 
+namespace exlean
+
 inductive myint : Type
 | of_nat : mynat → myint
 | neg_succ_of_nat : mynat → myint
@@ -224,7 +226,7 @@ protected lemma add_comm : ∀ a b : ℤ, a + b = b + a
 | -[1+ n]    (of_nat m) := rfl
 | -[1+ n]    -[1+m]     := by simp [mynat.add_comm]
 
-protected lemma add_assoc : ∀ a b c : ℤ, a + b + c = a + (b + c)
+protected lemma add_assoc' : ∀ a b c : ℤ, a + b + c = a + (b + c)
 | (of_nat m) (of_nat n) c          := add_assoc_aux1 _ _ _
 | (of_nat m) b          (of_nat k) := by rw [myint.add_comm, ← add_assoc_aux1, myint.add_comm (of_nat k),
                                          add_assoc_aux1, myint.add_comm b]
@@ -421,3 +423,5 @@ by rw [myint.mul_comm, myint.one_mul]
 end multiplication
 
 end myint
+
+end exlean

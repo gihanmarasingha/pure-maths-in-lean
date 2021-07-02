@@ -1,7 +1,5 @@
 import mynat.basic -- hide
 
-open_locale mynum -- hide
-
 /-
 # Functions
 
@@ -27,6 +25,8 @@ integers to itself. It takes each `x` to `3 * x + 5`.
 -/
 
 namespace exlean -- hide
+
+open_locale mynum -- hide
 
 /- Axiom : `my_f`
 The function `my_f` is defined so that `my_f (x) = 3 * x + 5` for every 
