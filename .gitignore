@@ -4,5 +4,6 @@
 /scratch/*
 /html/*
 locale/content.pot
+src/test.lean
 *~
 
