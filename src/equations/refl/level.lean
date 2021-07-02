@@ -41,6 +41,14 @@ The `refl` tactic closes any goal of the form `?X = ?X`. That is, it proves any 
 left and right sides are *definitionally equal*.
 -/
 
+/-
+## A hand-written proof
+
+In words, the `refl` says, "The result holds by reflexivity". A one-line written proof of
+the theorem below would be, "The result hold by reflexivity".
+
+-/
+
 namespace exlean -- hide
 
 open myint -- hide
