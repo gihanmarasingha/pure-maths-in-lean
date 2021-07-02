@@ -1,4 +1,4 @@
-import tactic.structure_helper tactic.pure_maths
+import tactic.structure_helper tactic.pure_maths -- hide
 
 import myint.basic -- hide
 
@@ -33,11 +33,16 @@ To apply this theorem, we'll use the `rw` (short for `rewrite`) tactic.
 
 Replace the `sorry` below with `rw add_comm` (followed by a comma—I won't mention this from now
 on).
-Lean will look for the first expression that matches the pattern `a + b` and replace it with
-`b + a`. Here, Lean finds `x + y` and replaces it with `y + x`.
 
-The goal now is to prove `y + x = y + x`. You'll know how to prove a goal of this kind from
-the previous level. Write the proof on the line after the `rw add_comm`.
+Lean will look for the first expression in the target that matches the pattern `a + b` and
+replace it with `b + a`. Here, Lean finds `x + y` and replaces it with `y + x`.
+
+More generally, if `h` is an equation of the form `p = q` (where `p` and `q` are expressions),
+`rw h` will cause Lean to look for `p` in the target and replace it with `q`.
+
+Having issued `rw add_comm`, the goal is to prove `y + x = y + x`.
+You know how to prove a goal of this kind from the previous level.
+Write the proof on the line after the `rw add_comm`.
 -/
 
 namespace exlean -- hide
@@ -69,5 +74,25 @@ context. Here's a hand-written proof of the above result.
 
 > Rewriting using commutativity of addition, the goal is to prove `y + x = y + x`.
 > This follows by reflexivity.
+-/
+
+/- Tactic : rw
+If `h` is an equation of the form `p = q`, `rw h` rewrites replaces `p` in the target with `q`.
+
+If `k` is in the context, `rw h at k` performs the rewrite at `k` instead of at the target.
+-/
+
+
+/-
+## Anatomy of a level
+
+Each level contains three vertial panes. The left-hand pane contains a list of the tactics and
+theorem statements you've seen so far. Click on the arrows to dig deeper.
+
+The middle pane is the one you're reading now! It contains text and interactive exercises.
+The right-hand pane contains the Lean Infoview window, showing the goal state and error messages.
+
+You can navigate through the book using the buttons in the top horizonal pane. The circular arrow
+resets your progress.
 -/
 
