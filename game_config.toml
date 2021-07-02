@@ -9,6 +9,7 @@ id = 1
 levels = [
 	"src/equations/refl/level.lean",
 	"src/equations/commutativity_rw/level.lean",
+	"src/equations/rw_with_local_hypotheses/level.lean",
 ]
 
 [[worlds]]
