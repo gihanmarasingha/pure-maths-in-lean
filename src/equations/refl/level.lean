@@ -9,8 +9,8 @@ In the introduction, you read that tactics are used modify the goal, eventually 
 a theorem.
 
 The `refl` tactic (short for `reflexivity`) can be used to prove any statement of the form
-`?X = ?X`. Here, I use `?X` to stand in for any expression. It could be `8 + 9` or `a * b` or 
-whatever.
+`?X = ?X`. Here, I use `?X` to stand in for any expression of any type.
+It could be `8 + 9` or `a * b` or `"adele"` or whatever.
 
 Here, you are asked to prove `x + y = x + y`, where `x` and `y` are integers.
 The word `sorry` between the `begin` and `end` lines below asks Lean not to give an error message if a
@@ -42,7 +42,7 @@ left and right sides are *definitionally equal*.
 -/
 
 /-
-## A hand-written proof
+## Translation to a hand-written proof
 
 In words, the `refl` says, "The result holds by reflexivity". A one-line written proof of
 the theorem below would be, "The result hold by reflexivity".

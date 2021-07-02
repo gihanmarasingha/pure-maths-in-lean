@@ -31,7 +31,13 @@ The result `add_comm a b` states that `a + b = b + a`, where `a` and `b` are int
 
 To apply this theorem, we'll use the `rw` (short for `rewrite`) tactic.
 
-Replace 
+Replace the `sorry` below with `rw add_comm` (followed by a comma—I won't mention this from now
+on).
+Lean will look for the first expression that matches the pattern `a + b` and replace it with
+`b + a`. Here, Lean finds `x + y` and replaces it with `y + x`.
+
+The goal now is to prove `y + x = y + x`. You'll know how to prove a goal of this kind from
+the previous level. Write the proof on the line after the `rw add_comm`.
 -/
 
 namespace exlean -- hide
@@ -48,8 +54,20 @@ theorem add_comm (a b : ℤ) : a + b = b + a := myint.add_comm' a b
 -/
 theorem x_plus_y_eq_y_plus_x : x + y = y + x :=
 begin [pure_maths]
-  rw add_comm x y,
+  rw add_comm,
   refl,
 end
 
 end exlean -- hide
+
+/-
+## Translation to a hand-written proof
+
+In words, the `rw add_comm` says, "Rewrite using commuativity of addition".
+As hand-written proofs aren't interactive, it's helpful to mention explicitly any changes to the
+context. Here's a hand-written proof of the above result.
+
+> Rewriting using commutativity of addition, the goal is to prove `y + x = y + x`.
+> This follows by reflexivity.
+-/
+
