@@ -43,14 +43,11 @@ variables (x y : ℤ) -- Declare `x` and `y` to be integers.
 -/
 theorem add_comm (a b : ℤ) : a + b = b + a := myint.add_comm' a b
 
-
---theorem add_comm (a b : myint) : a + b = b + a := MyInt.add_comm a b
-
 /- Theorem : no-side-bar
 `x + y = y + x`, for all integers `x` and `y`.
 -/
 theorem x_plus_y_eq_y_plus_x : x + y = y + x :=
-begin [nat_num_game]
+begin [pure_maths]
   rw add_comm x y,
   refl,
 end

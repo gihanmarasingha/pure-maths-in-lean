@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0\n"
-"POT-Creation-Date: 2021-07-02 10:23:46.337743\n"
+"POT-Creation-Date: 2021-07-02 10:33:13.513487\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 

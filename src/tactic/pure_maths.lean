@@ -10,7 +10,7 @@ import tactic.modded tactic.apply
 open tactic
 
 meta def copy_decl (d : declaration) : tactic unit :=
-add_decl $ d.update_name $ d.to_name.update_prefix `nat_num_game.interactive
+add_decl $ d.update_name $ d.to_name.update_prefix `pure_maths.interactive
 
 @[reducible] meta def filter (d : declaration) : bool :=
 d.to_name ∉ [`tactic.interactive.induction, 
@@ -24,22 +24,22 @@ do env ← get_env,
   let ls := env.fold [] list.cons,
   ls.mmap' $ λ dec, when (dec.to_name.get_prefix = `tactic.interactive ∧ filter dec) (copy_decl dec)
 
-@[reducible] meta def nat_num_game := tactic
+@[reducible] meta def pure_maths := tactic
 
-namespace nat_num_game
+namespace pure_maths
 
---meta instance : monad nat_num_game := by delta nat_num_game; apply_instance
+--meta instance : monad pure_maths := by delta pure_maths; apply_instance
 
---meta instance : alternative nat_num_game := by delta nat_num_game; apply_instance
+--meta instance : alternative pure_maths := by delta pure_maths; apply_instance
 
-meta def step {α} (c : nat_num_game α) : nat_num_game unit := 
+meta def step {α} (c : pure_maths α) : pure_maths unit := 
 c >> return ()
 
 meta def istep := @tactic.istep
 
 meta def save_info := tactic.save_info
 
-meta def execute (c : nat_num_game unit) : nat_num_game unit := 
+meta def execute (c : pure_maths unit) : pure_maths unit := 
 c
 
 meta def execute_with := @smt_tactic.execute_with
@@ -47,11 +47,11 @@ meta def execute_with := @smt_tactic.execute_with
 
 meta def solve1 := @tactic.solve1
 
-end nat_num_game
+end pure_maths
 
 --#check tactic.interactive.induction
 
-namespace nat_num_game.interactive
+namespace pure_maths.interactive
 
 meta def induction
 := tactic.interactive.induction'
@@ -68,7 +68,7 @@ meta def symmetry
 meta def use
 := tactic.interactive.use'
 
-end nat_num_game.interactive
+end pure_maths.interactive
 
 run_cmd copy_decls
 
@@ -79,7 +79,7 @@ run_cmd copy_decls
 
 -- example just to check it's running
 /- example (n : ℕ) : true :=
-begin [nat_num_game]
+begin [pure_maths]
   induction n,
     sorry, sorry  
 end -/
