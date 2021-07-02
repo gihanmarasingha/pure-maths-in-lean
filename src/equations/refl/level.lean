@@ -43,13 +43,9 @@ left and right sides are *definitionally equal*.
 
 namespace exlean -- hide
 
-namespace MyInt  -- hide
+open myint
 
-open MyInt -- hide
-
-variable [@MyInt myint] -- hide
-
-open_locale MyInt -- hide
+local notation `ℤ` := myint
 
 variables (x y : ℤ) -- Declare `x` and `y` to be integers.
 
@@ -60,7 +56,5 @@ theorem x_plus_y_eq_x_plus_y : x + y = x + y :=
 begin
   refl,
 end
-
-end MyInt -- hide
 
 end exlean -- hide

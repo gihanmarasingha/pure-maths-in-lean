@@ -1,12 +1,8 @@
 import tactic.structure_helper tactic.pure_maths
 
---import myint.basic
+import myint.basic -- hide
 
---open MyInt --hide
-
---variables {myint : Type} [MyInt myint] -- hide
-
---local notation `ℤ` := myint -- hide
+local notation `ℤ` := myint -- hide
 
 /-
 # Equations
@@ -46,7 +42,7 @@ variables (x y : ℤ) -- Declare `x` and `y` to be integers.
 /- Axiom : `add_comm`
 `a + b = b + a`, for all integers `a` and `b`.
 -/
-theorem add_comm (a b : int) : a + b = b + a := int.add_comm a b
+theorem add_comm (a b : ℤ) : a + b = b + a := myint.add_comm' a b
 
 
 --theorem add_comm (a b : myint) : a + b = b + a := MyInt.add_comm a b
@@ -59,7 +55,5 @@ begin [nat_num_game]
   rw add_comm x y,
   refl,
 end
-
-
 
 end exlean -- hide
