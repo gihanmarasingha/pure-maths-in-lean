@@ -1,5 +1,3 @@
-import tactic.structure_helper tactic.pure_maths -- hide
-
 import myint.basic equations.commutativity_rw.level -- hide
 
 open_locale mynum -- hide
