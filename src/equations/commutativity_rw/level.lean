@@ -96,3 +96,13 @@ You can navigate through the book using the buttons in the top horizonal pane. T
 resets your progress.
 -/
 
+/-
+## How `rw` here differs from that in standard Lean
+
+The `rw` tactic used in this book is slightly different the standard `rw`. In particular, if
+the result of a rewrite is an equation of the form `X = X`, then the standard `rw` tactic will
+automatically close the goal via reflexivity.
+
+This automation has been disabled here to help you think more carefully about proof construction.
+-/
+
