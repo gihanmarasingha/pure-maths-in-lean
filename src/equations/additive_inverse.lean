@@ -1,4 +1,4 @@
-import myint.basic equations.additive_identity.level -- hide
+import myint.basic equations.additive_identity -- hide
 
 /-
 # Equations
@@ -32,7 +32,7 @@ theorem add_right_neg (a : ℤ) : a + (-a) = 0 := myint.add_right_neg a -- hide
 -/
 theorem neg_add : (-x) + x = 0 :=
 begin [pure_maths]
-  rw add_comm,
+  rw add_comm, rw add_right_neg, refl,
 end
 
 end exlean -- hide

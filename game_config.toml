@@ -16,7 +16,7 @@ levels = [
 	"src/equations/multiple_rewrites.lean",
 	"src/equations/backward_rewrite.lean",
 	"src/equations/additive_identity.lean",
-	"src/equations/additive_inverse.lean",
+	"src/equations/universal_statements.lean",
 ]
 
 [[worlds]]

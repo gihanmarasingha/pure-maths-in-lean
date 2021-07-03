@@ -16,9 +16,6 @@ open_locale mynum -- hide
 
 open myint -- hide
 
-variable (a : ℤ) -- Declare `a` to be an integer variable.
-
-
 /- Axiom : add_zero (a : ℤ) :
 a + 0 = a
 -/
@@ -29,10 +26,10 @@ Your goal is to prove `zero_add`, the right additive identity property, using `a
 Once you've done this, `zero_add` will be available to you in future levels.
 -/
 
-/- Theorem : zero_add (a : ℤ)
-0 + a = a
+/- Theorem :
+`0 + a = a` for every integer `a`.``
 -/
-theorem zero_add : 0 + a = a :=
+theorem zero_add (a : ℤ) : 0 + a = a :=
 begin [pure_maths]
   rw add_comm, rw add_zero, refl,
 end
