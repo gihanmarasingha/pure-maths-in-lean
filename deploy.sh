@@ -5,6 +5,9 @@ if [ "$#" -ne 2 ]; then
     exit 1
 fi
 
+# Ensure tempfile is deleted on exit
+trap 'rm -f "$TMPFILE"' EXIT
+
 # Build
 make-lean-game
 
@@ -15,6 +18,19 @@ cd deploy
 rm -rf * .gitignore
 cp -Lr ../to-be-deployed/./ .
 
+# Insertion of Google Analytics tracker. First make temp file
+TMPFILE=$(mktemp) || exit
+
+if grep -q "Global site tag (gtag\.js) - Google Analytics" html/index.html; then
+	echo "Google Analytics tracker not inserted"
+else
+	cat google_tracker.txt > $TMPFILE;
+	tail -n +4 html/index.html >> $TMPFILE
+	cp $TMPFILE html/index.html
+	echo "Google Analytics tracker inserted"
+fi
+
+# Now stage all files, commit, and push
 git add .
 git commit -m "Update `date`"
 git push
