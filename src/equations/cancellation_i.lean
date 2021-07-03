@@ -29,7 +29,7 @@ open myint -- hide
 Use `add_add_neg`.
 -/
 
-/- Theorem :
+/- Theorem : no-side-bar
 If `a + b = a`, then `b = 0`.
 -/
 theorem eq_zero_of_add_right_eq_self (a b : ℤ) (h : a + b = a) : b = 0 :=

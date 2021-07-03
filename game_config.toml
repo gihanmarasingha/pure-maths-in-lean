@@ -20,6 +20,7 @@ levels = [
 	"src/equations/unique_additive_identity.lean",
 	"src/equations/additive_inverse.lean",
 	"src/equations/cancellation_i.lean",
+	"src/equations/unique_additive_inverse.lean",
 ]
 
 [[worlds]]

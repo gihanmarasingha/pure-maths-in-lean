@@ -17,16 +17,14 @@ open_locale mynum -- hide
 
 open myint -- hide
 
-variables (x e : ℤ) -- hide
-
 /- Hint : Hint
 Use the `specialize` tactic.
 -/
 
-/- Theorem : right_additive_identity_unique
+/- Theorem : no-side-bar
 Let `e` be an integer satsifying the property `∀ (x : ℤ), x + e = x`. Then `e` must be `0`.
 -/
-theorem right_additive_identity_unique (h : ∀ (x : ℤ), x + e = x) : e = 0 :=
+theorem right_additive_identity_unique (e : ℤ) (h : ∀ (x : ℤ), x + e = x) : e = 0 :=
 begin [pure_maths]
   specialize h 0,
   rw [←h, zero_add],
