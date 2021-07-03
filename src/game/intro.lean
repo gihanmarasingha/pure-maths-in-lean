@@ -6,8 +6,8 @@
 This is an interactive book aimed at beginning mathematics undergraduates. You'll learn to prove
 theorems online using a computer tool called Lean.
 
-Each chapter is indicated by a coloured circular button on the right-hand pane. Blue indicates your
-current position, green is for completed chapters, and grey is for unread or uncompleted chapters.
+Each chapter is represented by a coloured circular button in the right-hand pane. Blue indicates your
+current position, green is for completed chapters, and grey is for unread or incomplete chapters.
 
 At every stage in a theorem, there is a *target*, the thing you want to prove, and a *context*, the
 set of things you have already proved or assumed at the beginning of your argument.
@@ -17,6 +17,13 @@ The word *goal* is used to refer variously to the target or to the combination o
 
 You'll use *tactics* to modify the goal until you have proved the target (called 'closing the goal').
 Each tactic may invoke one or more *theorems*.
+
+Note: the book is roughly 30Mb in size. It must be downloaded before you can begin to work on the
+problems. Once you open the book, wait for the text 'Lean is busy...' to disappear from the
+top-right-hand pane before using Lean.
+
+*Pure mathematics with Lean* is part of the 
+<a href="https://exlean.org" target="blank">exlean</a> project.
 
 
 ## Credits
@@ -30,6 +37,9 @@ Leonardo de Moura.
 
 Mathlib, Lean's mathematical library, is developed by the <a href="https://leanprover-community.github.io/" target="blank">Lean community</a>.
 
-*Pure mathematics with Lean* is part of the 
-<a href="https://exlean.org" target="blank">exlean</a> project.
+Here's some mathematics in MathJax, just to remind me that it's possible.
+First inline: \\(a^2 + b^2 = c^2\\). Now displayed:
+
+\\[ \int_{-\infty}^\infty  e^{-x^2} dx = \sqrt \pi. \\]
+
 -/
