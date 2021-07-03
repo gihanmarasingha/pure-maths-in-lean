@@ -57,8 +57,6 @@ You can specialize on more than one variable at a time. If `k : ∀ (x y : ℤ),
 `specialize k 2 3` replaces `h` with `h : 2 + 3 = 3 * 2`.
 -/
 
-
-
 /- Theorem : no-side-bar
 `2 + 5 = 8 + 5` on the assumption `∀ x, x + 5 = 10`.
 -/
@@ -73,6 +71,5 @@ end
 > Using `h` with `2` in space of `x`, we must show `10 = 8 + 5`.
 > But this follows on taking `x` to be `8` in `h`.
 -/
-
 
 end exlean -- hide

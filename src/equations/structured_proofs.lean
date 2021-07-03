@@ -42,7 +42,6 @@ For example, `have h2 : x + y = y + x` introduces a new goal, to prove
 `x + y = y + x` while adding the hypothesis `h2 : x + y = y + x` to the context of the old goal.
 -/
 
-
 namespace exlean -- hide
 
 open_locale mynum -- hide

@@ -15,8 +15,6 @@ in the target with `x + 0`. To do this in Lean, type `rw ←h1`.
 To get the left arrow, type `\l` followed by space or tab. Alternatively, just type `<-`
 -/
 
-
-
 namespace exlean -- hide
 
 open_locale mynum -- hide

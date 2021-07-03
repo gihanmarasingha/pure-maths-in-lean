@@ -93,7 +93,6 @@ If `k` is in the context, `rw h at k` performs the rewrite at `k` instead of at 
 `rw [h1, h2, h3]` rewrites with multiple hypotheses (you aren't limited to three)!
 -/
 
-
 /-
 ## Anatomy of a level
 
