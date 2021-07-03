@@ -18,6 +18,7 @@ levels = [
 	"src/equations/additive_identity.lean",
 	"src/equations/universal_statements.lean",
 	"src/equations/unique_additive_identity.lean",
+	"src/equations/additive_inverse.lean",
 ]
 
 [[worlds]]

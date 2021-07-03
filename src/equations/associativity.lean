@@ -12,7 +12,8 @@ and `c`. You can see the statement in the sidebar on the left by unfolding 'Theo
 
 As with `add_comm`, you can use `add_assoc` to rewrite the goal using `rw add_assoc`.
 
-Below, your task is to prove `(x + y) + z = x + (z + y)`.
+Below, your task is to prove `(x + y) + z = x + (z + y)`. In future levels, this theorem will
+be available as `add_right_comm`.
 
 **Before writing a Lean proof**, construct a hand-written proof.
 -/
@@ -28,21 +29,20 @@ theorem myint.add_assoc (a b c : ℤ) : a + b + c = a + (b + c) := myint.add_ass
 
 open myint
 
-variables (x y z : ℤ) -- hide
-
 /- Hint : Hint
 
 You'll need to rewrite with both `add_comm` and `add_assoc`. You may need to give arguments to one
 of your rewrites, as described in the previous level.
 -/
 
-/- Theorem : no-side-bar
+/- Theorem : 
 Let `x`, `y`, and `z` be integers. Then `(x + y) + z = x + (z + y)`.
 -/
-theorem add_assoc_right_comm : (x + y) + z = x + (z + y) :=
+theorem add_right_comm (x y z : ℤ) : (x + y) + z = (x + z) + y :=
 begin [pure_maths]
   rw add_assoc,
   rw add_comm y z,
+  rw add_assoc,
   refl,
 end
 
