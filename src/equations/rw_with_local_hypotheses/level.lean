@@ -1,8 +1,4 @@
-import tactic.structure_helper tactic.pure_maths -- hide
-
 import myint.basic equations.commutativity_rw.level -- hide
-
-open_locale mynum -- hide
 
 /-
 # Equations
@@ -29,7 +25,9 @@ to rewrite via the theorem `add_comm`.
 
 namespace exlean -- hide
 
-variables (x y : ℤ) -- Declare `x` and `y` to be integers.
+open_locale mynum -- hide
+
+variables (x y : ℤ) -- hide
 
 /- Theorem : no-side-bar
 Let `x` and `y` be integers. Let `h` be the hypothesis `y = 2 * x`. Then `x + y = x + 2 * x`.

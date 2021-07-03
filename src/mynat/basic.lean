@@ -2,7 +2,9 @@
 Portions of this file are lifted from `data.nat.basic` and `data.nat.lemmas`
 -/
 
-import  tactic.structure_helper tactic.pure_maths
+-- import tactic.structure_helper
+
+import tactic.pure_maths tactic.localized
 
 namespace exlean
 

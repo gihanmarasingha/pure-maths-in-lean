@@ -11,6 +11,7 @@ levels = [
 	"src/equations/commutativity_rw/level.lean",
 	"src/equations/rw_with_local_hypotheses/level.lean",
 	"src/equations/focussed_rewriting/level.lean",
+	"src/equations/associativity/level.lean",
 ]
 
 [[worlds]]
@@ -18,7 +19,7 @@ name = "Functions"
 id = 2
 parents = [1]
 levels = [
-	"src/function/domain_codomain_map/level.lean",
+	"src/function/defining_functions/level.lean",
 
 ]
 

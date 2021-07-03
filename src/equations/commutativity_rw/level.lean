@@ -1,5 +1,3 @@
-import tactic.structure_helper tactic.pure_maths -- hide
-
 import myint.basic -- hide
 
 /-
@@ -24,7 +22,8 @@ writing `?X = ?X` as in the previous level.
 
 The problem: even though we 'know' the left and right sides are equal, they are not
 *identically equal*.
-Fortunately, Lean comes with a *theorem* of just the right kind. It's called `add_comm`.
+Fortunately, Lean comes with a *theorem* of just the right kind. It's called `add_comm`, which is
+short for additive commutativity.
 The result `add_comm a b` states that `a + b = b + a`, where `a` and `b` are integers.
 
 To apply this theorem, we'll use the `rw` (short for `rewrite`) tactic.
@@ -47,10 +46,10 @@ namespace exlean -- hide
 
 open_locale mynum -- hide
 
-variables (x y : ℤ) -- Declare `x` and `y` to be integers.
+variables (x y : ℤ) -- hide
 
-/- Axiom : `add_comm`
-`a + b = b + a`, for all integers `a` and `b`.
+/- Axiom : add_comm (a b : ℤ) :
+a + b = b + a
 -/
 theorem add_comm (a b : ℤ) : a + b = b + a := myint.add_comm' a b
 
