@@ -26,11 +26,7 @@ open_locale mynum -- hide
 -/
 theorem myint.add_assoc (a b c : ℤ) : a + b + c = a + (b + c) := myint.add_assoc' a b c -- hide
 
-namespace exlean -- hide
-
-open myint -- hide
-
-open_locale mynum -- hide
+open myint
 
 variables (x y z : ℤ) -- hide
 
@@ -49,8 +45,6 @@ begin [pure_maths]
   rw add_comm y z,
   refl,
 end
-
-end exlean -- hide
 
 /-
 ## Translation to a hand-written proof
