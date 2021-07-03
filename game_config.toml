@@ -15,6 +15,7 @@ levels = [
 	"src/equations/structured_proofs/level.lean",
 	"src/equations/multiple_rewrites/level.lean",
 	"src/equations/backward_rewrite/level.lean",
+	"src/equations/additive_identity/level.lean",
 ]
 
 [[worlds]]
