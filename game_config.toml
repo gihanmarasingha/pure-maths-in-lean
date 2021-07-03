@@ -13,6 +13,7 @@ levels = [
 	"src/equations/focussed_rewriting/level.lean",
 	"src/equations/associativity/level.lean",
 	"src/equations/structured_proofs/level.lean",
+	"src/equations/multiple_rewrites/level.lean",
 ]
 
 [[worlds]]
