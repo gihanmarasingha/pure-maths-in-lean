@@ -21,7 +21,7 @@ theorem add_right_neg (a : ℤ) : a + (-a) = 0 := myint.add_right_neg a -- hide
 You might find it useful to use the previously-proved theorem `add_right_comm`.
 -/
 
-/- Theorem : no-side-bar
+/- Theorem :
 For all integers `x` and `y`, we have `(x + y) + -x = y`.
 -/
 theorem add_add_neg (x y : ℤ) : (x + y) + (-x) = y :=
