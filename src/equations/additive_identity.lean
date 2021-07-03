@@ -24,10 +24,12 @@ theorem add_zero (a : ℤ) : a + 0 = a := myint.add_zero' a -- hide
 /- 
 Your goal is to prove `zero_add`, the right additive identity property, using `add_zero`.
 Once you've done this, `zero_add` will be available to you in future levels.
+
+As always, construct a hand-written proof **before** writing your Lean proof.
 -/
 
 /- Theorem :
-`0 + a = a` for every integer `a`.``
+`0 + a = a` for every integer `a`.
 -/
 theorem zero_add (a : ℤ) : 0 + a = a :=
 begin [pure_maths]
