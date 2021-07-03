@@ -32,7 +32,7 @@ variables (x y : ℤ) -- hide
 /- Theorem : no-side-bar
 Let `x` and `y` be integers. Let `h` be the hypothesis `y = 2 * x`. Then `x + y = x + 2 * x`.
 -/
-theorem rw_using_h (h : y = 2 * x) : x + y = x + 2 * x :=
+theorem add_eq_add_two_mul_self_of_eq_two_mul (h : y = 2 * x) : x + y = x + 2 * x :=
 begin [pure_maths]
   rw h,
   refl,
