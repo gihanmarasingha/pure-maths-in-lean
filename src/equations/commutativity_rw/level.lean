@@ -51,7 +51,14 @@ variables (x y : ℤ) -- hide
 /- Axiom : add_comm (a b : ℤ) :
 a + b = b + a
 -/
-theorem add_comm (a b : ℤ) : a + b = b + a := myint.add_comm' a b
+theorem add_comm (a b : ℤ) : a + b = b + a := myint.add_comm' a b -- hide
+
+/- Hint : Moving through a proof
+
+Your proof of the theorem below will use two lines of code. If you move your cursor to a previous
+line, Lean will show you the tactic state at any point in the proof. If you click on the name of
+a theorem, you'll get some brief documentation.
+-/
 
 /- Theorem : no-side-bar
 `x + y = y + x`, for all integers `x` and `y`.
@@ -89,7 +96,7 @@ Each level contains three vertial panes. The left-hand pane contains a list of t
 theorem statements you've seen so far. Click on the arrows to dig deeper.
 
 The middle pane is the one you're reading now! It contains text and interactive exercises.
-The right-hand pane contains the Lean Infoview window, showing the goal state and error messages.
+The right-hand pane contains the Lean Infoview window, showing the 'tactic state' and error messages.
 
 You can navigate through the book using the buttons in the top horizonal pane. The circular arrow
 resets your progress.

@@ -43,6 +43,14 @@ open_locale mynum -- hide
 
 variables (x y z : ℤ) -- Declare `x`, `y`, and `z` to be integers.
 
+/- Hint : Missing parentheses?
+
+When you start the proof below, Lean displays the target as `⊢ x + y + z = z + (y + x)`.
+What happened to the parentheses on the left-hand side? Lean treats addition as
+'left associative'. This is a fancy way of saying that `x + y + z` should always be
+interpreted as `(x + y) + z`.
+-/
+
 /- Theorem : no-side-bar
 Let `x`, `y`, and `z` be integers. Then `(x + y) + z = z + (y + x)`.
 -/

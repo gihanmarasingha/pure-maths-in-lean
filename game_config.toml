@@ -12,6 +12,7 @@ levels = [
 	"src/equations/rw_with_local_hypotheses/level.lean",
 	"src/equations/focussed_rewriting/level.lean",
 	"src/equations/associativity/level.lean",
+	"src/equations/structured_proofs/level.lean",
 ]
 
 [[worlds]]
