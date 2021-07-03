@@ -1,4 +1,4 @@
-import myint.basic equations.multiple_rewrites.level -- hide
+import myint.basic equations.multiple_rewrites -- hide
 
 /-
 # Equations

@@ -1,4 +1,4 @@
-import myint.basic equations.backward_rewrite.level -- hide
+import myint.basic equations.backward_rewrite -- hide
 
 /-
 # Equations
@@ -16,7 +16,7 @@ open_locale mynum -- hide
 
 open myint -- hide
 
-variables (x y z : ℤ) -- hide
+variable (a : ℤ) -- Declare `a` to be an integer variable.
 
 
 /- Axiom : add_zero (a : ℤ) :
@@ -32,7 +32,7 @@ Once you've done this, `zero_add` will be available to you in future levels.
 /- Theorem : zero_add (a : ℤ)
 0 + a = a
 -/
-theorem zero_add : 0 + x = x :=
+theorem zero_add : 0 + a = a :=
 begin [pure_maths]
   rw add_comm, rw add_zero, refl,
 end

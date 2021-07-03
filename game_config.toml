@@ -7,15 +7,16 @@ intro = "src/game/intro.lean"
 name = "Equations"
 id = 1
 levels = [
-	"src/equations/refl/level.lean",
-	"src/equations/commutativity_rw/level.lean",
-	"src/equations/rw_with_local_hypotheses/level.lean",
-	"src/equations/focussed_rewriting/level.lean",
-	"src/equations/associativity/level.lean",
-	"src/equations/structured_proofs/level.lean",
-	"src/equations/multiple_rewrites/level.lean",
-	"src/equations/backward_rewrite/level.lean",
-	"src/equations/additive_identity/level.lean",
+	"src/equations/refl.lean",
+	"src/equations/commutativity_rw.lean",
+	"src/equations/rw_with_local_hypotheses.lean",
+	"src/equations/focussed_rewriting.lean",
+	"src/equations/associativity.lean",
+	"src/equations/structured_proofs.lean",
+	"src/equations/multiple_rewrites.lean",
+	"src/equations/backward_rewrite.lean",
+	"src/equations/additive_identity.lean",
+	"src/equations/additive_inverse.lean",
 ]
 
 [[worlds]]

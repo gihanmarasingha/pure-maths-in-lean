@@ -1,4 +1,4 @@
-import myint.basic equations.associativity.level -- hide
+import myint.basic equations.associativity -- hide
 
 /-
 # Equations
