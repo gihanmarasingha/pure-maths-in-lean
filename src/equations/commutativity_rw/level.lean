@@ -32,9 +32,10 @@ Replace the `sorry` below with `rw add_comm` (followed by a comma—I won't ment
 on).
 
 Lean will look for the first expression in the target that matches the pattern `a + b` and
-replace it with `b + a`. Here, Lean finds `x + y` and replaces it with `y + x`.
+replace every instance of that expression with `b + a`. Here, Lean finds `x + y` and replaces
+it with `y + x`.
 
-More generally, if `h` is an equation of the form `p = q` (where `p` and `q` are expressions),
+Equally, if `h` is an equation of the form `p = q` (where `p` and `q` are expressions),
 `rw h` will cause Lean to look for `p` in the target and replace it with `q`.
 
 Having issued `rw add_comm`, the goal is to prove `y + x = y + x`.

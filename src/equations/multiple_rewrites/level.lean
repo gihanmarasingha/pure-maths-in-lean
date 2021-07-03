@@ -12,8 +12,6 @@ proof below.
 Now write a proof using a long chain of rewrites followed by `refl`. Which proof do you prefer? Why?
 -/
 
-
-
 namespace exlean -- hide
 
 open_locale mynum -- hide
@@ -31,6 +29,5 @@ begin [pure_maths]
     rw add_comm, rw add_comm x, rw add_assoc, refl,
   rw h, rw add_comm, refl,
 end
-
 
 end exlean -- hide

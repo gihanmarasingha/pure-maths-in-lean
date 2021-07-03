@@ -14,6 +14,7 @@ levels = [
 	"src/equations/associativity/level.lean",
 	"src/equations/structured_proofs/level.lean",
 	"src/equations/multiple_rewrites/level.lean",
+	"src/equations/backward_rewrite/level.lean",
 ]
 
 [[worlds]]
