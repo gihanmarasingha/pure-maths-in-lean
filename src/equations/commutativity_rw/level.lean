@@ -3,7 +3,7 @@ import myint.basic -- hide
 /-
 # Equations
 
-## Level 2: Commutativity of addition
+## Level 2: Commutativity of addition via `rw`
 
 Now we'll prove something (slighlty) more interesting, that `x + y = y + x` for all integers `x`
 and `y`. Try the `refl` tactic below (remember to put a comma after `refl`) and see what happens.
@@ -86,6 +86,10 @@ context. Here's a hand-written proof of the above result.
 If `h` is an equation of the form `p = q`, `rw h` rewrites replaces `p` in the target with `q`.
 
 If `k` is in the context, `rw h at k` performs the rewrite at `k` instead of at the target.
+
+`rw ←h` will rewrite backward: every occurrence of `q` is replaced with `p`. Type `\l` to produce `←`.
+
+`rw [h1, h2, h3]` rewrites with multiple hypotheses (you aren't limited to three)!
 -/
 
 
