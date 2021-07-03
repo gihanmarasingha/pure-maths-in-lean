@@ -54,7 +54,7 @@ variables (x y z : ℤ) -- hide
 /- Theorem : no-side-bar
 Let `x`, `y`, and `z` be integers. Then `x + ((x + y) + z) = x + (z + (x + y)))`.
 -/
-theorem add_right_comm_comm : x + ((x + y) + z) = x + (z + (x + y)) :=
+theorem add_left_comm_comm : x + ((x + y) + z) = x + (z + (x + y)) :=
 begin [pure_maths]
   have h : (x + y) + z = z + (x + y),
   rw add_comm, refl,
