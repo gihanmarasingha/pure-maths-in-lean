@@ -5,8 +5,12 @@ import myint.basic equations.unique_additive_identity -- hide
 
 ## Level 12: Additive inverse
 
-The Lean theorem `add_right_neg` states that `x + (-x) = 0` for every integer `x`. In mathematics,
-this property is called (right) additive inverse.
+The Lean theorem `add_left_neg` states that `(-a) + a = 0` for every integer `a`. In mathematics,
+this property is called (left) additive inverse.
+
+Likewise `add_right_neg (a : ℤ) : a + (-a) = 0`.
+
+You'll use one of these properties in proving the next result.
 -/
 
 namespace exlean -- hide
@@ -15,7 +19,15 @@ open_locale mynum -- hide
 
 open myint -- hide
 
-theorem add_right_neg (a : ℤ) : a + (-a) = 0 := myint.add_right_neg a -- hide
+/- Axiom : add_left_neg (a : ℤ) :
+(-a) + a = 0
+-/
+theorem add_left_neg (a : ℤ) : (-a) + a = 0  := myint.add_left_neg a -- hide
+
+/- Axiom : add_right_neg (a : ℤ) :
+(-a) + a = 0
+-/
+theorem add_right_neg (a : ℤ) : a + (-a) = 0  := myint.add_right_neg a -- hide
 
 /- Hint : Hint
 You might find it useful to use the previously-proved theorem `add_right_comm`.
