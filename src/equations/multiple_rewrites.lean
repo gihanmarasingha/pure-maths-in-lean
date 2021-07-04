@@ -6,10 +6,11 @@ import myint.basic equations.associativity -- hide
 ## Level 7: Multiple rewrites
 
 Rather than writing, for example `rw add_assoc x y z, rw add_comm`, you can write
-`rw [add_assoc x y z, add_comm]`. Use this technique, together with `have`, to write a structured
-proof below.
+`rw [add_assoc x y z, add_comm]`.
 
-Now write a proof using a long chain of rewrites followed by `refl`. Which proof do you prefer? Why?
+* Use this technique, together with `have`, to write a structured proof below.
+
+* Now write a proof using a long chain of rewrites followed by `refl`. Which proof do you prefer? Why?
 -/
 
 namespace exlean -- hide
