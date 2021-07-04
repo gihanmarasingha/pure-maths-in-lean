@@ -33,7 +33,11 @@ arguments `x` and `y + x`. Note than arguments can be expressions, not just vari
 Applying `rw add_comm x (y + z)` transforms `⊢ z + (x + (y + z)) = z` to
 `⊢ z + ((y + z) + x) = z`.
 
-Use arguments, where necessary, to prove the theorem below.
+### Tasks
+* Think about what would happen if you replaced `sorry` with `rw z y`. Try it out. Explain the
+resulting error message.
+* Use arguments, where necessary, to prove the theorem below.
+
 
 -/
 
