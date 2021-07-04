@@ -11,6 +11,8 @@ additive inverse.
 
 namespace exlean -- hide
 
+namespace pre_group -- hide
+
 open_locale mynum -- hide
 
 open myint -- hide
@@ -29,5 +31,7 @@ begin [pure_maths]
   rw zero_add,
   refl,
 end
+
+end pre_group -- hide
 
 end exlean -- hide

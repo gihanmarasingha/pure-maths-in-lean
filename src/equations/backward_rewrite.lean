@@ -17,6 +17,8 @@ To get the left arrow, type `\l` followed by space or tab. Alternatively, just t
 
 namespace exlean -- hide
 
+namespace pre_group -- hide
+
 open_locale mynum -- hide
 
 open myint -- hide
@@ -63,5 +65,7 @@ begin [pure_maths]
   { rw add_comm, refl },
   rw [h2, h3], refl,  -/
 end
+
+end pre_group -- hide
 
 end exlean -- hide

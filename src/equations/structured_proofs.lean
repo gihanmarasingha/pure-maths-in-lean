@@ -44,6 +44,8 @@ For example, `have h2 : x + y = y + x` introduces a new goal, to prove
 
 namespace exlean -- hide
 
+namespace pre_group -- hide
+
 open_locale mynum -- hide
 
 open myint -- hide
@@ -69,5 +71,7 @@ In my hand-written proof below, I omit references to reflexivity.
 > To prove this, use commutativity of addition.
 > Rewrite the original goal using `h`.
 -/
+
+end pre_group -- hide
 
 end exlean -- hide

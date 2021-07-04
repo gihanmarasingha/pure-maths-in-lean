@@ -49,6 +49,8 @@ open_locale mynum -- hide
 
 variables (x y : ℤ) -- hide
 
+namespace pre_group -- hide
+
 /- Axiom : add_comm (a b : ℤ) :
 a + b = b + a
 -/
@@ -69,6 +71,8 @@ begin [pure_maths]
   rw add_comm,
   refl,
 end
+
+end pre_group -- hide
 
 end exlean -- hide
 

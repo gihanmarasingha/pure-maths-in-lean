@@ -27,6 +27,8 @@ namespace exlean -- hide
 
 open_locale mynum -- hide
 
+namespace pre_group -- hide
+
 variables (x y : ℤ) -- hide
 
 /- Theorem : no-side-bar
@@ -37,6 +39,8 @@ begin [pure_maths]
   rw h,
   refl,
 end
+
+end pre_group -- hide
 
 end exlean -- hide
 

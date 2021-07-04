@@ -14,6 +14,8 @@ Now write a proof using a long chain of rewrites followed by `refl`. Which proof
 
 namespace exlean -- hide
 
+namespace pre_group -- hide
+
 open_locale mynum -- hide
 
 open myint -- hide
@@ -29,5 +31,7 @@ begin [pure_maths]
     rw add_comm, rw add_comm x, rw add_assoc, refl,
   rw h, rw add_comm, refl,
 end
+
+end pre_group -- hide
 
 end exlean -- hide

@@ -22,6 +22,8 @@ namespace exlean -- hide
 
 open_locale mynum -- hide
 
+namespace pre_group -- hide
+
 /- Axiom : add_assoc (a b c : ℤ) :
 (a + b) + c = a + (b + c)
 -/
@@ -55,5 +57,7 @@ In the following hand-written proof, I omit the word 'rewriting'.
 > By commutativity, the goal is to prove `x + (z + y) = x + (z + y)`.
 > This follows by reflexivity.
 -/
+
+end pre_group -- hide
 
 end exlean -- hide

@@ -13,6 +13,8 @@ In this level, you'll show that `0` is the *only* integer that satisfies this pr
 
 namespace exlean -- hide
 
+namespace pre_group -- hide
+
 open_locale mynum -- hide
 
 open myint -- hide
@@ -30,5 +32,7 @@ begin [pure_maths]
   rw [←h, zero_add],
   refl,
 end
+
+end pre_group -- hide
 
 end exlean -- hide

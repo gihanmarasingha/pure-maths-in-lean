@@ -41,6 +41,8 @@ namespace exlean -- hide
 
 open_locale mynum -- hide
 
+namespace pre_group -- hide
+
 variables (x y z : ℤ) -- Declare `x`, `y`, and `z` to be integers.
 
 /- Hint : Missing parentheses?
@@ -60,6 +62,8 @@ begin [pure_maths]
   rw add_comm x y,
   refl,
 end
+
+end pre_group -- hide
 
 end exlean -- hide
 

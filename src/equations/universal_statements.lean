@@ -31,6 +31,8 @@ version of `h`.
 
 namespace exlean -- hide
 
+namespace pre_group -- hide
+
 open_locale mynum -- hide
 
 open myint -- hide
@@ -71,5 +73,7 @@ end
 > Using `h` with `2` in space of `x`, we must show `10 = 8 + 5`.
 > But this follows on taking `x` to be `8` in `h`.
 -/
+
+end pre_group -- hide
 
 end exlean -- hide

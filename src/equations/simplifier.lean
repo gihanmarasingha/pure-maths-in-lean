@@ -18,6 +18,8 @@ namespace exlean -- hide
 
 open_locale mynum -- hide
 
+namespace pre_group -- hide
+
 open myint -- hide
 
 example (x y z : ℤ) : x + ((y + z) + x) = (y + x) + (z + x) :=
@@ -48,5 +50,6 @@ To suggest theorems and hypotheses for use with `simp`, provide them as a comma-
 For example `simp [h, add_comm]` rewrites repeatedly with hypotheses `h` and theorem `add_comm`.
 -/
 
+end pre_group -- hide
 
 end exlean -- hide

@@ -12,6 +12,8 @@ in the left-hand pane.
 
 namespace exlean -- hide
 
+namespace pre_group -- hide
+
 open_locale mynum -- hide
 
 open myint -- hide
@@ -35,5 +37,7 @@ theorem zero_add (a : ℤ) : 0 + a = a :=
 begin [pure_maths]
   rw add_comm, rw add_zero, refl,
 end
+
+end pre_group -- hide
 
 end exlean -- hide
