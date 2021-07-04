@@ -27,7 +27,7 @@ open myint -- hide
 theorem add_left_neg (a : ℤ) : (-a) + a = 0  := myint.add_left_neg a -- hide
 
 /- Axiom : add_right_neg (a : ℤ) :
-(-a) + a = 0
+a + (-a) = 0
 -/
 theorem add_right_neg (a : ℤ) : a + (-a) = 0  := myint.add_right_neg a -- hide
 
