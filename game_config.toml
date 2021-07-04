@@ -22,6 +22,7 @@ levels = [
 	"src/equations/cancellation_i.lean",
 	"src/equations/unique_additive_inverse.lean",
 	"src/equations/simplifier.lean",
+	"src/equations/algebraic_structures.lean",
 ]
 
 [[worlds]]
