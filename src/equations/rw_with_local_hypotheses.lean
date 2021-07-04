@@ -12,7 +12,8 @@ going on? If you look carefully, you'll see an additional hypothesis, `h : y = 2
 The `:` is just notation for naming a hypothesis (also called an assumption).
 So the statement of the theorem can be read:
 
-> Let `x` and `y` be integers. Let `h` be the hypothesis `y = 2 * x`. Then `x + y = x + 2 * x`.
+> Let `x` and `y` be integers. Let `h` be the hypothesis `y = 2 * x`.
+> Then `x + y = x + 2 * x`.
 
 When you start the proof, you'll note in the top-right pane that `h : y = 2 * x` has been
 added to the context.
@@ -20,7 +21,10 @@ added to the context.
 You can use the hypothesis to rewrite the goal by typing `rw h` much as you used `rw add_comm`
 to rewrite via the theorem `add_comm`.
 
-**Before doing the problem below**, think about what effect `rw h` will have on the goal.
+**Before doing the problem below**:
+* Think about what effect `rw h` will have on the goal.
+* Predict what error message Lean will produce if you replace `sorry` with `refl`. Test your
+prediction.
 -/
 
 namespace exlean -- hide
@@ -34,7 +38,8 @@ variables (x y : ℤ) -- hide
 /- Theorem : no-side-bar
 Let `x` and `y` be integers. Let `h` be the hypothesis `y = 2 * x`. Then `x + y = x + 2 * x`.
 -/
-theorem add_eq_add_two_mul_self_of_eq_two_mul (h : y = 2 * x) : x + y = x + 2 * x :=
+theorem add_eq_add_two_mul_self_of_eq_two_mul (h : y = 2 * x)
+  : x + y = x + 2 * x :=
 begin [pure_maths]
   rw h,
   refl,
