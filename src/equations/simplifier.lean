@@ -40,4 +40,13 @@ begin
   simp [add_assoc, add_comm x z, add_zero, zero_add],
 end
 
+/- Tactic : simp
+The `simp` tactic rewrites repeatedly using either supplied theorems & hypotheses or theorems
+that it 'knows'.
+
+To suggest theorems and hypotheses for use with `simp`, provide them as a comma-separated list.
+For example `simp [h, add_comm]` rewrites repeatedly with hypotheses `h` and theorem `add_comm`.
+-/
+
+
 end exlean -- hide
