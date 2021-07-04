@@ -21,8 +21,9 @@ added to the context.
 You can use the hypothesis to rewrite the goal by typing `rw h` much as you used `rw add_comm`
 to rewrite via the theorem `add_comm`.
 
-**Before doing the problem below**:
-* Think about what effect `rw h` will have on the goal.
+### Tasks
+
+* Before doing the problem in Lean, think about what effect `rw h` will have on the goal.
 * Predict what error message Lean will produce if you replace `sorry` with `refl`. Test your
 prediction.
 -/
