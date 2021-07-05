@@ -31,6 +31,17 @@ theorem myint.add_assoc (a b c : ℤ) : a + b + c = a + (b + c) := myint.add_ass
 
 open myint
 
+/-
+### Tasks
+
+* Think about what would happen if you performed `rw add_assoc` once, twice, and thrice.
+  Try it out and compare with your predication.
+
+* Prove the theorem below.
+
+-/
+
+
 /- Hint : Hint
 
 You'll need to rewrite with both `add_comm` and `add_assoc`. You may need to give arguments to one
