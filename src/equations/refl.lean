@@ -34,7 +34,7 @@ tactic failed, there are unsolved goals. Don't panic! It's just telling you that
 proved the result.
 
 Your task is to replace `sorry` with `refl,`. Note the comma at the end of the line!
-If you're successful, Lean will respond with the message `Proof complete!` or `no goals`.
+If you're successful, Lean will respond with the message `no goals` or `Proof complete!`
 -/
 
 /- Tactic : refl
