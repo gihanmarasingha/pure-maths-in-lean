@@ -30,9 +30,12 @@ It's on the additive commutativity, associativity, identity, and inverse propert
 
 ## Credits
 
-This game was made using the code base of the
+This game was made using the
+<a href="https://github.com/mpedramfar/Lean-game-maker">Lean Game Maker</a> by Mohammad Pedramfar.
+
+It uses ideas and special tactics from the 
 <a href="https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/">Natural Number Game</a>
-by Kevin Buzzard and Mohammad Pedramfar.
+by Kevin Buzzard.
 
 <a href="https://leanprover.github.io/" target="blank">Lean</a> is an interactive theorem prover developed at Microsoft Research under the direction of
 Leonardo de Moura.
