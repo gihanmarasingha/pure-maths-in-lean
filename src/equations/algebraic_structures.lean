@@ -151,7 +151,8 @@ commutativity, and (optionally) the use of hypotheses in the local context.
 
 /-
 Use `simp` (and whatever else you need) to prove the following result.
-This is similar to a hard result you proved in a previous level.
+This *statement* is similar to a hard result you proved in a previous level, but the
+*proof* can be written in no more than two lines.
 -/
 
 /- Theorem : no-side-bar
