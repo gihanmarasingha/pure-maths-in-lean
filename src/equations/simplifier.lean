@@ -42,7 +42,15 @@ Let `x`, `y`, and `z` be integers. Then `(y + x) + (0 + z + 0) + (0 + x + 0) = y
 theorem ymca (x y z : ℤ)
   : (y + x) + (0 + z + 0) + (0 + x + 0) = y + (z + (x + x)) :=
 begin
-  simp [add_assoc, add_comm x z, add_zero, zero_add],
+  --simp [add_assoc, add_comm x z, add_zero, zero_add],
+  rw [add_zero, add_zero, zero_add, zero_add, add_assoc y x z, add_assoc,
+    add_right_comm, add_comm _ z],
+
+
+
+
+
+
 end
 
 /- Tactic : simp

@@ -64,6 +64,8 @@ variables (x y : ℤ) -- Declare `x` and `y` to be integers.
 theorem x_plus_y_eq_x_plus_y : x + y = x + y :=
 begin
   refl,
+
+
 end
 
 end exlean -- hide
