@@ -24,6 +24,7 @@ to rewrite via the theorem `add_comm`.
 ### Tasks
 
 * Before doing the problem in Lean, think about what effect `rw h` will have on the goal.
+
 * Predict what error message Lean will produce if you replace `sorry` with `refl`. Test your
 prediction.
 -/

@@ -157,7 +157,8 @@ This is similar to a hard result you proved in a previous level.
 /- Theorem : no-side-bar
 If `y + x = x`, then `y = 0`.
 -/
-theorem eq_zero_of_add_left_eq_self (x y z : ℤ) (h : y + x = x) : y = 0 :=
+theorem eq_zero_of_add_left_eq_self (x y z : ℤ) (h : y + x = x)
+  : y = 0 :=
 begin [pure_maths]
   simp at h,
   exact h,

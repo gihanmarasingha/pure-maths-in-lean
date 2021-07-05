@@ -28,16 +28,19 @@ begin
 end
 
 /-
-Prove the result below using only `simp` with supplied theorems, as in the example above. You should
+### Tasks
+
+* Prove the result below using only `simp` with supplied theorems, as in the example above. You should
 only need to supply four theorems.
 
-For fun (!) try proving this result using `rw`. Which proof do you prefer?
+* For fun (!) try proving this result using `rw`. Which proof do you prefer?
 -/
 
 /- Theorem : no-side-bar
 Let `x`, `y`, and `z` be integers. Then `(y + x) + (0 + z + 0) + (0 + x + 0) = y + (z + (x + x))`
 -/
-theorem ymca (x y z : ℤ) : (y + x) + (0 + z + 0) + (0 + x + 0) = y + (z + (x + x)) :=
+theorem ymca (x y z : ℤ)
+  : (y + x) + (0 + z + 0) + (0 + x + 0) = y + (z + (x + x)) :=
 begin
   simp [add_assoc, add_comm x z, add_zero, zero_add],
 end

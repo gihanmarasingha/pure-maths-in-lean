@@ -36,6 +36,7 @@ Applying `rw add_comm x (y + z)` transforms `⊢ z + (x + (y + z)) = z` to
 ### Tasks
 * Think about what would happen if you replaced `sorry` with `rw z y`. Try it out. Explain the
 resulting error message.
+
 * Use arguments, where necessary, to prove the theorem below.
 
 

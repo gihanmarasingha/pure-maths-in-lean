@@ -34,14 +34,15 @@ Use `add_add_neg`.
 /- Theorem : no-side-bar
 If `a + b = a`, then `b = 0`.
 -/
-theorem eq_zero_of_add_right_eq_self (a b : ℤ) (h : a + b = a) : b = 0 :=
+theorem eq_zero_of_add_right_eq_self (a b : ℤ) (h : a + b = a)
+  : b = 0 :=
 begin [pure_maths]
   have h2 : (a + b) + (-a) = b,
   { rw add_add_neg, refl,  },
   rw ← h2,
   rw h,
-  rw add_right_neg,
-  refl,
+  exact add_right_neg a,
+  
 end
 
 end pre_group -- hide

@@ -40,13 +40,17 @@ open myint -- hide
 variable (x : ℤ) -- hide
 
 /-
+
+### Tasks
+
 Here, you'll prove the unusual result `2 + 5 = 8 + 5` on the assumption `∀ x, x + 5 = 10`.
 
-Write a proof using `rw`.
 
-Write another proof where you use one `rw` and one application of `specialize`.
+* Write a proof using `rw`.
 
-Think about how you'd write this proof by hand. Compare with my suggested translation at the bottom
+* Write another proof where you use one `rw` and one application of `specialize`.
+
+* Think about how you'd write this proof by hand. Compare with my suggested translation at the bottom
 of the page.
 -/
 
@@ -62,9 +66,13 @@ You can specialize on more than one variable at a time. If `k : ∀ (x y : ℤ),
 /- Theorem : no-side-bar
 `2 + 5 = 8 + 5` on the assumption `∀ x, x + 5 = 10`.
 -/
-theorem two_add_five_eq_eight_add_five_of (h : ∀ x, x + 5 = 10) : 2 + 5 = 8 + 5 :=
+theorem two_add_five_eq_eight_add_five_of (h : ∀ x, x + 5 = 10)
+  : 2 + 5 = 8 + 5 :=
 begin [pure_maths]
-  rw [h 2, h 8], refl,
+  rw [h 2, h 8],
+  refl,
+
+  
 end
 
 /-

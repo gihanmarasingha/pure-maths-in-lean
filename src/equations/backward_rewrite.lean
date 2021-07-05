@@ -39,9 +39,10 @@ begin
 end
 
 /-
-Your turn! Prove the following using two rewrites, one backward.
+### Tasks
+* Prove the following using two rewrites, one backward.
 
-Once you've done that, write a structured proof of the same result.
+* Once you've done that, write a structured proof of the same result.
 -/
 
 /- Hint: Hint for structured proof

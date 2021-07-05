@@ -24,7 +24,8 @@ Use `add_add_neg`.
 /- Theorem : no-side-bar
 Let `x` and `y` be integers. If `x + y = 0`, then `y = -x`. 
 -/
-theorem right_additive_inverse_unique (x y : ℤ) (h : x + y = 0) : y = -x :=
+theorem right_additive_inverse_unique (x y : ℤ) (h : x + y = 0)
+  : y = -x :=
 begin [pure_maths]
   rw ←add_add_neg x y,
   rw h,
