@@ -13,10 +13,11 @@ make-lean-game
 
 # 3. Deploy
 rm -rf deploy
-git clone git@github.com:$1/$2 deploy
+mkdir deploy
 cd deploy
-rm -rf * .gitignore
-cp -Lr ../to-be-deployed/./ .
+git init
+cp -r ../html/ .
+cp -r ../to-be-deployed/./ .
 
 # Insertion of Google Analytics tracker. First make temp file
 TMPFILE=$(mktemp) || exit
@@ -33,7 +34,7 @@ fi
 # Now stage all files, commit, and push
 git add .
 git commit -m "Update `date`"
-git push
+git push git@github.com:$1/$2
 
 cd ..
 rm -rf deploy
