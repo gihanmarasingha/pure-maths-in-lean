@@ -9,7 +9,7 @@ theorems online using a computer tool called Lean.
 Each chapter is represented by a coloured circular button in the right-hand pane. Blue indicates your
 current position, green is for completed chapters, and grey is for unread or incomplete chapters.
 
-At every stage in a theorem, there is a *target*, the thing you want to prove, and a *context*, the
+At every stage in a proof, there is a *target*, the thing you want to prove, and a *context*, the
 set of things you have already proved or assumed at the beginning of your argument.
 The target and context change through the proof.
 
