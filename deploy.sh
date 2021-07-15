@@ -34,7 +34,7 @@ fi
 # Now stage all files, commit, and push
 git add .
 git commit -m "Update `date`"
-git push git@github.com:$1/$2
+git push git@github.com:$1/$2 +HEAD:gh-pages
 
 cd ..
 rm -rf deploy
