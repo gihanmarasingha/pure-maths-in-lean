@@ -420,6 +420,13 @@ protected lemma one_mul : ∀ (a : ℤ), (1 : ℤ) * a = a
 protected lemma mul_one (a : ℤ) : a * 1 = a :=
 by rw [myint.mul_comm, myint.one_mul]
 
+protected lemma zero_ne_one : (0 : myint) ≠ 1 :=
+begin
+  intro h,
+  apply mynat.zero_ne_one,
+  apply myint.of_nat.inj h,
+end
+
 end multiplication
 
 end myint
