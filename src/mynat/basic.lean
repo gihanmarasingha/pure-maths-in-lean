@@ -74,6 +74,8 @@ theorem mul_succ (a b : ℕ) : a * succ b = (a * b) + a := rfl
 
 instance : has_one ℕ := ⟨succ zero⟩
 
+lemma zero_ne_one : (0 : mynat) ≠ 1 := λ h, mynat.no_confusion h
+
 theorem succ_eq_add_one (a : ℕ) : a.succ = a + 1 := rfl
 
 theorem zero_mul' (a : ℕ) : 0 * a = 0 := mynat.rec_on a rfl (λ x h, h)
