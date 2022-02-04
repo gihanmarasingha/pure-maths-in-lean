@@ -1,37 +1,17 @@
-import tactic.linarith divisibility.divisibility_mul_dvd_mul  -- hide
+import tactic.linarith divisibility.common_divisors2  -- hide
 
 /-
 # Divisibility and Congruences
 
-## Level XX: Greatest common divisors
-
+## Level 5: Greatest common divisors
 -/
 
 namespace exlean -- hide
 
-
 /-
-Let `m, n, and d` be integers. For `d` to be a _common divisor_ of `m` and `n` means that
-`d ∣ m` and `d ∣ n`.
--/
+Recall that for `d` to be a common divisor of `a` and `b` means that `d ∣ a` and `d ∣ b`.
 
-def common_divisor (d m n : ℤ) := (d ∣ m) ∧ (d ∣ n)
-
-/-
-Using the above definition, we'll show that `5` is a commond divisor of `20` and `30`.
--/
-example : common_divisor 5 20 30 :=
-begin
-  split, -- We'll show 1) `5 ∣ 20` and 2) `5 ∣ 30`.
-  { use 4, -- 1) `⊢ 5 ∣ 20`, it suffices to show `20 = 5 * 4`.
-    norm_num, }, -- This holds by arithmetic.
-  { use 6,      -- 2) `⊢ 30 = 5 * 6`, it suffices to show `⊢ 30 = 5 * 6`.
-    norm_num, }, -- This holds by arithmetic.
-end
-
-
-/-
-With notation as above, for `d` to be a _greatest common divisor_ of `m` and `n` means that
+For `d` to be a _greatest common divisor_ of `m` and `n` means that
 * `d` is a common divisor of `m` and `n` and
 * if `e` is a common divisor of `m` and `n`, then `e ∣ d`.
 -/
@@ -40,7 +20,10 @@ def greatest_common_divisor (d m n : ℤ) := (common_divisor d m n) ∧
   (∀ (e : ℤ), common_divisor e m n → e ∣ d)
 
 /-
-We'll show that a greatest common divisor (if it exists) is unique.
+### Task
+
+Show that if the non-negative integers `d` and `e` are both greatest common divisors of `m` and `n`,
+then `d = e`.
 -/
 
 lemma uniqueness_of_greatest_common_divisor (d e m n : ℤ) (k₁ : 0 ≤ d) (k₂ : 0 ≤ e)

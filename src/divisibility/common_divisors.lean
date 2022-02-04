@@ -1,4 +1,4 @@
-import tactic.linarith divisibility.divisibility_mul_dvd_mul  -- hide
+import tactic.linarith divisibility.mul_dvd_mul  -- hide
 
 /-
 # Divisibility and Congruences
