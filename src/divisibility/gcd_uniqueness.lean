@@ -3,11 +3,11 @@ import tactic.linarith divisibility.divisibility_mul_dvd_mul  -- hide
 /-
 # Divisibility and Congruences
 
-## Level 3: Greatest Common Divisors
+## Level XX: Greatest common divisors
 
 -/
 
-namespace exlean
+namespace exlean -- hide
 
 
 /-
@@ -17,13 +17,16 @@ Let `m, n, and d` be integers. For `d` to be a _common divisor_ of `m` and `n` m
 
 def common_divisor (d m n : ℤ) := (d ∣ m) ∧ (d ∣ n)
 
+/-
+Using the above definition, we'll show that `5` is a commond divisor of `20` and `30`.
+-/
 example : common_divisor 5 20 30 :=
 begin
-  split,
-  { use 4,
-    norm_num, },
-  { use 6,
-    norm_num, },
+  split, -- We'll show 1) `5 ∣ 20` and 2) `5 ∣ 30`.
+  { use 4, -- 1) `⊢ 5 ∣ 20`, it suffices to show `20 = 5 * 4`.
+    norm_num, }, -- This holds by arithmetic.
+  { use 6,      -- 2) `⊢ 30 = 5 * 6`, it suffices to show `⊢ 30 = 5 * 6`.
+    norm_num, }, -- This holds by arithmetic.
 end
 
 
@@ -51,4 +54,4 @@ begin
 end
 
 
-end exlean
+end exlean -- hide

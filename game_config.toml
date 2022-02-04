@@ -32,7 +32,8 @@ parents = [1]
 levels = [
 	"src/divisibility/dvd_definition.lean",
 	"src/divisibility/divisibility_mul_dvd_mul.lean",
-	"src/divisibility/gcd_uniqueness.lean",
+	"src/divisibility/common_divisors.lean",
+	"src/divisibility/common_divisors2.lean",
 
 ]
 
