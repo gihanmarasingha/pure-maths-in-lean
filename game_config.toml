@@ -26,7 +26,7 @@ levels = [
 ]
 
 [[worlds]]
-name = "Divisibility and Congruences"
+name = "Divisibility"
 id = 2
 parents = [1]
 levels = [
