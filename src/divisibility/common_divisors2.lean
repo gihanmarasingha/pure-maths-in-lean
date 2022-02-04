@@ -3,7 +3,7 @@ import tactic.linarith divisibility.common_divisors  -- hide
 /-
 # Divisibility and Congruences
 
-## Level 4: Common divisor results
+## Level 7: Common divisor results
 -/
 
 namespace exlean -- hide

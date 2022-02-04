@@ -3,10 +3,12 @@ import tactic.linarith divisibility.common_divisors2  -- hide
 /-
 # Divisibility and Congruences
 
-## Level 5: Greatest common divisors
+## Level 8: Greatest common divisors
 -/
 
 namespace exlean -- hide
+
+open int -- hide
 
 /-
 Recall that for `d` to be a common divisor of `a` and `b` means that `d ∣ a` and `d ∣ b`.
@@ -26,14 +28,23 @@ Show that if the non-negative integers `d` and `e` are both greatest common divi
 then `d = e`.
 -/
 
-lemma uniqueness_of_greatest_common_divisor (d e m n : ℤ) (k₁ : 0 ≤ d) (k₂ : 0 ≤ e)
+/- Theorem :
+If the non-negative integers `d` and `e` are both greatest common divisors of `m` and `n`,
+then `d = e`.
+-/
+theorem uniqueness_of_greatest_common_divisor (d e m n : ℤ) (k₁ : 0 ≤ d) (k₂ : 0 ≤ e)
 (h₁ : greatest_common_divisor d m n ) (h₂ : greatest_common_divisor e m n) : d = e :=
 begin
   have h₃ : d ∣ e,
   { exact h₂.right d h₁.left, },
   have h₄ : e ∣ d,
   { exact h₁.right e h₂.left, },
-  apply int.dvd_antisymm k₁ k₂ h₃ h₄,
+  apply dvd_antisymm k₁ k₂ h₃ h₄,
+
+
+
+
+
 end
 
 

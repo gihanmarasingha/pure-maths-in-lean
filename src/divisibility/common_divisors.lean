@@ -1,9 +1,9 @@
-import tactic.linarith divisibility.mul_dvd_mul  -- hide
+import tactic.linarith divisibility.dvd_antisymm  -- hide
 
 /-
 # Divisibility and Congruences
 
-## Level 3: Common divisor basics
+## Level 6: Common divisor basics
 -/
 
 namespace exlean -- hide

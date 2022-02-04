@@ -31,7 +31,10 @@ id = 2
 parents = [1]
 levels = [
 	"src/divisibility/dvd_definition.lean",
+	"src/divisibility/dvd_refl.lean",
 	"src/divisibility/divisibility_mul_dvd_mul.lean",
+	"src/divisibility/dvd_trans.lean",
+	"src/divisibility/dvd_antisymm.lean",
 	"src/divisibility/common_divisors.lean",
 	"src/divisibility/common_divisors2.lean",
 ]

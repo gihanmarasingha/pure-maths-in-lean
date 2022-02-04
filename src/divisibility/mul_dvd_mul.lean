@@ -1,10 +1,9 @@
-import tactic.linarith divisibility.dvd_definition -- hide
+import tactic.linarith divisibility.dvd_refl -- hide
 
 /-
 #  Divisibility and Congruences
 
-## Level 2: A multiplication lemma
-
+## Level 3: A multiplication lemma
 -/
 
 namespace exlean --hide
@@ -42,7 +41,6 @@ begin
   rw [h₃, h₄], -- From `h₃` & `h₄`, `⊢ a * m₁ + a * m₂ = a * (m₁ + m₂)`.
   linarith, -- This holds by algebra.
 end
-
 
 /-
 Extracing the comments from the above gives a handwritten proof:
