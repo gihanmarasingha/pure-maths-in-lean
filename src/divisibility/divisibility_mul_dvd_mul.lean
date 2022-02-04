@@ -22,17 +22,18 @@ and a hypothesis `h₂ : b = a * k` via `cases h with m h₂`. In handwritten ma
 is exists elimination.
 -/
 
-
 /-
 ### An addition result
 
 Below, I present a proof that given `h₁ : a ∣ b` and `h₂ : a ∣ c`, then `a ∣ b + c` follows.
 -/
 
+variables {a b c d : ℤ} -- hide
+
 /- Axiom : dvd_add (a b c : ℤ) (h₁ : a ∣ b) (h₂ : a ∣ c) :
 a ∣ b + c
 -/
-theorem dvd_add (a b c : ℤ) (h₁ : a ∣ b) (h₂ : a ∣ c) : a ∣ b + c :=
+theorem dvd_add (h₁ : a ∣ b) (h₂ : a ∣ c) : a ∣ b + c :=
 begin
   cases h₁ with m₁ h₃, -- We have `m₁ : ℤ` and `h₃ : b = a * m₁`.
   cases h₂ with m₂ h₄, -- We have `m₂ : ℤ` and `h₄ : c = a * m₂`.
@@ -67,11 +68,10 @@ Extracing the comments from the above gives a handwritten proof:
 * Write the same proof by hand.
 -/
 
-
 /- Theorem :
 Let `a, b, c, d` be integers. Given `h₁ : a ∣ b` and `h₂ : c ∣ d`, we have `a * c ∣ b * d`.
 -/
-theorem mul_dvd_mul {a b c d : ℤ} (h₁ : a ∣ b) (h₂ : c ∣ d) : a * c ∣ b * d :=
+theorem mul_dvd_mul (h₁ : a ∣ b) (h₂ : c ∣ d) : a * c ∣ b * d :=
 begin
   cases h₁ with m₁ h₁,
   cases h₂ with m₂ h₂,

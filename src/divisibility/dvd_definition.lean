@@ -18,11 +18,12 @@ If you forget this definition or ever want to replace `x ∣ y` with the definit
 the result `dvd_def`.
 -/
 
+variables {x y : ℤ} -- hide
 
 /- Axiom : dvd_def (x y : ℤ) :
 x ∣ y ↔ ∃ (m : ℤ), y = x * m
 -/
-lemma dvd_def {x y : ℤ} : x ∣ y ↔ ∃ (m : ℤ), y = x * m := by refl -- hide
+lemma dvd_def : x ∣ y ↔ ∃ (m : ℤ), y = x * m := by refl -- hide
 
 /-
 For example, we will prove that `5 ∣ 10`. In the (unecessary) first line of the proof, we rewrite
@@ -47,14 +48,12 @@ If you were to write the proof 'by hand', you might write the following:
 > This is true by arithmetic.
 -/
 
-
 /-
 ### Tasks
 * By making a minor variation to the proof above, show that `6 ∣ 72`.
 
 * Write the same proof by hand.
 -/
-
 
 /- Theorem : no-side-bar
 `6 divides 72`
