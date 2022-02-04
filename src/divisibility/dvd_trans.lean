@@ -1,7 +1,7 @@
 import tactic.linarith divisibility.mul_dvd_mul -- hide
 
 /-
-#  Divisibility and Congruences
+#  Divisibility
 
 ## Level 4: Transtivity of divisibility
 -/

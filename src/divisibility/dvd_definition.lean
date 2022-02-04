@@ -1,7 +1,7 @@
 import tactic.ring -- hide
 
 /-
-#  Divisibility and Congruences
+#  Divisibility
 
 ## Level 1: The definition of divisibility
 

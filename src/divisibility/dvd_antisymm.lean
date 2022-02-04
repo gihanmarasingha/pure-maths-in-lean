@@ -1,7 +1,7 @@
 import tactic.linarith divisibility.dvd_trans  -- hide
 
 /-
-# Divisibility and Congruences
+# Divisibility
 
 ## Level 5: Antisymmetry
 -/

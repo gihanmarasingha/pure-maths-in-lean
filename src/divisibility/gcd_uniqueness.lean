@@ -1,7 +1,7 @@
 import tactic.linarith divisibility.common_divisors2  -- hide
 
 /-
-# Divisibility and Congruences
+# Divisibility
 
 ## Level 8: Greatest common divisors
 -/

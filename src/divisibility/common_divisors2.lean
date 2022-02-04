@@ -1,7 +1,7 @@
 import tactic.linarith divisibility.common_divisors  -- hide
 
 /-
-# Divisibility and Congruences
+# Divisibility
 
 ## Level 7: Common divisor results
 -/

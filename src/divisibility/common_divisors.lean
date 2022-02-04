@@ -1,7 +1,7 @@
 import tactic.linarith divisibility.dvd_antisymm  -- hide
 
 /-
-# Divisibility and Congruences
+# Divisibility
 
 ## Level 6: Common divisor basics
 -/

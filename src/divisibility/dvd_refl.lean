@@ -1,7 +1,7 @@
 import tactic.linarith divisibility.dvd_definition -- hide
 
 /-
-#  Divisibility and Congruences
+#  Divisibility
 
 ## Level 2: Reflexivity of divisibility
 -/

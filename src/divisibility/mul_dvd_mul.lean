@@ -1,7 +1,7 @@
 import tactic.linarith divisibility.dvd_refl -- hide
 
 /-
-#  Divisibility and Congruences
+#  Divisibility
 
 ## Level 3: A multiplication lemma
 -/
