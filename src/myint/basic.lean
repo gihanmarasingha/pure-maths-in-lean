@@ -427,6 +427,35 @@ begin
   apply myint.of_nat.inj h,
 end
 
+def int_to_myint : int → myint
+| (int.of_nat n)          := myint.of_nat (nat_to_mynat n)
+| (int.neg_succ_of_nat n) := myint.neg_succ_of_nat (nat_to_mynat n)
+
+
+def myint_to_int : myint → int
+| (of_nat n)          := int.of_nat (mynat_to_nat n)
+| (neg_succ_of_nat n) := int.neg_succ_of_nat (mynat_to_nat n)
+
+
+lemma myint_to_int_int_to_myint (n : int) : myint_to_int (int_to_myint n) = n :=
+begin
+  induction n;
+  { rw [int_to_myint, myint_to_int, mynat_to_nat_nat_to_mynat], },
+end
+
+
+lemma int_to_myint_myint_to_int (n : myint) : int_to_myint (myint_to_int n) = n :=
+begin
+  induction n;
+  { rw [myint_to_int, int_to_myint, nat_to_mynat_mynat_to_nat], },
+end
+
+lemma myint_to_int_inj (a b : myint) : myint_to_int a = myint_to_int b → a = b :=
+begin
+  intro h,
+  rw [←int_to_myint_myint_to_int a, h, int_to_myint_myint_to_int],
+end
+
 end multiplication
 
 end myint

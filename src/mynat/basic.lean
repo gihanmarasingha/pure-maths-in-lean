@@ -430,6 +430,57 @@ protected lemma right_distrib : ∀ (n m k : ℕ), (n + m) * k = n * k + m * k
 | n m (succ k) :=
   begin simp [mul_succ, right_distrib n m k], sort_add end
 
+def nat_to_mynat : nat → mynat
+| nat.zero     := mynat.zero
+| (nat.succ n) := mynat.succ (nat_to_mynat n)
+
+def mynat_to_nat : mynat → nat
+| mynat.zero      := nat.zero
+| (mynat.succ n)  := nat.succ (mynat_to_nat n)
+
+lemma mynat_to_nat_nat_to_mynat (n : nat) : mynat_to_nat (nat_to_mynat n) = n :=
+begin
+  induction n with k ih,
+  { refl, },
+  { rw [nat_to_mynat, mynat_to_nat, ih], },
+end
+
+lemma nat_to_mynat_mynat_to_nat (n : mynat) : nat_to_mynat (mynat_to_nat n) = n :=
+begin
+  induction n with k ih,
+  { refl, },
+  { rw [mynat_to_nat, nat_to_mynat, ih], },
+end
+
+lemma zero_eq_zero : zero = 0 := rfl
+
+lemma nat_to_mynat_add_hom (x y : nat) : (nat_to_mynat x) + (nat_to_mynat y) = nat_to_mynat (x + y) :=
+begin
+  induction x with k ih,
+  { rw [nat_to_mynat, nat.zero_add, zero_eq_zero, zero_add'], },
+  { rw [nat_to_mynat, succ_add', ih, nat.succ_add, nat_to_mynat], },
+end
+
+lemma nat_to_mynat_pred (n : nat) : nat_to_mynat n.pred = (nat_to_mynat n).pred :=
+begin
+  induction n with k ih;
+  refl,
+end
+
+lemma nat_to_mynat_sub_hom (x y : nat) : (nat_to_mynat x) - (nat_to_mynat y) = nat_to_mynat (x - y) :=
+begin
+  induction y with k ih,
+  { rw [nat_to_mynat, nat.sub_zero, zero_eq_zero, mynat.sub_zero], },
+  { rw [nat_to_mynat, sub_succ, ih, nat.sub_succ, nat_to_mynat_pred], }
+end
+
+lemma nat_to_mynat_mul_hom (x y : nat) : (nat_to_mynat x) * (nat_to_mynat y) = nat_to_mynat(x * y) :=
+begin
+  induction x with k ih,
+  { rw [nat_to_mynat, nat.zero_mul, nat_to_mynat, zero_eq_zero, mynat.zero_mul'], },
+  { rw [nat_to_mynat, succ_mul, ih, nat.succ_mul, ←nat_to_mynat_add_hom], },
+end
+
 end mynat
 
 end exlean
