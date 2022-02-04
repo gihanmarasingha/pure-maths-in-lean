@@ -26,11 +26,13 @@ levels = [
 ]
 
 [[worlds]]
-name = "Functions"
+name = "Divisibility and Congruences"
 id = 2
 parents = [1]
 levels = [
-	"src/function/defining_functions/level.lean",
+	"src/divisibility/dvd_definition.lean",
+	"src/divisibility/divisibility_mul_dvd_mul.lean",
+	"src/divisibility/gcd_uniqueness.lean",
 
 ]
 
