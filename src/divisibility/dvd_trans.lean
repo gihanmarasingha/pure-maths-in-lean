@@ -8,8 +8,7 @@ import tactic.linarith divisibility.mul_dvd_mul -- hide
 
 namespace exlean --hide
 
-variables {a b c : ℤ}
-
+variables {a b c : ℤ} -- hide
 
 /- Theorem :
 Let `a, b, c, d` be integers. Given `h₁ : a ∣ b` and `h₂ : c ∣ d`, we have `a * c ∣ b * d`.

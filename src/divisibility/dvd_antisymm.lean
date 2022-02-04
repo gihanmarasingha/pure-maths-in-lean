@@ -21,11 +21,31 @@ begin
   exact dvd_antisymm h₁ h₂ h₃ h₄,
 end
 
+/- Hint : Proving an `↔` statement.
+
+Remember that the `split` tactic splits a target of `p ↔ q` into two goals: one to prove
+`p → q` and one to prove `q → p`.
+-/
+
+/- Hint : Specialzing a universally-quantified statement.
+
+Suppose `P` is a predicate. Recall that if `h : ∀ (x : α), P(x)` and if `y : α`, then
+`specialize h y` replaces `h` with `P(y)`.
+-/
+
+/- Hint : Decomposing a `↔` statement.
+
+Suppose `h : p ↔ q`. Then the tactic `cases h with h₂ h₃` replaces `h` with `h₂ : p → q` and
+`h₃ : q → p`.
+-/
+
+
 /- Theorem : no-side-bar
 Given `d` is a common divisor of `a` and `b` and given `c ∣ d`, we have `c` is a common divisor of
 `a` and `b`.
 -/
-lemma dvd_right_iff_eq (h₁ : 0 ≤ b) (h₂ : 0 ≤ c) : (∀ a : ℤ, b ∣ a ↔ c ∣ a) ↔ b = c :=
+lemma dvd_right_iff_eq (h₁ : 0 ≤ b) (h₂ : 0 ≤ c) :
+(∀ a : ℤ, b ∣ a ↔ c ∣ a) ↔ b = c :=
 begin
   split,
   { intro h,
