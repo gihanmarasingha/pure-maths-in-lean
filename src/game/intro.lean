@@ -1,5 +1,5 @@
 /-
-# Pure mathematics with Lean, version 1.0.0
+# Pure mathematics with Lean, version 1.1
 
 ## By Gihan Marasingha
 
@@ -25,8 +25,7 @@ top-right-hand pane before using Lean.
 *Pure mathematics with Lean* is part of the 
 <a href="https://exlean.org" target="blank">exlean</a> project.
 
-**This book is under construction.** At the time of writing, only the first chapter is available.
-It's on the additive commutativity, associativity, identity, and inverse properties of the integers.
+**This book is under construction.** 
 
 ## Credits
 
