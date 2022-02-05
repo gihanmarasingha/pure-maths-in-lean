@@ -28,12 +28,15 @@ Show that if the non-negative integers `d` and `e` are both greatest common divi
 then `d = e`.
 -/
 
+variables (d e m n : ℤ)
+
 /- Theorem :
 If the non-negative integers `d` and `e` are both greatest common divisors of `m` and `n`,
 then `d = e`.
 -/
-theorem uniqueness_of_greatest_common_divisor (d e m n : ℤ) (k₁ : 0 ≤ d) (k₂ : 0 ≤ e)
-(h₁ : greatest_common_divisor d m n ) (h₂ : greatest_common_divisor e m n) : d = e :=
+theorem uniqueness_of_greatest_common_divisor (k₁ : 0 ≤ d) (k₂ : 0 ≤ e)
+(h₁ : greatest_common_divisor d m n )
+(h₂ : greatest_common_divisor e m n) : d = e :=
 begin
   have h₃ : d ∣ e,
   { exact h₂.right d h₁.left, },
