@@ -14,7 +14,8 @@ open int -- hide
 /- Theorem :
 `a` is a greatest common divisor of `0` and `a`, for every integer `a`.
 -/
-theorem greatest_common_divisor_zero (a : ℤ) : greatest_common_divisor a 0 a :=
+theorem greatest_common_divisor_zero (a : ℤ) :
+greatest_common_divisor a 0 a :=
 begin
   split,
   { split,

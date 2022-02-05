@@ -15,13 +15,17 @@ $\gcd(a,b) = \gcd(b,r)$.
 
 open int -- hide
 
+
+variables (a b q r x y: ℤ)  -- hide
+
 /- Theorem :
 Suppose $a$, $b$, $q$, $r$ are integers and that $a = bq + r$.
 
 Suppose $x$ and $y$ are non-negative integers, that $x$ is a greatest common divisor of $a$ and $b$,
-and that $y$ is a greatest common divisor of $b$ and $r. Then $x = y$.
+and that $y$ is a greatest common divisor of $b$ and $r$. Then $x = y$.
 -/
-lemma euclid_basic (a b q r x y: ℤ) (h : a = b * q + r) (h₁ : greatest_common_divisor x a b)
+lemma euclid_basic (h : a = b * q + r)
+(h₁ : greatest_common_divisor x a b)
 (h₂ : greatest_common_divisor y b r) (h₃ : 0 ≤ x) (h₄ : 0 ≤ y) : x = y :=
 begin
   rcases h₁ with ⟨⟨hxa, hxb⟩, hxgreat⟩,

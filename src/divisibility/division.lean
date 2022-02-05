@@ -59,7 +59,8 @@ You can do this with `by_cases h : q₂ = q₁` (replacing `h` with whatever nam
 Let $a, b$ be integers with $b ≠ 0$. If $a = q_1 * b + r_1 = q_2 * b + r_2$, where
 $0 \le r_1 < |b|$ and $0 \le r_2 < |b|$, then $q_1 = q_2$ and $r_1 = r_2$.
 -/
-lemma division_unique (h : b ≠ 0) (h₁ : a = q₁ * b + r₁ ∧ (0 ≤ r₁ ∧ r₁ < abs b)) 
+lemma division_unique (h : b ≠ 0)
+(h₁ : a = q₁ * b + r₁ ∧ (0 ≤ r₁ ∧ r₁ < abs b)) 
 (h₂ : a = q₂ * b + r₂ ∧ (0 ≤ r₂ ∧ r₂ < abs b)) : q₁ = q₂ ∧ r₁ = r₂ :=
 begin
   cases h₁ with hx₁ hx₂,

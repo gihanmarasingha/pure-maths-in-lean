@@ -21,7 +21,8 @@ variables {d a b c : ℤ} -- hide
 Given `d` is a common divisor of `a` and `b` and given `c ∣ d`, we have `c` is a common divisor of
 `a` and `b`.
 -/
-theorem common_divisor_of_common_divisor_of_dvd (h₁ : common_divisor d a b) (h₂ : c ∣ d) : common_divisor c a b :=
+theorem common_divisor_of_common_divisor_of_dvd
+(h₁ : common_divisor d a b) (h₂ : c ∣ d) : common_divisor c a b :=
 begin
   cases h₂ with m₃ h₃,
   rw h₃ at h₁,

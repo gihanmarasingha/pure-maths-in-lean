@@ -19,7 +19,8 @@ open gcd_set -- hide
 Let `a` and `b` be integers. Bézout's lemma asserts that there exists an integer `d` such that
 `d` is a greatest common divisor of `a` and `b`.
 
-In this level, you'll proof Bézout's lemma via the well-ordering principle.
+In this level, you'll proof Bézout's lemma via the well-ordering principle. If you haven't already
+done so, please try the level on the well-ordering principle from the 'Strong Induction' world.
 
 The proof contains several components. First, we need to consider the set
 $\\{y : \mathbb N \mid (0 < y) \land (\exists (s\ t\ : \mathbb Z),\, |a s + b t|  = y)\\}$.
