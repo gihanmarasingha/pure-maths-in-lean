@@ -3,7 +3,7 @@ import tactic.linarith divisibility.common_divisors2  -- hide
 /-
 # Divisibility
 
-## Level 8: Greatest common divisors
+## Level 10: Greatest common divisors
 -/
 
 namespace exlean -- hide

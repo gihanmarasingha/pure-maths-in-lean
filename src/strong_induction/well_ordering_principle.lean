@@ -1,78 +1,74 @@
-import tactic.linarith data.set.basic -- hide
+import data.set.basic strong_induction.minimal_element -- hide
 
 /-
 # Strong Induction
 
-## Level 1: The Well Ordering Principle
-
+## Level 4: The Well Ordering Principle
 -/
 
-namespace exlean
+namespace exlean -- hide
 
-def min_element (n : ℕ) (S : set ℕ) := n ∈ S ∧ (∀ (m : ℕ), m ∈ S → n ≤ m)
+open_locale classical -- hide
 
-open_locale classical
+open set nat --hide
 
-open set
+/-
+In the previous level, we show that if a set $S$ of natural numbers has a minimal element, then
+that element is unique.
 
-lemma strong_induction {P : ℕ → Prop} : (∀ (n : ℕ), (∀ (m : ℕ), m < n → P m) → P n) → (∀ k, P k)
-:= λ h k, nat.strong_induction_on k h
+In this level, you'll show that every non-empty set of natural numbers has a minimal element. The
+(challenging) proof requires strong induction.
+-/
 
-example (m x : ℕ) : m < x.succ → m ≤ x := nat.lt_succ_iff.mp
+/-
+### Nonempty sets
 
-lemma strong_induction' {P : ℕ → Prop} (h₁ : P 0)
-  (h₂ : ∀ (n : ℕ), (∀ m : ℕ, m ≤ n → P m) → P (nat.succ n)) : ∀ (k : ℕ), P k := λ k,
+In Lean, a set `S` is nonempty if `∃ x, x ∈ S`.
+
+As an example, consider the set $\\{x : \mathbb N \mid x ^ 2 + 2x + 15 = 0\\}$. We'll show this set
+is nonempty.
+-/
+
+
+example : set.nonempty {x : ℕ | x ^ 2 + 2 * x = 15} :=
 begin
-  apply @nat.strong_induction_on P,
-  intro n,
-  cases n with x,
-  { exact imp_intro h₁, },
-  { intro h,
-    apply h₂ x,
-    simpa [←nat.lt_succ_iff], },
+  use 3,  -- `⊢ 3 ∈ {x : ℕ | x ^ 2 + 2 * x = 15}`
+  rw mem_set_of_eq, -- `⊢ 3 ^ 2 + 2 * 3 = 15`
+  norm_num,
 end
 
-example (S : set ℕ) (h : S.nonempty ) : ∃ (n : ℕ), min_element n S :=
-begin
-  by_contra h₁,
-  push_neg at h₁,
-  suffices hs : ∀ (x : ℕ), x ∉ S,
-  { cases h with m hm,
-    specialize hs m,
-    contradiction, },
-  apply @strong_induction' (λ x, x ∉ S),
-  { intro h₃,
-    apply h₁ 0,
-    tidy, },
-  { dsimp [min_element] at h₁,
-    push_neg at h₁, 
-    intros k h₂ h₃,
-    rcases (h₁ k.succ) h₃ with ⟨m, h₄, h₅⟩,
-    exact h₂ m (nat.lt_succ_iff.mp h₅) h₄, },
-end
 
-example (S : set ℕ) (h : S.nonempty ) : ∃ (n : ℕ), min_element n S :=
-begin
-  by_contra h₁,
-  push_neg at h₁,
-  suffices hs : ∀ (x : ℕ), x ∉ S,
-  { cases h with m hm,
-    specialize hs m,
-    contradiction, },
-  suffices hst : ∀ (n : ℕ), (∀ (m : ℕ), m < n → m ∉ S) → n ∉ S, from strong_induction hst,
-  intros y h₂,
-  cases y with k,
-  { intro h₃,
-    apply h₁ 0,
-    tidy, },
-  { dsimp [min_element] at h₁,
-    push_neg at h₁, 
-    intro h₃,
-    rcases (h₁ k.succ) h₃ with ⟨m, h₄, h₅⟩,
-    exact h₂ m h₅ h₄, },
-end
+/- Hint : How to start!
+Start with proof by contradiction. Type `by_contra h₁`.
+Then push the negation through the quantifiers with `push_neg at h₁`.
+-/
 
-example (S : set ℕ) (h : S.nonempty ) : ∃ (n : ℕ), min_element n S :=
+/- Hint : How to introduce strong induction
+If you've taken the hint above, your goal now will be to prove `false`. This isn't evidently 
+something amenable to strong induction!
+
+However, you can show that it suffices to prove `∀ (x : ℕ), x ∉ S` by filling in the sorry below.
+```
+suffices hs : ∀ (x : ℕ), x ∉ S,
+{ sorry, },
+```
+This leaves you with the goal of proving, by strong induction, that `∀ (x : ℕ), x ∉ S`.
+-/
+
+/- Tactic: `tidy`
+If a goal can be proved in a fairly straightforward manner from the assumptions, the `tidy` tactic
+can sometimes find a proof.
+-/
+
+/- Hint : A crucial inequality result
+At some point in your proof you may need to use the fact that `m < (succ n) ↔ m ≤ n`. This result
+is called `lt_succ_iff`.
+-/
+
+/- Theorem :
+Every nonempty set of natural numbers has a minimal element.
+-/
+lemma well_ordering_principle {S : set ℕ} (h : S.nonempty) : ∃ (n : ℕ), min_element n S :=
 begin
   by_contra h₁,
   push_neg at h₁,
@@ -80,70 +76,33 @@ begin
   { cases h with m hm,
     specialize hs m,
     contradiction, },
-  suffices hst : ∀ (n : ℕ), (∀ (m : ℕ), m < n → m ∉ S) → n ∉ S, from strong_induction hst,
-  intros y h₂,
-  cases y with k,
-  { intro h₃,
+  let P := λ x, x ∉ S,
+  have base : P 0,
+  { intro h₂,
     apply h₁ 0,
     tidy, },
-  { specialize h₁ k.succ, 
-    rw min_element at h₁,
+  have ind_step : ∀ (k : ℕ), (∀ (m : ℕ), m ≤ k → P m) → P (k + 1),
+  { assume k : ℕ,
+    assume ih : ∀ (m : ℕ), m ≤ k → P m,
+    dsimp [min_element] at h₁,
     push_neg at h₁, 
-    intro h₃,
-    rcases h₁ h₃ with ⟨m, h₄, h₅⟩,
-    exact h₂ m h₅ h₄, },
+    assume h₂ : k + 1 ∈ S,
+    rcases (h₁ (k.succ)) h₂ with ⟨m, h₃, h₄⟩,
+    rw lt_succ_iff at h₄,
+    specialize ih m h₄,
+    contradiction, },
+  apply strong_induction base ind_step,
+
+
+
+
+
+
+
+
+
+
 end
 
-example (S : set ℕ) (h : S.nonempty ) : ∃ (n : ℕ), min_element n S :=
-begin
-  by_contra h₁,
-  push_neg at h₁,
-  suffices h₂ : ∀ (x : ℕ), x ∈ Sᶜ,
-  { cases h with m hm,
-    specialize h₂ m,
-    contradiction, },
-  suffices hst : ∀ (n : ℕ), (∀ (m : ℕ), m < n → m ∈ Sᶜ) → n ∈ Sᶜ, from strong_induction hst,
-  intros y h₃,
-  cases y with k,
-  { apply mem_compl,
-    intro h₄,
-    apply h₁ 0,
-    tidy, },
-  { apply mem_compl,
-    specialize h₁ k.succ,
-    rw min_element at h₁,
-    push_neg at h₁,
-    intro h₂,
-    specialize h₁ h₂,
-    rcases h₁ with ⟨m, h₄, h₅⟩, 
-    specialize h₃ m h₅, 
-    contradiction, },
-end
 
-example (S : set ℕ) (h : S.nonempty ) : ∃ (n : ℕ), min_element n S :=
-begin
-  by_contra h₁,
-  push_neg at h₁,
-  suffices h₂ : ∀ (x : ℕ), x ∈ Sᶜ,
-  { cases h with m hm,
-    specialize h₂ m,
-    contradiction, },
-  apply @strong_induction (λ y, y ∈ Sᶜ),
-  intros y h₃,
-  cases y with k,
-  { apply mem_compl,
-    intro h₄,
-    apply h₁ 0,
-    tidy, },
-  { apply mem_compl,
-    specialize h₁ k.succ,
-    rw min_element at h₁,
-    push_neg at h₁,
-    intro h₂,
-    specialize h₁ h₂,
-    rcases h₁ with ⟨m, h₄, h₅⟩, 
-    specialize h₃ m h₅, 
-    contradiction, },
-end
-
-end exlean
+end exlean -- hide

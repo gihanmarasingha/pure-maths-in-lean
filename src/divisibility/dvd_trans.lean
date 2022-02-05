@@ -1,9 +1,9 @@
-import tactic.linarith divisibility.mul_dvd_mul -- hide
+import tactic.linarith divisibility.dvd_mul_add_mul-- hide
 
 /-
 #  Divisibility
 
-## Level 4: Transtivity of divisibility
+## Level 6: Transtivity of divisibility
 -/
 
 namespace exlean --hide

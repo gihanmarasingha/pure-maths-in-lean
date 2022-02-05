@@ -12,6 +12,10 @@ namespace exlean --hide
 In this short level, your task is to prove reflexvity of the divisiblity relation.
 -/
 
+/- Hint : Using the definition of divisibility
+You can use `rw dvd_def` to replace `x ∣ y` with its definition.
+-/
+
 
 /- Theorem :
 `a ∣ a`, for every integer `a`.

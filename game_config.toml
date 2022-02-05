@@ -26,18 +26,34 @@ levels = [
 ]
 
 [[worlds]]
-name = "Divisibility"
+name = "Strong Induction"
 id = 2
+parents = [1]
+levels = [
+	"src/strong_induction/introduction.lean",
+	"src/strong_induction/different_base_case.lean",
+	"src/strong_induction/minimal_element.lean",
+	"src/strong_induction/well_ordering_principle.lean",
+]
+
+[[worlds]]
+name = "Divisibility"
+id = 3
 parents = [1]
 levels = [
 	"src/divisibility/dvd_definition.lean",
 	"src/divisibility/dvd_refl.lean",
+	"src/divisibility/dvd_mul_of_dvd_left.lean",
 	"src/divisibility/mul_dvd_mul.lean",
+	"src/divisibility/dvd_mul_add_mul.lean",
 	"src/divisibility/dvd_trans.lean",
 	"src/divisibility/dvd_antisymm.lean",
 	"src/divisibility/common_divisors.lean",
 	"src/divisibility/common_divisors2.lean",
 	"src/divisibility/gcd_uniqueness.lean",
+	"src/divisibility/gcd_zero.lean",
+	"src/divisibility/division.lean",
+	"src/divisibility/bezout.lean",
 ]
 
 

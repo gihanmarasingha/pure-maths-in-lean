@@ -3,7 +3,7 @@ import tactic.linarith divisibility.dvd_antisymm  -- hide
 /-
 # Divisibility
 
-## Level 6: Common divisor basics
+## Level 8: Common divisor basics
 -/
 
 namespace exlean -- hide
