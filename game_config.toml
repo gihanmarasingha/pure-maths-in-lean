@@ -54,6 +54,7 @@ levels = [
 	"src/divisibility/gcd_zero.lean",
 	"src/divisibility/division.lean",
 	"src/divisibility/bezout.lean",
+	"src/divisibility/euclid_basic.lean",
 ]
 
 
