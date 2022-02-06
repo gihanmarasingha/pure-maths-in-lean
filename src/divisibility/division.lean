@@ -1,9 +1,9 @@
-import tactic.linarith divisibility.gcd_zero  -- hide
+import tactic.linarith divisibility.gcd_comm  -- hide
 
 /-
 # Divisibility
 
-## Level 12: Division
+## Level 13: Division
 -/
 
 namespace exlean -- hide

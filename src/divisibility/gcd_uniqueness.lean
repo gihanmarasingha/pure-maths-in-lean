@@ -28,7 +28,7 @@ Show that if the non-negative integers `d` and `e` are both greatest common divi
 then `d = e`.
 -/
 
-variables (d e m n : ℤ)
+variables {d e m n : ℤ}
 
 /- Theorem :
 If the non-negative integers `d` and `e` are both greatest common divisors of `m` and `n`,

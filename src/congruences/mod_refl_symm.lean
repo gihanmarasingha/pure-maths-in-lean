@@ -1,4 +1,4 @@
-import congruences.mod_def -- hide
+import congruences.reduction1 -- hide
 
 /-
 #  Congruences
@@ -17,9 +17,9 @@ As a first proper theorem on congruences, we'll show that `≡` is a reflexive r
 variables {a b n : ℤ} -- hide
 
 /- Axiom : mod_refl {a : ℤ} :
-a ≡ a [mod n]
+a ≡ a [MOD n]
 -/
-lemma mod_refl : a ≡ a [mod n] :=
+lemma mod_refl : a ≡ a [MOD n] :=
 begin
   rw mod_def, -- `⊢ n ∣ a - a`
   rw dvd_def, -- `⊢ ∃ (m : ℤ), a - a = n * m`
@@ -44,7 +44,7 @@ A handwritten proof might be:
 -/
 
 /- Hint : Decomposing a congruence
-In the problem below, you are _given_ a congruence `h : a ≡ b [mod n]`. To extract information
+In the problem below, you are _given_ a congruence `h : a ≡ b [MOD n]`. To extract information
 from this statement, use the `cases` tactic. 
 
 For example, write `cases h with m h₂` to produce an integer `m` and the hypothesis
@@ -54,7 +54,7 @@ For example, write `cases h with m h₂` to produce an integer `m` and the hypot
 /- Theorem :
 The relation `≡` is symmetric.
 -/
-lemma mod_symm (h : a ≡ b [mod n]) : b ≡ a [mod n] :=
+lemma mod_symm (h : a ≡ b [MOD n]) : b ≡ a [MOD n] :=
 begin
   cases h with m h₂,
   use -m,

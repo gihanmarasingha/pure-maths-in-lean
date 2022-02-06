@@ -1,9 +1,9 @@
-import congruences.mod_refl_symm data.int.modeq -- hide
+import congruences.mod_refl_symm -- hide
 
 /-
 #  Congruences
 
-## Level 4: Multiplying a congruence on the right
+## Level 5: Multiplying a congruence on the right
 -/
 
 
@@ -14,7 +14,7 @@ variables {a b c n : ℤ} -- hide
 
 /-
 ### Tasks
-* Given `a ≡ b [mod n]`, show `a * c ≡ b * c [mod n]`. As in the previous level, you can prove
+* Given `a ≡ b [MOD n]`, show `a * c ≡ b * c [MOD n]`. As in the previous level, you can prove
 this using an appropriate divisibilty lemma.
 
 * Write the same proof by hand.
@@ -40,9 +40,9 @@ to finish the proof.
 -/
 
 /- Theorem :
-Given `a ≡ b [mod n]`, the congruence `a * c ≡ b * c [mod n]` follows.
+Given `a ≡ b [MOD n]`, the congruence `a * c ≡ b * c [MOD n]` follows.
 -/
-lemma mod_mul_right (h : a ≡ b [mod n]) : a * c ≡ b * c [mod n] :=
+lemma mod_mul_right (h : a ≡ b [MOD n]) : a * c ≡ b * c [MOD n] :=
 begin
   rw mod_def at *,
   rw ←sub_mul,

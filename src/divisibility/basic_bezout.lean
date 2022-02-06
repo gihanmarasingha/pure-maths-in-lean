@@ -59,4 +59,12 @@ end
 
 end gcd_set
 
+lemma nonneg_or_nonneg_neg' (a : ℤ) : (0 ≤ a) ∨ (0 ≤ -a) :=
+begin
+  by_cases h : 0 ≤ a,
+  { left, exact h, },
+  { right,
+    linarith, },
+end
+
 end exlean 

@@ -3,7 +3,7 @@ import tactic.linarith divisibility.basic_bezout strong_induction.well_ordering_
 /-
 # Divisibility
 
-## Level 13: Bézout's lemma
+## Level 14: Bézout's lemma (version 1)
 -/
 
 namespace exlean -- hide
@@ -60,14 +60,16 @@ end
 Over to you!
 -/
 
-/- Theorem :
-Bézout's lemma. Every pair of integers has a greatest common divisor.
+/- Theorem : no-side-bar
+Bézout's lemma (version 1). Every pair of integers has a greatest common divisor.
 -/
-lemma bezout : ∃ (d : ℤ),  greatest_common_divisor d a b :=
+lemma bezout1 (a b : ℤ ) :
+∃ (d : ℤ), (greatest_common_divisor d a b) :=
 begin
   by_cases hzeroa : a = 0,
   { use b,
     rw hzeroa,
+    apply greatest_common_divisor_comm,
     apply greatest_common_divisor_zero, },
   have h : (set_T a b).nonempty := set_T_nonempty hzeroa,
   rcases well_ordering_principle h with ⟨k, hkmin⟩,

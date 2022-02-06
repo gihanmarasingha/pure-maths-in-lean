@@ -52,19 +52,13 @@ levels = [
 	"src/divisibility/common_divisors2.lean",
 	"src/divisibility/gcd_uniqueness.lean",
 	"src/divisibility/gcd_zero.lean",
+	"src/divisibility/gcd_comm.lean",
 	"src/divisibility/division.lean",
 	"src/divisibility/bezout.lean",
+	"src/divisibility/gcd_neg.lean",
+	"src/divisibility/bezout2.lean",
 	"src/divisibility/euclid_basic.lean",
-]
-
-[[worlds]]
-name = "Congruences"
-id = 4
-parents = [3]
-levels = [
-	"src/congruences/mod_def.lean",
-	"src/congruences/mod_refl_symm.lean",
-	"src/congruences/mod_trans.lean",
+	"src/divisibility/euclidean_algorithm.lean",
 ]
 
 
