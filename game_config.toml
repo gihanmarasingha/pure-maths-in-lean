@@ -57,4 +57,14 @@ levels = [
 	"src/divisibility/euclid_basic.lean",
 ]
 
+[[worlds]]
+name = "Congruences"
+id = 4
+parents = [3]
+levels = [
+	"src/congruences/mod_def.lean",
+	"src/congruences/mod_refl_symm.lean",
+	"src/congruences/mod_trans.lean",
+]
+
 

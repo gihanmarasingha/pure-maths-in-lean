@@ -20,7 +20,7 @@ the result `dvd_def`.
 
 variables {x y : ℤ} -- hide
 
-/- Axiom : dvd_def (x y : ℤ) :
+/- Axiom : dvd_def (x y : ℤ)
 x ∣ y ↔ ∃ (m : ℤ), y = x * m
 -/
 lemma dvd_def : x ∣ y ↔ ∃ (m : ℤ), y = x * m := by refl -- hide
