@@ -10,7 +10,7 @@ namespace exlean -- hide
 
 open int -- hide
 
-variables {a b d : ℤ}
+variables {a b d : ℤ} -- hide
 
 /- Theorem :
 If $d$ is a greatest common divisor of $a$ and $b$, then $d$ is a greatest common divisor of

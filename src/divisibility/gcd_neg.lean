@@ -14,7 +14,7 @@ divisor of $a$ and $b$.
 The following results on divisibility will be useful.
 -/
 
-open int -- hint
+open int -- hide
 
 variables {a b d : ℤ} -- hide
 

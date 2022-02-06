@@ -12,7 +12,7 @@ You'll show that for all integers $a$ and $b$, there exists a non-negative integ
 $d$ is a greatest common divisor of $a$ and $b$.
 -/
 
-open int
+open int -- hide
 
 variables (a b : ℤ) -- hide
 

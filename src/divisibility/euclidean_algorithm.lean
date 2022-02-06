@@ -87,8 +87,6 @@ end
 Adapt the proof above to show that $\gcd(340, 23) = 1$.
 -/
 
-#eval 240 / 23
-
 /- Lemma : no-side-bar
 $\gcd(340, 23) = 1$
 -/

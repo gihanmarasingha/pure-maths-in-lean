@@ -27,7 +27,7 @@ begin
   apply division 700 b h,
 end
 
-variables {q₁ r₁ q₂ r₂ : ℤ} -- help
+variables {q₁ r₁ q₂ r₂ : ℤ} -- hide
 
 /-
 In this (somewhat tricky) level, your task is to show uniquness of the quotient and remainder.
