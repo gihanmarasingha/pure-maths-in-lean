@@ -16,10 +16,11 @@ open gcd_set -- hide
 
 
 /-
-Let `a` and `b` be integers. Bézout's lemma asserts that there exists an integer `d` such that
-`d` is a greatest common divisor of `a` and `b`.
+Let $a$ and $b$ be integers. Bézout's lemma asserts that there exists an integer $d$ such that
+$d$ is a greatest common divisor of $a$ and $b$ and such that $d = as + bt$, for some integers 
+$s$ and $t$.
 
-In this level, you'll proof Bézout's lemma via the well-ordering principle. If you haven't already
+In this level, you'll prove Bézout's lemma via the well-ordering principle. If you haven't already
 done so, please try the level on the well-ordering principle from the 'Strong Induction' world.
 
 The proof contains several components. First, we need to consider the set
@@ -61,19 +62,24 @@ Over to you!
 -/
 
 /- Theorem : no-side-bar
-Bézout's lemma (version 1). Every pair of integers has a greatest common divisor.
+Bézout's lemma (version 1). Every pair of integers $a$ and $b$ has a greatest common divisor $d$
+that can be written as $d = as + bt$, for some integers $s$ and $t$.
 -/
-lemma bezout1 (a b : ℤ ) :
-∃ (d : ℤ), (greatest_common_divisor d a b) :=
+lemma bezout1 (a b : ℤ) :
+∃ (d s t : ℤ), (greatest_common_divisor d a b) ∧ (d = a * s + b * t) :=
 begin
   by_cases hzeroa : a = 0,
-  { use b,
+  { use [b, 0, 1],
     rw hzeroa,
-    apply greatest_common_divisor_comm,
-    apply greatest_common_divisor_zero, },
+    split,
+    { apply greatest_common_divisor_comm,
+      apply greatest_common_divisor_zero, },
+    norm_num, },
   have h : (set_T a b).nonempty := set_T_nonempty hzeroa,
   rcases well_ordering_principle h with ⟨k, hkmin⟩,
-  use k,
+  rcases lin_combo_of_min_element hkmin with ⟨s, t, hlin⟩,
+  use [k, s, t],
+  apply and.intro _ hlin.symm,
   split,
   { split,
     { apply dvd_of_min_element a b k hkmin, },
@@ -122,8 +128,6 @@ begin
 
 
 end
-
-
 
 
 

@@ -15,7 +15,17 @@ the greatest common divisor of `a` and `b`.
 
 noncomputable theory -- hide
 
-noncomputable def gcd (a b : ℤ) := classical.some (bezout a b) -- hide
+-- begin hide
+lemma gcd_exists (a b : ℤ) : ∃ (d : ℤ), (greatest_common_divisor d a b ∧ 0 ≤ d) :=
+begin
+  rcases bezout a b with ⟨d, s, t, h, h₂⟩,
+  use d,
+  exact h,
+end
+
+-- end hide
+
+noncomputable def gcd (a b : ℤ) := classical.some (gcd_exists a b) -- hide
 
 /- Axiom : greatest_common_divisor_gcd
 (greatest_common_divisor (gcd a b) a b) ∧ (0 ≤ gcd a b)
