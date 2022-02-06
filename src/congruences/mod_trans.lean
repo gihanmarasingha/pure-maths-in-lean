@@ -35,7 +35,7 @@ Start by rewriting the target and hypotheses with the definition of congruence. 
 If you took the hint above, the target will be `⊢ n ∣ c - a`. A clever idea is to write
 `c - a` as `(c - b) + (b - a)`.
 
-One way to do this is via,
+One way to do this is via:
 ```
 have h₃ : c - a = (c - b) + (b - a), by linarith,
 rw h₃,
@@ -54,7 +54,8 @@ to finish the proof.
 /- Theorem :
 The relation `≡` is transitive.
 -/
-lemma mod_trans (h₁ : a ≡ b [mod n]) (h₂ : b ≡ c [mod n]) : a ≡ c [mod n] :=
+lemma mod_trans (h₁ : a ≡ b [mod n]) (h₂ : b ≡ c [mod n]) :
+a ≡ c [mod n] :=
 begin
   rw mod_def at *,
   rw (show c - a = (c - b) + (b - a), by linarith),

@@ -31,10 +31,12 @@ lemma mod_def : a ≡ b [mod n] ↔ n ∣ b - a := by refl -- hide
 
 /-
 For example, we will prove that `45 ≡ 17 [mod 7]`. The first two lines of the proof are
-unnecessary but may be helpful in understanding how to apply definitions.#check
+unnecessary but may be helpful in understanding how to apply definitions.
 
 In the first line, we rewrite `⊢ 45 ≡ 17 [mod 7]` using the definition of congruence to give
-`⊢ 7 ∣ 45 - 17`. Using the definition of divisibility, this becomes `⊢ ∃ (m : ℤ), 45 - 17 = 7 * m`.
+`⊢ 7 ∣ 45 - 17`.
+
+Using the definition of divisibility, this becomes `⊢ ∃ (m : ℤ), 45 - 17 = 7 * m`.
 
 To prove this existentially-quantified statement, we take `m` to be `4`. The result follows by
 arithmetic.
