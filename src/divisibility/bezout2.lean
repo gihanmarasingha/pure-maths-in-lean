@@ -26,17 +26,17 @@ example : 0 ≤ a ∨ 0 ≤ -a := nonneg_or_nonneg_neg' a
 For all integers $a$ and $b$, there exists a non-negative integer $d$ such that
 $d$ is a greatest common divisor of $a$ and $b$.
 -/
-lemma bezout : ∃ (d s t : ℤ), (greatest_common_divisor d a b ∧ 0 ≤ d) ∧ (d = a * s + b * t) :=
+lemma bezout : ∃ (d s t : ℤ), greatest_common_divisor d a b ∧ 0 ≤ d ∧ (d = a * s + b * t) :=
 begin
   rcases bezout1 a b with ⟨e, u, v, hgcd, heq⟩,
   cases (nonneg_or_nonneg_neg' e) with ha hna,
   { use [e, u, v],
-    exact ⟨⟨hgcd, ha⟩, heq⟩ },
+    exact ⟨hgcd, ha, heq⟩ },
   { use [-e, -u, -v],
     have h₂ : greatest_common_divisor (-e) a b, from gcd_neg hgcd,
-    split,
-    { exact ⟨h₂, hna⟩ },
-    { linarith, }, },
+    exact ⟨h₂, hna, by linarith⟩, },
+
+
 
 
 

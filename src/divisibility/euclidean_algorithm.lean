@@ -87,16 +87,20 @@ end
 Adapt the proof above to show that $\gcd(340, 23) = 1$.
 -/
 
+#eval 14 * 23
+
 /- Lemma : no-side-bar
 $\gcd(340, 23) = 1$
 -/
-lemma three_forty_gcd_23 : gcd 240 23 = 1 :=
+lemma three_forty_gcd_23 : gcd 340 23 = 1 :=
 begin
-  calc gcd 240 23
-      = gcd 23 10 : euclid_basic 10 23 10
-  ... = gcd 10  3 : euclid_basic 2 10 3
-  ... = gcd  3  1 : euclid_basic 3 3 1
-  ... = gcd  1  0 : euclid_basic 3 1 0
+  calc gcd 340 23
+      = gcd 23 18 : euclid_basic 14 23 18
+  ... = gcd 18  5 : euclid_basic  1 18  5
+  ... = gcd  5  3 : euclid_basic  3  5  3
+  ... = gcd  3  2 : euclid_basic  1  3  2
+  ... = gcd  2  1 : euclid_basic  1  2  1
+  ... = gcd  1  0 : euclid_basic  2  1  0
   ... = 1         : gcd_zero 1,
 end
 

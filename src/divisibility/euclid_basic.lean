@@ -18,14 +18,14 @@ noncomputable theory -- hide
 -- begin hide
 lemma gcd_exists (a b : ℤ) : ∃ (d : ℤ), (greatest_common_divisor d a b ∧ 0 ≤ d) :=
 begin
-  rcases bezout a b with ⟨d, s, t, h, h₂⟩,
-  use d,
-  exact h,
+  rcases bezout a b with ⟨d, s, t, h, h₂, h₃⟩,
+  exact ⟨d, h, h₂⟩,
 end
-
 -- end hide
 
 noncomputable def gcd (a b : ℤ) := classical.some (gcd_exists a b) -- hide
+
+noncomputable def egcd (a b : ℤ) := classical.some (bezout a b) -- hide
 
 /- Axiom : greatest_common_divisor_gcd
 (greatest_common_divisor (gcd a b) a b) ∧ (0 ≤ gcd a b)
@@ -34,6 +34,12 @@ lemma greatest_common_divisor_gcd (a b : ℤ) : (greatest_common_divisor (gcd a 
 begin -- hide
   apply @classical.some_spec _ (λ d, (greatest_common_divisor d a b) ∧ (0 ≤ d)), -- hide
 end -- hide
+
+example (a b : ℤ) : ∃ (s t : ℤ), (greatest_common_divisor (egcd a b) a b) ∧ (0 ≤ egcd a b) ∧ (egcd a b = a * s + b * t):= -- hide
+begin -- hide
+  apply @classical.some_spec _ (λ d, ∃ s t, (greatest_common_divisor d a b) ∧ (0 ≤ d) ∧ d = a * s + b * t), -- hide
+end -- hide
+
 
 /-
 The lemma `greatest_common_divisor_gcd` asserts that `gcd a b` is a greatest common divisor of `a`
