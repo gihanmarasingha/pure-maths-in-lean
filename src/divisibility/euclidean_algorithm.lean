@@ -33,7 +33,7 @@ $100 = 14 \times 7 + 2$.
 
 
 /- Axiom : gcd_eq_greatest_common_divisor
-If d is a greatest common divisor of a and b and if 0 ≤ d, then gcd a b = d.
+ (h₁ : greatest_common_divisor d a b) (h₂ : 0 ≤ d) : gcd a b = d
 -/
 -- begin hide
 lemma gcd_eq_greatest_common_divisor {a b d : ℤ} (h₁ : greatest_common_divisor d a b) (h₂ : 0 ≤ d) : gcd a b = d :=
@@ -52,7 +52,7 @@ $\gcd(a,b) = d$.
 example (h₁ : greatest_common_divisor d a b) (h₂ : 0 ≤ d) : gcd a b = d :=
 gcd_eq_greatest_common_divisor h₁ h₂
 
-/- Axiom : gcd_zero
+/- Axiom : gcd_zero (a : ℤ) : 
 gcd a 0 = abs a
 -/
 -- begin hide

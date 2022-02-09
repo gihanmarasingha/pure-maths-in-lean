@@ -27,7 +27,7 @@ noncomputable def gcd (a b : ℤ) := classical.some (gcd_exists a b) -- hide
 
 noncomputable def egcd (a b : ℤ) := classical.some (bezout a b) -- hide
 
-/- Axiom : greatest_common_divisor_gcd
+/- Axiom : greatest_common_divisor_gcd (a b : ℤ) :
 (greatest_common_divisor (gcd a b) a b) ∧ (0 ≤ gcd a b)
 -/
 lemma greatest_common_divisor_gcd (a b : ℤ) : (greatest_common_divisor (gcd a b) a b) ∧ (0 ≤ gcd a b) := -- hide

@@ -19,7 +19,7 @@ open int -- hide
 variables {a b d : ℤ} -- hide
 
 /- Axiom : neg_dvd_of_dvd
-Given d ∣ a, -d ∣ a follows.
+(h : d ∣ a) : -d ∣ a
 -/
 lemma neg_dvd_of_dvd (h : d ∣ a) : -d ∣ a :=
 begin
@@ -43,7 +43,7 @@ begin
 end
 
 /- Axiom : dvd_neg_of_dvd
-Given d ∣ a, d ∣ -a follows.
+(h : d ∣ a) : d ∣ -a
 -/
 lemma dvd_neg_of_dvd (h : d ∣ a) : d ∣ -a :=
 begin

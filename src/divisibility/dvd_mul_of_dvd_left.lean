@@ -29,8 +29,8 @@ Below, I present a proof that given `h₁ : a ∣ b` and `h₂ : a ∣ c`, then 
 
 variables {a b c d : ℤ} -- hide
 
-/- Axiom : dvd_add (a b c : ℤ) (h₁ : a ∣ b) (h₂ : a ∣ c) :
-a ∣ b + c
+/- Axiom : dvd_add (a b c : ℤ)
+(h₁ : a ∣ b) (h₂ : a ∣ c) : a ∣ b + c
 -/
 theorem dvd_add (h₁ : a ∣ b) (h₂ : a ∣ c) : a ∣ b + c :=
 begin
