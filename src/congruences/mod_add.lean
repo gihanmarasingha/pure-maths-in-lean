@@ -12,7 +12,7 @@ variables {a b c d n : ℤ} -- hide
 
 /-
 ### Tasks
-* Given `a ≡ b [MOD n]` and `c ≡ d [MOD n]`, show `a + c ≡ b + d [MOD n]`. As in the previous level, you can prove
+* Given `a ≡ b [MOD n]` and `c ≡ d [MOD n]`, show `a + c ≡ b + d [MOD n]`. As before, you can prove
 this using an appropriate divisibilty lemma.
 
 * Write the same proof by hand.

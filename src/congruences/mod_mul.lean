@@ -15,6 +15,20 @@ variables {a b c d n : ℤ} -- hide
 * Given `a ≡ b [MOD n]` and `c ≡ d [MOD n]`, show `a * c ≡ b * d [MOD n]`.
 
 * Write the same proof by hand.
+
+The nicest way to do this is by using two different divisibility results.
+-/
+
+/- Hint: Starting the proof
+As before, start by converging the congruences to divisibility statements using `rw mod_def at *`.
+-/
+
+/- Hint: A cunning rewrite
+Your next task is to rewrite the goal from `n ∣ b * d - a * c` to something of the form
+`n ∣ p + q`, for appropriate `p` and `q`. You can then use `apply dvd_add`.
+
+You should then `apply` another of the divisibility results to each of the
+resulting goals.
 -/
 
 
