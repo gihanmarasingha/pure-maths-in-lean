@@ -33,12 +33,26 @@ It remains to *find* an `m` that works. Let's use `2`. After that, we must prove
 this follows by definition of multiplication. A `norm_num` proof works.
 -/
 
+/- Tactic : use
+If the goal is `⊢ ∃ (x : α), P x` and if `y : α`, then `use y` changes the goal to
+`⊢ P y`.
+
+### Example
+With a goal `⊢ ∃ (x : ℤ), x + 5 = 23`, typing `use 18` changes the goal to `⊢ 18 + 5 = 23`.
+-/
+
 example : (5 : ℤ) ∣ 10 :=
 begin
   rw dvd_def,
   use 2,
   norm_num,
 end
+
+/- Tactic : norm_num
+
+The `norm_num` tactic proves numerical goals. For example, it will close the goal
+`⊢ 10 * 3 + 5 = 37 - 7`
+-/
 
 /-
 If you were to write the proof 'by hand', you might write the following:

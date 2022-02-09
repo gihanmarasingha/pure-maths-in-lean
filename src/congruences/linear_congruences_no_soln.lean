@@ -49,8 +49,23 @@ begin
   linarith,
 end
 
+/-
+Recall our procedure for finding greatest common divisors.
+-/
 
+lemma sixty_gcd_12 : gcd 60 12 = 12 :=
+begin
+  calc gcd 60 12
+      = gcd 12 0   : euclid_basic 5 12 0
+  ... = 12         : gcd_zero 12,
+end
 
+/-
+### Task
+
+Using the ideas above, together with Bézout's lemma, and any other lemmas you've seen, show that
+there is no $x$ for which  $12 x \equiv 10 \pmod {60}$.
+-/
 
 /- Lemma : no-side-bar
 The congruence $12 x \equiv 10 \pmod {60}$ has no solution for $x$
@@ -61,8 +76,28 @@ begin
   assume h,
   cases h with m hm,
   have h : 10 = 60 * m + 12 * x, linarith,
-  rcases (bezout 60 12) with ⟨d, s, t, h₁, h₂⟩,
-  sorry,
+  rcases (bezout 60 12) with ⟨d, s, t, h₁, h₂, h₃⟩,
+  have h₄ : 12 = d,
+  { rw ←sixty_gcd_12,
+     apply gcd_eq_greatest_common_divisor h₁ h₂, },
+  have h₅ : d ∣ 10,
+  { rw h,
+    apply dvd_mul_add_mul h₁.1.1 h₁.1.2, },
+  rw ←h₄ at h₅,
+
+  cases h₅ with k hk,
+  rw mul_comm at hk,
+  suffices h₆ : (k = 0) ∧ ((0 : ℤ) = 10), linarith,
+  apply division_unique 10 12;
+  tidy,
+
+
+
+
+
+
+
+
 
 
 

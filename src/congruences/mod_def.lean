@@ -1,4 +1,4 @@
-import divisibility.euclid_basic -- hide
+import divisibility.euclidean_algorithm -- hide
 
 /-
 #  Congruences

@@ -27,20 +27,30 @@ Here ia a proof in Lean.
 example : gcd 100 7 = gcd 7 2 := euclid_basic 14 7 2
 
 /-
-In the above proof, note that the arguemnts $14$, $7$, and $2$ correspond to the calculation
+In the above proof, note that the arguments $14$, $7$, and $2$ correspond to the calculation
 $100 = 14 \times 7 + 2$.
 -/
+
 
 /- Axiom : gcd_eq_greatest_common_divisor
 If d is a greatest common divisor of a and b and if 0 ≤ d, then gcd a b = d.
 -/
 -- begin hide
-lemma gcd_eq_greatest_common_divisor (h₁ : greatest_common_divisor d a b) (h₂ : 0 ≤ d) : gcd a b = d :=
+lemma gcd_eq_greatest_common_divisor {a b d : ℤ} (h₁ : greatest_common_divisor d a b) (h₂ : 0 ≤ d) : gcd a b = d :=
 begin
   rcases (greatest_common_divisor_gcd a b) with ⟨hxgreat, hxnn⟩,
   exact uniqueness_of_greatest_common_divisor hxnn h₂ hxgreat h₁,
 end
 -- end hide
+
+/-
+In later worlds, we'll have occasion to use the lemma `gcd_eq_greatest_common_divisor`. This states
+that if $d$ is a greatest common divisor of $a$ and $b$ and if $d$ is non-negative, then
+$\gcd(a,b) = d$.
+-/
+
+example (h₁ : greatest_common_divisor d a b) (h₂ : 0 ≤ d) : gcd a b = d :=
+gcd_eq_greatest_common_divisor h₁ h₂
 
 /- Axiom : gcd_zero
 gcd a 0 = abs a
@@ -48,7 +58,7 @@ gcd a 0 = abs a
 -- begin hide
 lemma gcd_zero : gcd a 0 = abs (a) :=
 begin
-  refine gcd_eq_greatest_common_divisor _ _ _ _ (abs_nonneg a),
+  refine gcd_eq_greatest_common_divisor  _ (abs_nonneg a),
   rcases abs_cases a with ⟨habs, hineq⟩ | ⟨habs, hineq⟩; rw habs,
   { apply greatest_common_divisor_zero, },
   { split,

@@ -461,7 +461,20 @@ begin
   { rw [nat_to_mynat, succ_add', ih, nat.succ_add, nat_to_mynat], },
 end
 
+lemma mynat_to_nat_add_hom (x y : mynat) : (mynat_to_nat x) + (mynat_to_nat y) = mynat_to_nat (x + y) :=
+begin
+  induction x with k ih,
+  { rw [mynat_to_nat, nat.zero_add, zero_eq_zero, zero_add'], },
+  { rw [mynat_to_nat, nat.succ_add, ih, succ_add', mynat_to_nat], },
+end
+
 lemma nat_to_mynat_pred (n : nat) : nat_to_mynat n.pred = (nat_to_mynat n).pred :=
+begin
+  induction n with k ih;
+  refl,
+end
+
+lemma mynat_to_nat_pred (n : mynat) : mynat_to_nat n.pred = (mynat_to_nat n).pred :=
 begin
   induction n with k ih;
   refl,
@@ -472,6 +485,13 @@ begin
   induction y with k ih,
   { rw [nat_to_mynat, nat.sub_zero, zero_eq_zero, mynat.sub_zero], },
   { rw [nat_to_mynat, sub_succ, ih, nat.sub_succ, nat_to_mynat_pred], }
+end
+
+lemma mynat_to_nat_sub_hom (x y : mynat) : (mynat_to_nat x) - (mynat_to_nat y) = mynat_to_nat (x - y) :=
+begin
+  induction y with k ih,
+  { rw [mynat_to_nat, nat.sub_zero, zero_eq_zero, mynat.sub_zero], },
+  { rw [mynat_to_nat, nat.sub_succ, ih, sub_succ, mynat_to_nat_pred], }
 end
 
 lemma nat_to_mynat_mul_hom (x y : nat) : (nat_to_mynat x) * (nat_to_mynat y) = nat_to_mynat(x * y) :=

@@ -420,6 +420,8 @@ protected lemma one_mul : ∀ (a : ℤ), (1 : ℤ) * a = a
 protected lemma mul_one (a : ℤ) : a * 1 = a :=
 by rw [myint.mul_comm, myint.one_mul]
 
+end multiplication
+
 protected lemma zero_ne_one : (0 : myint) ≠ 1 :=
 begin
   intro h,
@@ -431,7 +433,6 @@ def int_to_myint : int → myint
 | (int.of_nat n)          := myint.of_nat (nat_to_mynat n)
 | (int.neg_succ_of_nat n) := myint.neg_succ_of_nat (nat_to_mynat n)
 
-
 def myint_to_int : myint → int
 | (of_nat n)          := int.of_nat (mynat_to_nat n)
 | (neg_succ_of_nat n) := int.neg_succ_of_nat (mynat_to_nat n)
@@ -442,7 +443,6 @@ begin
   induction n;
   { rw [int_to_myint, myint_to_int, mynat_to_nat_nat_to_mynat], },
 end
-
 
 lemma int_to_myint_myint_to_int (n : myint) : int_to_myint (myint_to_int n) = n :=
 begin
@@ -456,7 +456,35 @@ begin
   rw [←int_to_myint_myint_to_int a, h, int_to_myint_myint_to_int],
 end
 
-end multiplication
+def myint_le (a b : myint) := myint_to_int a ≤ myint_to_int b
+
+lemma mynat_to_int_of_nat (a : mynat) : myint_to_int (of_nat a) = int.of_nat (mynat_to_nat a) := rfl
+
+lemma mynat_to_int_neg_succ_of_nat (a : mynat) :
+  myint_to_int (neg_succ_of_nat a) = int.neg_succ_of_nat (mynat_to_nat a) := rfl
+/- 
+lemma dfdf (a b : mynat) :
+sub_nat_nat a b = int_to_myint (int.sub_nat_nat (mynat_to_nat a) (mynat_to_nat b)):=
+begin
+  sorry,
+end
+
+lemma myint_to_int_add : ∀ (a b : myint), myint_to_int (a + b) = myint_to_int a + myint_to_int b
+| (of_nat m) (of_nat n) := by { simp only [of_nat_add_of_nat, mynat_to_int_of_nat,
+    ←mynat_to_nat_add_hom, int.coe_nat_add, int.of_nat_eq_coe], }
+| (of_nat m) -[1+ n]    := by { simp only [mynat_to_int_of_nat, mynat_to_int_neg_succ_of_nat, of_nat_add_neg_succ_of_nat],
+  induction n with k ih,
+  { rw mynat_to_nat, rw dfdf, 
+    rw myint_to_int_int_to_myint, },
+  { sorry, }
+
+
+
+ }
+| -[1+ m]    (of_nat n) := sorry
+| -[1+ m]    -[1+ n]    := sorry -/
+
+instance : has_le myint := ⟨myint_le⟩
 
 end myint
 

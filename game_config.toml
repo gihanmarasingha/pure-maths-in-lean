@@ -1,5 +1,5 @@
 name = "Pure Mathematics with Lean"
-version = "1.1.2"
+version = "1.2.0"
 extra_files = "extras"
 intro = "src/game/intro.lean"
 
@@ -60,3 +60,21 @@ levels = [
 	"src/divisibility/euclid_basic.lean",
 	"src/divisibility/euclidean_algorithm.lean",
 ]
+
+
+[[worlds]]
+name = "Congruences"
+id = 4
+parents = [3]
+levels = [
+	"src/congruences/mod_def.lean",
+	"src/congruences/reduction1.lean",
+	"src/congruences/mod_refl_symm.lean",
+	"src/congruences/mod_trans.lean",
+	"src/congruences/mod_mul_right.lean",
+	"src/congruences/mod_add.lean",
+	"src/congruences/mod_mul.lean",
+	"src/congruences/linear_congruences_no_soln.lean",
+	"src/congruences/reduction2.lean",
+]
+

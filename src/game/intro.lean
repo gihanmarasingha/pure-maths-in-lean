@@ -1,5 +1,5 @@
 /-
-# Pure mathematics with Lean, version 1.1.2
+# Pure mathematics with Lean, version 1.2.0
 
 ## By Gihan Marasingha
 
