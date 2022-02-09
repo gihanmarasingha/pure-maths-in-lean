@@ -62,7 +62,7 @@ which every occurrence of `x` is replaced with `succ k`.
 -/
 
 
-/- Example : linarith
+/- Tactic : linarith
 `linarith` proves many 'algebraic' equations and inequalities. For example, it can prove
 `(x + y) ^ 2 = x ^ 2 + 2 * x * y + y ^ 2`. It can pr
 -/
