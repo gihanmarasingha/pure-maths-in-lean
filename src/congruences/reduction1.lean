@@ -3,7 +3,7 @@ import congruences.mod_def -- hide
 /-
 #  Congruences
 
-## Level 2: Reduction of a congruence
+## Level 2: Reduction of an integer modulo $n$
 -/
 
 namespace exlean -- hide

@@ -1,9 +1,9 @@
-import congruences.mod_refl_symm -- hide
+import congruences.modeq_zero_iff   -- hide
 
 /-
 #  Congruences
 
-## Level 5: Multiplying a congruence on the right
+## Level 6: Multiplying a congruence on the right
 -/
 
 

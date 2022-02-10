@@ -1,9 +1,9 @@
-import congruences.mod_mul_right -- hide
+import congruences.mod_add -- hide
 
 /-
 #  Congruences
 
-## Level 7: Multiplying congruences
+## Level 8: Multiplying congruences
 -/
 
 namespace exlean -- hide
@@ -35,7 +35,7 @@ resulting goals.
 /- Theorem :
 Given `a ≡ b [MOD n]` and `c ≡ d [MOD n]`, the congruence `a * c ≡ b * d [MOD n]` follows.
 -/
-lemma mod_add (h₁ : a ≡ b [MOD n]) (h₂ : c ≡ d [MOD n]) :
+lemma mod_mul (h₁ : a ≡ b [MOD n]) (h₂ : c ≡ d [MOD n]) :
 a * c ≡ b * d [MOD n] :=
 begin
   rw mod_def at *,

@@ -3,7 +3,7 @@ import congruences.mod_mul_right -- hide
 /-
 #  Congruences
 
-## Level 6: Adding congruences
+## Level 7: Adding congruences
 -/
 
 namespace exlean -- hide
