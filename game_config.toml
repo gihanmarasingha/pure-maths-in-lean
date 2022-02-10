@@ -39,7 +39,7 @@ levels = [
 [[worlds]]
 name = "Divisibility"
 id = 3
-parents = [1]
+parents = [2]
 levels = [
 	"src/divisibility/dvd_definition.lean",
 	"src/divisibility/dvd_refl.lean",

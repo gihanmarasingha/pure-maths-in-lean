@@ -1,4 +1,4 @@
-import tactic.linarith tactic.ring_exp strong_induction.basic -- hide
+import tactic.linarith tactic.ring_exp strong_induction.introduction-- hide
 
 /-
 # Strong Induction
