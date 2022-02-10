@@ -3,7 +3,7 @@ import tactic.linarith divisibility.basic_bezout strong_induction.well_ordering_
 /-
 # Divisibility
 
-## Level 14: Bézout's lemma (version 1)
+## Level 17: Bézout's lemma (version 1)
 -/
 
 namespace exlean -- hide

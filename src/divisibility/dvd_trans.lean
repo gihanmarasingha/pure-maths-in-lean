@@ -3,7 +3,7 @@ import tactic.linarith divisibility.dvd_mul_add_mul-- hide
 /-
 #  Divisibility
 
-## Level 6: Transtivity of divisibility
+## Level 8: Transtivity of divisibility
 -/
 
 namespace exlean --hide

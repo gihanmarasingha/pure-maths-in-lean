@@ -1,9 +1,9 @@
-import tactic.linarith divisibility.dvd_refl -- hide
+import tactic.linarith divisibility.dvd_zero -- hide
 
 /-
 #  Divisibility
 
-## Level 3: A multiplication lemma
+## Level 4: A multiplication lemma
 -/
 
 namespace exlean --hide

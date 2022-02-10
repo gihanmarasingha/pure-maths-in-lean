@@ -3,7 +3,7 @@ import tactic.linarith divisibility.mul_dvd_mul -- hide
 /-
 #  Divisibility
 
-## Level 5: Divisibility of linear combinations
+## Level 7: Divisibility of linear combinations
 -/
 
 namespace exlean --hide
@@ -30,12 +30,35 @@ linear combination of `b` and `c`. That is, `a ∣ b * s + c * t`, for all integ
 * Write the same proof by hand.
 -/
 
-/- Hint : Writing a backward proof
-If you were writing this proof by hand, you might start by saying that is suffices (by `dvd_add`)
-to prove `a ∣ b * s` and `a ∣ c * t`. To do this in Lean, type `apply dvd_add`.
+/-
+If you were writing this proof by hand, you might start by saying that it suffices (by `dvd_add`)
+to prove `a ∣ b * s` and `a ∣ c * t`. To do this in Lean, type `apply dvd_add`. Here's an
+example of this kind of reasoning.
 -/
 
-variables {a b c s t : ℤ} -- hide
+variables {a b c d s t : ℤ} -- hide
+
+example (h₁ : a ∣ b) (h₂ : a ∣ c) (h₃ : a ∣ d) : a ∣ (b + c) + d :=
+begin
+  apply dvd_add, -- 2 goals `⊢ a ∣ b + c` and `⊢ a ∣ d`
+  { -- 1) `⊢ a ∣ b + c` 
+    apply dvd_add, -- 2 goals `⊢ a ∣ b` and `⊢ a ∣ c`
+    { -- 1.1) `⊢ a ∣ b`
+      exact h₁, }, -- This follows from `h₁`.
+    { -- 1.2) `⊢ a ∣ c`
+      exact h₂, }, }, -- This follows from `h₂`.
+  { -- 2) `⊢ a ∣ d`.
+    exact h₃, }, -- This follows from `h₃`.
+end
+
+/- Tactic : apply
+Most theorems have conditions under which they hold. For example, `dvd_add` states that
+`a ∣ b + c` given the conditions `a ∣ b` and `a ∣ c`. If the target is `⊢ a ∣ b + c`, then
+typing `apply dvd_add` creates two new goals: (1) to prove `a ∣ b` and (2) to prove `a ∣ c`.
+
+The use of `apply` can be shortened. If the hypotheses `h₁ : a ∣ b` and `h₂ : a ∣ c` are in the
+context, then the target `a ∣ b + c` can be proved with `apply h₁ h₂`.
+-/
 
 /- Theorem :
 Given `h₁ : a ∣ b` and `h₂ : a ∣ c`, we have `a ∣ b * s + c * t`, for all integers `s` and `t`.

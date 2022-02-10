@@ -2,7 +2,7 @@ import tactic.linarith divisibility.bezout -- hide
 /-
 # Divisibility
 
-## Level 15: The negative of a greatest common divisor
+## Level 18: The negative of a greatest common divisor
 -/
 
 namespace exlean -- hide

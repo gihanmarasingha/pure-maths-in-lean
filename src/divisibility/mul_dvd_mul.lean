@@ -1,9 +1,9 @@
-import tactic.linarith divisibility.dvd_mul_of_dvd_left -- hide
+import tactic.linarith divisibility.zero_dvd_iff-- hide
 
 /-
 #  Divisibility
 
-## Level 4: A second multiplication lemma
+## Level 6: A second multiplication lemma
 -/
 
 namespace exlean --hide

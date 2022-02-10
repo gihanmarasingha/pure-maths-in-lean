@@ -3,7 +3,7 @@ import tactic.linarith divisibility.gcd_zero -- hide
 /-
 # Divisibility
 
-## Level 12: Commutativity of greatest common divisor
+## Level 14: Commutativity of greatest common divisor
 -/
 
 namespace exlean -- hide

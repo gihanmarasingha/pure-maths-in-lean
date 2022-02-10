@@ -3,7 +3,7 @@ import tactic.linarith divisibility.bezout2  -- hide
 /-
 # Divisibility
 
-## Level 17: The Euclidean algorithm - basic step
+## Level 20: The Euclidean algorithm - basic step
 -/
 
 namespace exlean -- hide
@@ -55,17 +55,17 @@ open int -- hide
 variables {a : ℤ}  -- hide
 
 /- Theorem :
-Suppose $a$, $b$, $q$, $r$ are integers and that $a = qb + r$.
+Suppose $a$, $b$, $q$, $r$ are integers and that $a = bq + r$.
 
 Then $\gcd(a, b) = \gcd(b, r)$.
 -/
-lemma euclid_basic (q b r : ℤ) : gcd (q * b + r) b = gcd b r:=
+lemma euclid_basic (b q r : ℤ) : gcd (b * q + r) b = gcd b r:=
 begin
   /- hint
-  set a := q * b + r with h,
+  set a := b * q + r with h,
   rcases (greatest_common_divisor_gcd a b) with ⟨⟨⟨hxa, hxb⟩, hxgreat⟩, hxnn⟩,
   -/
-  set a := q * b + r with h,
+  set a := b * q + r with h,
   rcases (greatest_common_divisor_gcd a b) with ⟨⟨⟨hxa, hxb⟩, hxgreat⟩, hxnn⟩,
   rcases (greatest_common_divisor_gcd b r) with ⟨⟨⟨hyb, hyr⟩, hygreat⟩, hynn⟩,
   apply dvd_antisymm,
@@ -81,7 +81,7 @@ begin
   { specialize hxgreat (gcd b r),
     apply hxgreat,
     split,
-    { rw [h, mul_comm],
+    { rw h,
       apply dvd_add (dvd_mul_of_dvd_left hyb _) hyr, },
     { exact hyb, }, },
 

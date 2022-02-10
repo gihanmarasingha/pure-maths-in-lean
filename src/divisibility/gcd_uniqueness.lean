@@ -3,7 +3,7 @@ import tactic.linarith divisibility.common_divisors2  -- hide
 /-
 # Divisibility
 
-## Level 10: Greatest common divisors
+## Level 12: Greatest common divisors
 -/
 
 namespace exlean -- hide
@@ -28,7 +28,12 @@ Show that if the non-negative integers `d` and `e` are both greatest common divi
 then `d = e`.
 -/
 
-variables {d e m n : ℤ}
+variables {d e m n : ℤ} -- hide
+
+/- Hint : Proving an equality
+Recall that `apply dvd_antisymm k₁ k₂,` will reduce the goal to two goals (1) `⊢ d ∣ e` and
+(2) `⊢ e ∣ d`.
+-/
 
 /- Theorem :
 If the non-negative integers `d` and `e` are both greatest common divisors of `m` and `n`,
@@ -38,11 +43,20 @@ theorem uniqueness_of_greatest_common_divisor (k₁ : 0 ≤ d) (k₂ : 0 ≤ e)
 (h₁ : greatest_common_divisor d m n )
 (h₂ : greatest_common_divisor e m n) : d = e :=
 begin
-  have h₃ : d ∣ e,
-  { exact h₂.right d h₁.left, },
-  have h₄ : e ∣ d,
-  { exact h₁.right e h₂.left, },
-  apply dvd_antisymm k₁ k₂ h₃ h₄,
+  cases h₁ with hdcomm hdgreat,
+  cases h₂ with hecomm hegreat,
+  apply dvd_antisymm k₁ k₂,
+  { specialize hegreat d,
+    apply hegreat hdcomm, },
+  { specialize hdgreat e,
+    apply hdgreat hecomm, },
+
+
+
+
+
+
+
 
 
 

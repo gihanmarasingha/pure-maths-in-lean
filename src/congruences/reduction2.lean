@@ -1,5 +1,4 @@
-import congruences.mod_add -- hide
-
+import congruences.mod_add-- hide
 /-
 #  Congruences
 
@@ -26,13 +25,17 @@ begin
   use r,
   split,
   { rw hn,
-    have h₂ : m * n + r ≡ 0 + r [MOD n],
+    have h₂ : n * m + r ≡ 0 + r [MOD n],
     { apply mod_add,
       { use -m,
         linarith, },
       { apply mod_refl, }, },
     rwa zero_add at h₂, },
   exact hrange,
+
+
+
+
 
 
 

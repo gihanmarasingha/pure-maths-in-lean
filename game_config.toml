@@ -43,7 +43,9 @@ parents = [1]
 levels = [
 	"src/divisibility/dvd_definition.lean",
 	"src/divisibility/dvd_refl.lean",
+	"src/divisibility/dvd_zero.lean",
 	"src/divisibility/dvd_mul_of_dvd_left.lean",
+	"src/divisibility/zero_dvd_iff.lean",
 	"src/divisibility/mul_dvd_mul.lean",
 	"src/divisibility/dvd_mul_add_mul.lean",
 	"src/divisibility/dvd_trans.lean",
@@ -54,6 +56,7 @@ levels = [
 	"src/divisibility/gcd_zero.lean",
 	"src/divisibility/gcd_comm.lean",
 	"src/divisibility/division.lean",
+	"src/divisibility/non_division.lean",
 	"src/divisibility/bezout.lean",
 	"src/divisibility/gcd_neg.lean",
 	"src/divisibility/bezout2.lean",

@@ -2,7 +2,7 @@ import tactic.linarith divisibility.gcd_neg -- hide
 /-
 # Divisibility
 
-## Level 16: Bézout's lemma (version 2)
+## Level 19: Bézout's lemma (version 2)
 -/
 
 namespace exlean -- hide

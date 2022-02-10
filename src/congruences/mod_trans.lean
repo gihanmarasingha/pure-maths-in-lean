@@ -19,7 +19,7 @@ result you've already seen concerning divisibility.
 -/
 
 /-
-As an example of the kind of technique you'll need, we'll show a proof that $a \mid b + 2c + d$
+As an example of the kind of technique you'll need, we'll give a proof that $a \mid b + 2c + d$
 given $h_1 : a \mid b + c$ and $h_2 : a \mid c + d$.
 
 First we note $h_3 : b + 2c + d = (b + c) + (c + d)$. Rewriting with $h_3$, the goal becomes
@@ -29,15 +29,6 @@ from $h_1$ and the second from $h_2$.
 
 Note the use of the `apply` tactic to construct new goals from the conditions of the `dvd_add`
 theorem.
--/
-
-/- Tactic : apply
-Most theorems have conditions under which they hold. For example, `dvd_add` states that
-`a ∣ b + c` given the conditions `a ∣ b` and `a ∣ c`. If the target is `⊢ a ∣ b + c`, then
-typing `apply dvd_add` creates two new goals: (1) to prove `a ∣ b` and (2) to prove `a ∣ c`.
-
-The use of `apply` can be shortened. If the hypotheses `h₁ : a ∣ b` and `h₂ : a ∣ c` are in the
-context, then the target `a ∣ b + c` can be proved with `apply h₁ h₂`.
 -/
 
 example (h₁ : a ∣ b + c) (h₂ : a ∣ c + d) : a ∣ b + 2 * c + d :=

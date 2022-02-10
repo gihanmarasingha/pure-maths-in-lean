@@ -3,7 +3,7 @@ import tactic.linarith divisibility.euclid_basic  -- hide
 /-
 # Divisibility
 
-## Level 18: The Euclidean algorithm
+## Level 21: The Euclidean algorithm
 -/
 
 namespace exlean -- hide
@@ -19,16 +19,16 @@ variables (a b d q r x y: ℤ)  -- hide
 /-
 As an example, we'll compute $\gcd(100,7)$. As a first step, we'll use `euclid_basic` to justify
 the assertion that $\gcd(100,7) = \gcd(7, 2)$. The reason for this is that 
-$100 = 14 \times 7 + 2$, so $\gcd(14\times 7 + 2, 7) = \gcd(7, 2)$, by `euclid_basic`.
+$100 = 7 \times 14 + 2$, so $\gcd(7 \times 14 + 2, 7) = \gcd(7, 2)$, by `euclid_basic`.
 
 Here ia a proof in Lean.
 -/
 
-example : gcd 100 7 = gcd 7 2 := euclid_basic 14 7 2
+example : gcd 100 7 = gcd 7 2 := euclid_basic 7 14 2
 
 /-
-In the above proof, note that the arguments $14$, $7$, and $2$ correspond to the calculation
-$100 = 14 \times 7 + 2$.
+In the above proof, note that the arguments  $7$, $14$, and $2$ correspond to the calculation
+$100 = 7 \times 14 + 2$.
 -/
 
 
@@ -64,8 +64,7 @@ begin
   { split,
     { split,
       { rw neg_dvd, },
-      { use 0,
-        rw mul_zero, }, },
+      { apply dvd_zero, }, },
     { rintros e ⟨ha, _⟩,
       apply dvd_neg_of_dvd ha, }, },
 end
@@ -85,9 +84,9 @@ Below is a Lean proof that 1 is a greatest common divisor of 7 and 100.
 example : gcd 100 7 = 1 :=
 begin
   calc gcd 100 7
-      = gcd 7 2 : euclid_basic 14 7 2
-  ... = gcd 2 1 : euclid_basic 3 2 1
-  ... = gcd 1 0 : euclid_basic 2 1 0
+      = gcd 7 2 : euclid_basic 7 14 2
+  ... = gcd 2 1 : euclid_basic 2  3 1
+  ... = gcd 1 0 : euclid_basic 1  2 0
   ... = 1       : gcd_zero 1,
 end
 
@@ -97,20 +96,18 @@ end
 Adapt the proof above to show that $\gcd(340, 23) = 1$.
 -/
 
-#eval 14 * 23
-
 /- Lemma : no-side-bar
 $\gcd(340, 23) = 1$
 -/
 lemma three_forty_gcd_23 : gcd 340 23 = 1 :=
 begin
   calc gcd 340 23
-      = gcd 23 18 : euclid_basic 14 23 18
-  ... = gcd 18  5 : euclid_basic  1 18  5
-  ... = gcd  5  3 : euclid_basic  3  5  3
-  ... = gcd  3  2 : euclid_basic  1  3  2
-  ... = gcd  2  1 : euclid_basic  1  2  1
-  ... = gcd  1  0 : euclid_basic  2  1  0
+      = gcd 23 18 : euclid_basic 23 14 18
+  ... = gcd 18  5 : euclid_basic 18  1  5
+  ... = gcd  5  3 : euclid_basic  5  3  3
+  ... = gcd  3  2 : euclid_basic  3  1  2
+  ... = gcd  2  1 : euclid_basic  2  1  1
+  ... = gcd  1  0 : euclid_basic  1  2  0
   ... = 1         : gcd_zero 1,
 end
 

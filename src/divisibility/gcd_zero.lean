@@ -3,12 +3,19 @@ import tactic.linarith divisibility.gcd_uniqueness -- hide
 /-
 # Divisibility
 
-## Level 11: Greatest common divisor of an integer and zero
+## Level 13: Greatest common divisor of an integer and zero
 -/
 
 namespace exlean -- hide
 
 open int -- hide
+
+
+
+/- Hint : Starting the proof
+Recall that `greatest_common_divisor d a b` is a conjunctive statement. Thus, you can
+split the goal in two using the `split` tactic.
+-/
 
 
 /- Theorem :
@@ -20,12 +27,11 @@ begin
   split,
   { split,
     { apply dvd_refl, },
-    { use 0,
-      linarith, }, },
-  { intros e h,
-    cases h with h₁ h₂,
-    exact h₁, },
-
+    { apply dvd_zero, }, },
+  { assume e : ℤ,
+    assume h : common_divisor e a 0,
+    cases h with hea he0,
+    exact hea, },
 
 
 
