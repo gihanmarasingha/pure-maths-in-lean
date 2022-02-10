@@ -3,7 +3,7 @@ import congruences.condition_for_linear_congruence -- hide
 /-
 #  Congruences
 
-## Level 11: A linear congruence without a solution
+## Level 12: A linear congruence without a solution
 -/
 
 namespace exlean -- hide

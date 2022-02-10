@@ -1,23 +1,25 @@
-import congruences.mod_add-- hide
+import congruences.mod_reduction -- hide
 /-
 #  Congruences
 
-## Level 2: Reduction of a congruence
+## Level 10: Reduction of integers in general
 -/
 
 namespace exlean -- hide
 
 /-
-Let $x$ and $n$ be integers with $n \ne 0$. One can find an integer $a$ in the range $0 \le a < |n|$ such that $x \equiv a \pmod n$.
-This is sometimes called _reduction_ of $x$ modulo $n$.
+We now return to the other meaning of reduction. You will show that for all integers $x$ and $n$
+with $n \ne 0$, there exists an integer $a$ in the range $0 \le a < |n|$ such that
+$x \equiv a \pmod n$.
 
-The statement above has some similarity with the division lemma (see the )
+The statement above has some similarity with the `division` lemma, as seen in Divisibility World.
 -/
 
 variables {x a n : ℤ} -- hide
 
 /- Theorem :
-The relation `≡` is symmetric.
+For every non-zero integer $n$, there exists an integer $a$ such that $x \equiv a \pmod n$ with
+$0 \le a < |n|$.
 -/
 lemma reduction (h : n ≠ 0) : ∃ (a : ℤ), (x ≡ a [MOD n]) ∧ (0 ≤ a) ∧ (a < abs n) :=
 begin

@@ -79,8 +79,9 @@ levels = [
 	"src/congruences/mod_add.lean",
 	"src/congruences/mod_mul.lean",
 	"src/congruences/mod_reduction.lean",
+	"src/congruences/reduction2.lean",
 	"src/congruences/condition_for_linear_congruence.lean",
 	"src/congruences/linear_congruences_no_soln.lean",
-	"src/congruences/reduction2.lean",
+	"src/congruences/solving_a_linear_congruence.lean",
 ]
 

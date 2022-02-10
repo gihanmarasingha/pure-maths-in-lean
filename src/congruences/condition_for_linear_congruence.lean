@@ -1,9 +1,9 @@
-import congruences.mod_reduction  -- hide
+import congruences.reduction2  -- hide
 
 /-
 #  Congruences
 
-## Level 10: A necessary condition for solving a linear congruence
+## Level 11: A necessary condition for solving a linear congruence
 -/
 
 namespace exlean -- hide
