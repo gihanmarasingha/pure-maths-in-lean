@@ -1,10 +1,9 @@
-import tactic.linarith tactic.ring_exp strong_induction.introduction-- hide
+import tactic.linarith tactic.ring_exp strong_induction.basic -- hide
 
 /-
 # Strong Induction
 
 ## Level 2: Strong induction with a different base case
-
 -/
 
 namespace exlean -- hide

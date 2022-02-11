@@ -1,4 +1,4 @@
-import data.set.basic strong_induction.minimal_element -- hide
+import data.set.basic strong_induction.basic -- hide
 
 /-
 # Strong Induction
@@ -30,11 +30,11 @@ is nonempty.
 -/
 
 
-example : set.nonempty {x : ℕ | x ^ 2 + 2 * x = 15} :=
+example : set.nonempty {x : ℕ | x * x + 2 * x = 15} :=
 begin
   use 3,  -- `⊢ 3 ∈ {x : ℕ | x ^ 2 + 2 * x = 15}`
   rw mem_set_of_eq, -- `⊢ 3 ^ 2 + 2 * 3 = 15`
-  norm_num,
+  refl,
 end
 
 
@@ -88,8 +88,7 @@ begin
     push_neg at h₁, 
     assume h₂ : k + 1 ∈ S,
     rcases (h₁ (k.succ)) h₂ with ⟨m, h₃, h₄⟩,
-    rw lt_succ_iff at h₄,
-    specialize ih m h₄,
+    specialize ih m (nat.le_of_succ_le_succ h₄),
     contradiction, },
   apply strong_induction base ind_step,
 

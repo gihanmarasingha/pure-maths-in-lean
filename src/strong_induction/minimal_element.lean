@@ -1,4 +1,4 @@
-import data.set.basic strong_induction.different_base_case -- hide
+import data.set.basic strong_induction.basic tactic.linarith -- hide
 
 /-
 # Strong Induction
@@ -13,7 +13,8 @@ Let $S$ be a set of natural numbers. A natural number $n$ is said to be a _minim
 if $n \in S$ and for every every $m \in S$, $n \le m$.
 -/
 
-def min_element (n : ℕ) (S : set ℕ) := n ∈ S ∧ (∀ (m : ℕ), m ∈ S → n ≤ m)
+example (n : ℕ) (S : set ℕ) (h : min_element n S ) :
+n ∈ S ∧ (∀ (m : ℕ), m ∈ S → n ≤ m) := h
 
 namespace min_element_example -- hide
 
