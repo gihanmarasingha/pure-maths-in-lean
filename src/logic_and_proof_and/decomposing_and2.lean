@@ -7,10 +7,10 @@ import data.int.basic -- hide
 
 ### Nested and
 
-**Theorem**: Let $p$, $q$m and $r$ be propositions. Suppose $h : (p \land q) \land r$. Then $q$ follows.
+**Theorem**: Let $p$, $q$, and $r$ be propositions. Suppose $h : (p \land q) \land r$. Then $q$ follows.
 
 **Proof**: Decomposing $h$ gives $h_{pq} : p \land q$ and $h_r : r$.
-Decomposing $h_{pq}$ gives $h_p : p$ and $h_
+Decomposing $h_{pq}$ gives $h_p : p$ and $h_q : q$.
 
 The same proof can be written in Lean.
 -/
@@ -36,7 +36,7 @@ end
 namespace exlean -- hide
 
 /-
-### Task
+### Tasks
 
 1. Replace `sorry` below with a Lean proof, adapting the proof of the example above.
 2. On a piece of paper, state and give a handwritten proof of this result.

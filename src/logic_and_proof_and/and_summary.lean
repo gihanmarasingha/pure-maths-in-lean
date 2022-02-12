@@ -59,7 +59,7 @@ variables (p q r : Prop)
 Let $p$, $q$, $r$ be propostions. Suppose $h : p \land (q \land r)$. Then $p \land q$ 
 follows.
 -/
-theorem and_summary (p r q : Prop) (h : p ∧ (q ∧ r)) : p ∧ q :=
+theorem and_summary (h : p ∧ (q ∧ r)) : p ∧ q :=
 begin
   cases h with hp hqr,
   cases hqr with hq hr,

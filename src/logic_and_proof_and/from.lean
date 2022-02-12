@@ -75,7 +75,7 @@ end
 namespace exlean -- hide
 
 /-
-### Task
+### Tasks
 
 Now it's your turn!
 
@@ -101,8 +101,8 @@ following the example above.
 Let $x$ and $y$ be integers. Suppose $h_1 : x + y = 3$, $h_2 : x < 0$, and $h_3 : x y = -10$.
 Then $x + y = 3$.
 -/
-theorem easy_proof (x y : ℤ) (h₁ : x + y = 3) (h₂ : x < 0) (h₃ : x * y = -10) :
-x + y = 3 :=
+theorem easy_proof (x y : ℤ) (h₁ : x + y = 3) (h₂ : x < 0)
+(h₃ : x * y = -10) : x + y = 3 :=
 begin
   from h₁,
 

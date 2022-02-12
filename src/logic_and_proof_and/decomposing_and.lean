@@ -21,12 +21,14 @@ two new hypotheses $h₁ : p$ and $h₂ : q$.
 ### Decomposing a hypothesis in Lean
 
 In Lean, we use the `cases` tactic to decompose a compound hypothesis. In the example below, using
-`cases h with h₁ h₂` decomposes the original hypothesis `h : x > 0 ∧ x ^ 2 = 16` into two
-new hypotheses, `h₁ : x > 0` and `h₂ : x ^ 2 = 16`. The target, `⊢ x ^ 2 = 16` is proved using
+`cases h with h₁ h₂` decomposes the original hypothesis `h : x > 0 ∧ x * x = 16` into two
+new hypotheses, `h₁ : x > 0` and `h₂ : x * x = 16`. The target, `⊢ x * x = 16` is proved using
 hypothesis `h₂`.
+
+*Notation*: the symbol `∧` in Lean is typed `\and`.
 -/
 
-example (x : ℤ) (h : (x > 0) ∧ (x ^ 2 = 16)) : x ^ 2 = 16 :=
+example (x : ℤ) (h : (x > 0) ∧ (x * x = 16)) : x * x = 16 :=
 begin
   cases h with h₁ h₂,
   from h₂,
@@ -55,7 +57,7 @@ which every occurrence of `x` is replaced with `succ k`.
 There is nothing special about the choice of hypothesis labels, as seen below.
 -/
 
-example (x : ℤ) (Bob : (x > 0) ∧ (x ^ 2 = 16)) : x ^ 2 = 16 :=
+example (x : ℤ) (Bob : (x > 0) ∧ (x * x = 16)) : x * x = 16 :=
 begin
   cases Bob with alice sameera,
   from sameera,
@@ -64,9 +66,9 @@ end
 namespace exlean -- hide
 
 /-
-### Task
+### Tasks
 
-1. Replace `sorry` bewlow with a Lean proof, adapting the proof of the example above.
+1. Replace `sorry` below with a Lean proof using `cases`. Adapt the proof of the example above.
 2. On a piece of paper, state and give a handwritten proof of this result.
 -/
 

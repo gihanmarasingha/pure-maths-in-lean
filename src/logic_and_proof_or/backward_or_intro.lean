@@ -1,36 +1,43 @@
 import data.int.basic -- hide
 
 /-
-# Logic and Proof (And)
+# Logic and Proof (Or)
 
-## Level 7: Splitting an 'and' target
-
-### Splitting a goal
-
-To prove a target $\vdash (x > 0) \land (x + y = 5)$ is to prove both
-$x > 0$ and $x + y = 5$. That is, the original goal is split into two new goals.
-
-**Theorem**: Let $x$ and $y$ be integers. Suppose $h_1 : x > 0$ and $h_2 : x + y = 5$. Then
-$(x > 0) \land (x + y = 5)$.
-
-**Proof**: It suffices to prove (1) $x > 0$ and (2) $x + y = 5$.
-1. The target $x > 0$ follows from $h_1$.
-2. The target $x + y = 5$ follows from $h_2$.
+## Level 3: Backward or introduction
 -/
 
 
 /-
-The Lean tactic `split` can be used to split an 'and' goal. In the proof below, the text following
-each `--` is a _comment_. Lean ignores comments. Add comments to your Lean proofs to help explain
-your proof ot the reader.
+For a more succinct proof, we can skip the intermediate derivation of $(a=b) \lor (a=7)$.
+
+**Proof**: The result follows by right or introduction applied to the result of
+left or introduction on $h$.
+
+This proof is shorter, but less readable. Here it is in Lean.
 -/
 
-example (x y : ℤ) (h₁ : x > 0) (h₂ : x + y = 5) : (x > 0) ∧ (x + y = 5) :=
+example (a b : ℤ) (h : a = b) : (a = 5) ∨ ((a = b) ∨ (a = 7)) :=
 begin
-  split,
-  from h₁,  -- Proof of x > 0
-  from h₂,  -- Proof of x + y = 5
+  from or.inr (or.inl h)
 end
+
+
+/-
+### Backwards or introduction
+
+A 'backwards proof' of the above result avoids the introduction of additional hypotheses while
+remaining readable.
+
+**Proof**: It suffices, by right or introduction, to prove $(a = b)\lor (a = 7)$.
+This follows from left or introduction on $h$.
+
+Recall right or introduction takes $h : q$ and gives a proof of $p \lor q$. When we use 
+right or introduction backward, we replace the goal of proving $p \lor q$ with the goal of
+proving $q$ (in the same context as the original goal).
+
+In this backward proof, we write 'it suffices to prove' to indicate that the old goal is being
+replaced with a new goal. 
+-/
 
 
 /-
@@ -100,7 +107,8 @@ More usefully, `show` can be used to clarify the target of the goals that arise 
 an 'and' target.
 -/
 
-example (x y : ℤ) (h₁ : x > 0) (h₂ : x + y = 5) : (x > 0) ∧ (x + y = 5) :=
+example (x y : ℤ) (h₁ : x > 0) (h₂ : x + y = 5) :
+(x > 0) ∧ (x + y = 5) :=
 begin
   split,
   show x > 0, from h₁,

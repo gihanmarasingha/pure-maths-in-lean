@@ -31,7 +31,7 @@ end
 namespace exlean -- hide
 
 /-
-### Task
+### Tasks
 
 1. Replace `sorry` below with a one-line Lean proof, adapting the proof of the example above. Your proof
 should use `and.intro` and the `from` tactic.
@@ -44,7 +44,7 @@ variables (p q r : Prop)
 Let $p$, $q$, $r$ be propostions. Suppose $h_1 : p$, $h_2 : q$, and $h_3 : r$. Then $r \land q$ 
 follows.
 -/
-theorem and_intro1 (p r q : Prop) (h₁ : p) (h₂ : q) (h₃ : r) : r ∧ q :=
+theorem and_intro1 (h₁ : p) (h₂ : q) (h₃ : r) : r ∧ q :=
 begin
   from and.intro h₃ h₂,
 

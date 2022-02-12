@@ -78,7 +78,8 @@ namespace exlean -- hide
 /-
 ### Task
 
-1. Replace `sorry` below with a Lean proof, adapting the proof of the example above.
+1. Replace `sorry` below with a Lean proof, adapting the proof of the example above. Remember that
+`∧` is typed `\and`.
 2. On a piece of paper, state and give a handwritten proof of this result.
 3. (Bonus) you should be able to write a one-line proof of this result, using only the `from`
 tactic and elimination rules. Try this!
@@ -89,7 +90,7 @@ variables (p q r : Prop)
 /- Theorem : no-side-bar
 Let $p$, $q$, $r$ be propostions. Suppose $h : p \land (q \land r)$. Then $q$ follows.
 -/
-theorem have_nested_and (p r q : Prop) (h : p ∧ (q ∧ r)) : q :=
+theorem have_nested_and (h : p ∧ (q ∧ r)) : q :=
 begin
   have h₁ : q ∧ r, from h.right,
   from h₁.left,

@@ -26,7 +26,7 @@ In Lean, if `h : p ∧ q`, then `and.elim_right h` (also written `h.right`) is a
 Likwise `and.elim_left h` (or `h.left`) is a proof of `p`.
 -/
 
-example (x : ℤ) (h : (x > 0) ∧ (x ^ 2 = 16)) : x ^ 2 = 16 :=
+example (x : ℤ) (h : (x > 0) ∧ (x * x = 16)) : x * x = 16 :=
 begin
   exact and.elim_right h,
 end
@@ -34,7 +34,7 @@ end
 /-
 The same proof can be given using an alternative notation.
 -/
-example (x : ℤ) (h : (x > 0) ∧ (x ^ 2 = 16)) : x ^ 2 = 16 :=
+example (x : ℤ) (h : (x > 0) ∧ (x * x = 16)) : x * x = 16 :=
 begin
   exact h.right,
 end
@@ -42,7 +42,7 @@ end
 namespace exlean -- hide
 
 /-
-### Task
+### Tasks
 
 1. Replace `sorry` below with a one-line Lean proof, adapting either of the proofs above.
 2. On a piece of paper, state and give a handwritten proof of this result.

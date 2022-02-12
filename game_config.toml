@@ -41,9 +41,19 @@ levels = [
 ]
 
 [[worlds]]
-name = "Strong Induction"
+name = "Logic and Proof (Or)"
 id = 3
-parents = [1, 2]
+parents = [2]
+levels = [
+	"src/logic_and_proof_or/left_right_or_intro.lean",
+	"src/logic_and_proof_or/nested_or.lean",
+	"src/logic_and_proof_or/backward_or_intro.lean",
+]
+
+[[worlds]]
+name = "Strong Induction"
+id = 4
+parents = [1, 3]
 levels = [
 	"src/strong_induction/introduction.lean",
 	"src/strong_induction/different_base_case.lean",
@@ -53,8 +63,8 @@ levels = [
 
 [[worlds]]
 name = "Divisibility"
-id = 4
-parents = [3]
+id = 5
+parents = [4]
 levels = [
 	"src/divisibility/dvd_definition.lean",
 	"src/divisibility/dvd_refl.lean",
@@ -82,8 +92,8 @@ levels = [
 
 [[worlds]]
 name = "Congruences"
-id = 5
-parents = [4]
+id = 6
+parents = [5]
 levels = [
 	"src/congruences/mod_def.lean",
 	"src/congruences/reduction1.lean",
