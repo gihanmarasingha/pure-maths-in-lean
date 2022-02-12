@@ -38,7 +38,8 @@ sorry
 `have` is used to introduce a new hypothesis into the context. It opens a new goal for the proof
 of the hypothesis.
 
-For example, `have h2 : x + y = y + x` introduces a new goal, to prove
+### Example
+`have h2 : x + y = y + x` introduces a new goal, to prove
 `x + y = y + x` while adding the hypothesis `h2 : x + y = y + x` to the context of the old goal.
 -/
 

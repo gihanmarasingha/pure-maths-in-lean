@@ -53,7 +53,7 @@ end
 The `split` tactic splits a 'compound' target into multiple goals. 
 
 For example, `split` turns the target `⊢ p ↔ q` into two goals: (1) to prove
-`p → q` and (2)) to prove `q → p`.
+`p → q` and (2) to prove `q → p`.
 
 Equally, if the target is `⊢ p ∧ q`, then `split` creates goals (1) `⊢ p` and (2) `⊢ q`.
 -/
