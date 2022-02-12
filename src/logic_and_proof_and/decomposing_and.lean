@@ -1,8 +1,7 @@
 import data.int.basic -- hide
 
 /-
-# Logic and Proof
-
+# Logic and Proof (And)
 ## Level 2: Decomposing an 'and' hypothesis
 
 ### And statements

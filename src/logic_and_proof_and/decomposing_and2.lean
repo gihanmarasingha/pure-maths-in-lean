@@ -1,7 +1,7 @@
 import data.int.basic -- hide
 
 /-
-# Logic and Proof
+# Logic and Proof (And)
 
 ## Level 5: Further 'and' decomposition
 
