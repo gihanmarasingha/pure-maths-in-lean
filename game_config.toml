@@ -37,6 +37,7 @@ levels = [
 	"src/logic_and_proof/have.lean",
 	"src/logic_and_proof/split.lean",
 	"src/logic_and_proof/and_introduction.lean",
+	"src/logic_and_proof/and_summary.lean",
 ]
 
 [[worlds]]
