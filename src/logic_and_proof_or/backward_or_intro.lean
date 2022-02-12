@@ -6,14 +6,8 @@ import data.int.basic -- hide
 ## Level 3: Backward or introduction
 -/
 
-
 /-
-For a more succinct proof, we can skip the intermediate derivation of $(a=b) \lor (a=7)$.
-
-**Proof**: The result follows by right or introduction applied to the result of
-left or introduction on $h$.
-
-This proof is shorter, but less readable. Here it is in Lean.
+In the last level, we saw this rather terse proof.
 -/
 
 example (a b : ℤ) (h : a = b) : (a = 5) ∨ ((a = b) ∨ (a = 7)) :=
@@ -21,11 +15,20 @@ begin
   from or.inr (or.inl h)
 end
 
+/-
+We also so a more readable version that requires the introduction of an additional hypothesis.
+-/
+
+example (a b : ℤ) (h : a = b) : (a = 5) ∨ ((a = b) ∨ (a = 7)) :=
+begin
+  have h₁ : (a = b) ∨ (a = 7), from or.inl h,
+  show (a = 5) ∨ ((a = b) ∨ (a = 7)), from or.inr h₁,
+end
 
 /-
-### Backwards or introduction
+### Backward or introduction
 
-A 'backwards proof' of the above result avoids the introduction of additional hypotheses while
+A 'backward proof' of the above result avoids the introduction of additional hypotheses while
 remaining readable.
 
 **Proof**: It suffices, by right or introduction, to prove $(a = b)\lor (a = 7)$.
@@ -36,91 +39,40 @@ right or introduction backward, we replace the goal of proving $p \lor q$ with t
 proving $q$ (in the same context as the original goal).
 
 In this backward proof, we write 'it suffices to prove' to indicate that the old goal is being
-replaced with a new goal. 
--/
-
-
-/-
-Immediately after typing `split,` in the proof above, Lean creates two new goals:
-```
-2 goals
-x y : ℤ,
-h₁ : x > 0,
-h₂ : x + y = 5
-⊢ x > 0
-
-x y : ℤ,
-h₁ : x > 0,
-h₂ : x + y = 5
-⊢ x + y = 5
-```
-
-The _context_ of both goals (the list of hypotheses) is identical. The only difference is
-the target. The line `from h₁,` closes the first goal, leaving only one goal.
-```
-1 goal
-x y : ℤ,
-h₁ : x > 0,
-h₂ : x + y = 5
-⊢ x + y = 5
-```
-We close this final goal with `from h₂,`
--/
-
-/- Tactic : split
-
-The `split` tactic splits a 'compound' target into multiple goals. 
-
-### Examples
-
-`split` turns the target `⊢ p ∧ q` into two goals: (1) `⊢ p` and (2)  `⊢ q`.
-
-Equally, if the target is `⊢ p ↔ q`, split creates the goals (1) to prove
-`p → q` and (2) to prove `q → p`.
+replaced with a new goal.
 -/
 
 /-
-### The `show` tactic
+### Backward or introduction in Lean
 
-Proofs with many goals (espeically nested goals) can become complicated. One way to make clear
-what is being proved is to use the `show` tactic.
-
-Here's a simple proof that `q` follows from the assumptions `h₁ : p` and `h₂ : q`.
+If the target is `⊢ p ∨ q`, the tactic `right` replaces the goal with one of proving `q`.
+Likewise, the tactic `left` replaces the goal with that of proving `p`.
 -/
 
-example (p q: Prop) (h₁ : p) (h₂ : q) : q :=
+example (a b : ℤ) (h : a = b) : (a = 5) ∨ ((a = b) ∨ (a = 7)) :=
 begin
-  from h₂,
+  right,
+  show (a = b) ∨ (a = 7), from or.inl h,
 end
 
 /-
-Using the `show` tactic, we make clear that the line `from h₂` is a proof of `q`.
+We can prove the same theorem entirely through backward applications of or introduction.
 -/
 
-example (p q: Prop) (h₁ : p) (h₂ : q) : q :=
+example (a b : ℤ) (h : a = b) : (a = 5) ∨ ((a = b) ∨ (a = 7)) :=
 begin
-  show q, from h₂,
+  right,
+  show (a = b) ∨ (a = 7),
+  left,
+  show a = b, from h,
 end
 
-/-
-More usefully, `show` can be used to clarify the target of the goals that arise after splitting
-an 'and' target.
+/- Tactic : left
+`left` changes a goal of proving `p ∨ q` into a goal of proving `p`.
 -/
 
-example (x y : ℤ) (h₁ : x > 0) (h₂ : x + y = 5) :
-(x > 0) ∧ (x + y = 5) :=
-begin
-  split,
-  show x > 0, from h₁,
-  show x + y = 5, from h₂, 
-end
-
-/- Tactic : show
-`show` is used to clarify what is being proved.
-
-### Example
-If the target is to prove `p ∧ q` and the hypothesis `h` is a proof of `p ∧ q`, then
-`show p ∧ q, from h` indicates the target to Lean (and the human reader!) and closes the goal.
+/- Tactic : right
+`right` changes a goal of proving `p ∨ q` into a goal or proving `q`.
 -/
 
 namespace exlean -- hide
@@ -128,22 +80,30 @@ namespace exlean -- hide
 /-
 ### Task
 
-1. Replace `sorry` below with a Lean proof, adapting the proof of the example above. Your proof
-should use both the `split` and the `show` tactics.
+1. Replace `sorry` below with a Lean proof. Use `show` every the goal changes to help your
+reader understand the flow of the proof.
 2. On a piece of paper, state and give a handwritten proof of this result.
+3. (Bonus) Write a one-line proof that uses only `from` and forward or introduction.
 -/
 
 variables (p q r : Prop)
 
 /- Theorem : no-side-bar
-Let $p$, $q$, $r$ be propostions. Suppose $h_1 : p$, $h_2 : q$, and $h_3 : r$. Then $r \land q$ 
+Let $p$, $q$, $r$ be propostions. Suppose $h : q$. Then $(p \lor (q \lor r)) \lor p$
 follows.
 -/
-theorem split_and1 (h₁ : p) (h₂ : q) (h₃ : r) : r ∧ q :=
+theorem nested_or1 (h : q) : (p ∨ (q ∨ r)) ∨ p :=
 begin
-  split,
-  show r, from h₃,
-  show q, from h₂,
+  left,
+  show p ∨ (q ∨ r),
+  right,
+  show q ∨ r,
+  left,
+  from h,
+
+
+
+
 
 end
 
