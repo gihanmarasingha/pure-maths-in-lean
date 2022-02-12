@@ -26,18 +26,18 @@ levels = [
 ]
 
 [[worlds]]
-name = "Logic and Proof"
+name = "Logic and Proof (And)"
 id = 2
 levels = [
-	"src/logic_and_proof/from.lean",
-	"src/logic_and_proof/decomposing_and.lean",
-	"src/logic_and_proof/and_elimination.lean",
-	"src/logic_and_proof/propositions.lean",
-	"src/logic_and_proof/decomposing_and2.lean",
-	"src/logic_and_proof/have.lean",
-	"src/logic_and_proof/split.lean",
-	"src/logic_and_proof/and_introduction.lean",
-	"src/logic_and_proof/and_summary.lean",
+	"src/logic_and_proof_and/from.lean",
+	"src/logic_and_proof_and/decomposing_and.lean",
+	"src/logic_and_proof_and/and_elimination.lean",
+	"src/logic_and_proof_and/propositions.lean",
+	"src/logic_and_proof_and/decomposing_and2.lean",
+	"src/logic_and_proof_and/have.lean",
+	"src/logic_and_proof_and/split.lean",
+	"src/logic_and_proof_and/and_introduction.lean",
+	"src/logic_and_proof_and/and_summary.lean",
 ]
 
 [[worlds]]
