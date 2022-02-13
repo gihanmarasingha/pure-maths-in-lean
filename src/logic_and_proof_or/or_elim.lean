@@ -24,12 +24,12 @@ $x ^ 2 + 6 = 5x$.
 
 **Proof**: We have $h_1 : (x = 2) \to x ^ 2 + 6 = 5x$:
 
-> Assume $H : x = 2$. We must show $x ^ 2 + 6 = 5x$. Rewriting with $H$,
+> Assume $H_2 : x = 2$. We must show $x ^ 2 + 6 = 5x$. Rewriting with $H_2$,
 > $\vdash 2 ^ 2 + 6 = 5 \times 2$, which holds by numerical calculation.
  
 We have $h_2 : (x = 3) \to x ^ 2 + 6 = 5x$:
 
-> Assume $H : x = 3$. We must show $x ^ 2 + 6 = 5x$. Rewriting with $H$,
+> Assume $H_3 : x = 3$. We must show $x ^ 2 + 6 = 5x$. Rewriting with $H_3$,
 > $\vdash 3 ^ 2 + 6 = 5 \times 3$, which holds by numerical calculation.
 
 The result follows by or elimination on $h$, $h_1$, and $h_2$. ∎
@@ -44,57 +44,24 @@ The Lean or elimination theorem is called `or.elim`. For propositions, `p`, `q`,
 example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
 begin
   have h₁ : (x = 2) → (x ^ 2 + 6 = 5 * x),
-  { assume H : x = 2,
+  { assume H₂ : x = 2,
     show x ^ 2 + 6 = 5 * x,
-    rw H,
+    rw H₂,
     show 2 ^ 2 + 6 = 5 * 2, norm_num, },
 
   have h₂ : (x = 3) → (x ^ 2 + 6 = 5 * x),
-  { assume H : x = 3,
+  { assume H₃ : x = 3,
     show x ^ 2 + 6 = 5 * x,
-    rw H,
+    rw H₃,
     show 3 ^ 2 + 6 = 5 * 3, norm_num, },
   from or.elim h h₁ h₂,
 end
 
 /-
-In the proof above, we start with two hypotheses, `x : ℕ` and `h : (x = 2) ∨ (x = 3)`.
-The target is `⊢ x ^ 2 + 6 = 5 * x`.
-
-The effect of `cases h with h₁ h₂` here is to create two new goals. In the first goal, the original 
-'or' hypothesis `h` is replaced with its left side, `h₁ : x = 2`. IN the second goal, `h` is
-replaced with its right side, `h₂ : x = 3`.
-```
- 2 goals
- case or.inl
- x : ℤ,
- h₁ : x = 2
- ⊢ x ^ 2 - 5 * x + 6 = 0
- 
- case or.inr
- x : ℤ,
- h₂ : x = 3
- ⊢ x ^ 2 - 5 * x + 6 = 0
-
- ```
-
-When we prove the first goal, we use the rewrite tactic, `rw` in the form `rw h₁` to replace
-`x` in the target with `2`. This leaves the goal of proving `2 ^ 2 + 6 = 5 * 2`.
-We close this goal with the Lean tactic `norm_num`, suitable for proving various numerical
-calculations.
+This forward proof is somewhat long-winded and requires introducing intermediate hypotheses.
+An alternative approach is to have a mixed forward / backward proof using `apply or.elim`:
 -/
 
-example (x : ℤ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 - 5 * x + 6 = 0 :=
-begin
-  apply or.elim h,
-  { assume h₁ : x = 2,
-    rw h₁, refl, },
-  { assume h₂ : x = 3,
-    rw h₂, refl, },
-end
-
-
-/- Comment:
 example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
 begin
   apply or.elim h,
@@ -107,15 +74,22 @@ begin
     refl, }, -- The case h₂ : x = 3
 end
 
+/-
+After typing `apply or.elim h` in the proof above, we are left with two goals, each an implication.
+```
+ 2 goals
+ x : ℕ,
+ h : x = 2 ∨ x = 3
+ ⊢ x = 2 → x ^ 2 + 6 = 5 * x
+ 
+ x : ℕ,
+ h : x = 2 ∨ x = 3
+ ⊢ x = 3 → x ^ 2 + 6 = 5 * x
+  ```
 
-example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
-begin
-  cases h with h₁ h₂,
-  { rw h₁,
-    show 2 ^ 2 + 6 = 5 * 2, refl, }, -- The case h₁ : x = 2
-  { rw h₂, refl, }, -- The case h₂ : x = 3
-end
- -/
+The approach shares features with the use of `cases` to decompose an `∨` statement.
+-/
+
 
 namespace exlean -- hide
 
@@ -123,10 +97,10 @@ namespace exlean -- hide
 
 ### Tasks
 
-1. Replace `sorry` below with a backward Lean proof via the `left` and `right` tactics. Make your
-proof more readable by using the `show` tactic each time the goal changes.
-2. On a piece of paper, state and give a handwritten proof of this result.
-3. (Bonus) Write a one-line proof that uses only `from` and forward or introduction.
+1. Replace `sorry` below with a Lean proof, using `cases` to decompose `h`
+2. Delete your proof and write a proof using `apply or.elim h`.
+3. Delete this proof and write a forward proof that else with `from or.elim h h₁ h₂`.
+4. On a piece of paper, state and give handwritten proofs of this result.
 -/
 
 variables (p q : Prop)
@@ -134,12 +108,16 @@ variables (p q : Prop)
 /- Theorem : no-side-bar
 Let $p$ and $q$. Suppose $h : p \lor q$. Then $q \lor p$ follows.
 -/
-theorem or_elim_cases (h : p ∨ q) : q ∨ p :=
+theorem or_elim_example (h : p ∨ q) : q ∨ p :=
 begin
-  cases h with h₁ h₂,
+/-   cases h with h₁ h₂,
   { from or.inr h₁, },
-  { from or.inl h₂, },
-
+  { from or.inl h₂, }, -/
+  apply or.elim h,
+  { assume hp : p,
+    from or.inr hp, },
+  { assume hq : q,
+    from or.inl hq, },
 
 
 
