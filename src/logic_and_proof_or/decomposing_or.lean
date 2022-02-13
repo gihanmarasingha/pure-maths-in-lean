@@ -3,7 +3,7 @@ import data.int.basic tactic -- hide
 /-
 # Logic and Proof (Or)
 
-## Level 3: Decomposing or statements
+## Level 4: Decomposing or statements
 -/
 
 
@@ -71,64 +71,28 @@ We close this goal with the Lean tactic `norm_num`, suitable for proving various
 calculations.
 -/
 
-example (x : ℤ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 - 5 * x + 6 = 0 :=
-begin
-  apply or.elim h,
-  { assume h₁ : x = 2,
-    rw h₁, refl, },
-  { assume h₂ : x = 3,
-    rw h₂, refl, },
-end
-
-example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
-begin
-  apply or.elim h,
-  { assume h₁ : x = 2,
-    rw h₁,
-    show 2 ^ 2 + 6 = 5 * 2, refl, }, 
-  { assume h₂ : x = 3,
-    rw h₂,
-    show 3 ^ 2 + 6 = 5 * 3,
-    refl, }, -- The case h₂ : x = 3
-end
-
-
-example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
-begin
-  cases h with h₁ h₂,
-  { rw h₁,
-    show 2 ^ 2 + 6 = 5 * 2, refl, }, -- The case h₁ : x = 2
-  { rw h₂, refl, }, -- The case h₂ : x = 3
-end
-
-
 namespace exlean -- hide
 
 /-
-# ADD MORE STUFF HERE
 
-### Task
+### Tasks
 
-1. Replace `sorry` below with a backward Lean proof via the `left` and `right` tactics. Make your
+1. Replace `sorry` below with a Lean proof. Use the `cases` tactic to decompose the or statement `h`.
 proof more readable by using the `show` tactic each time the goal changes.
 2. On a piece of paper, state and give a handwritten proof of this result.
-3. (Bonus) Write a one-line proof that uses only `from` and forward or introduction.
+
 -/
 
-variables (p q r : Prop)
+variables (p q : Prop)
 
 /- Theorem : no-side-bar
-Let $p$, $q$, $r$ be propostions. Suppose $h : q$. Then $(p \lor (q \lor r)) \lor p$
-follows.
+Let $p$ and $q$. Suppose $h : p \lor q$. Then $q \lor p$ follows.
 -/
-theorem nested_or1 (h : q) : (p ∨ (q ∨ r)) ∨ p :=
+theorem or_elim_cases (h : p ∨ q) : q ∨ p :=
 begin
-  left,
-  show p ∨ (q ∨ r),
-  right,
-  show q ∨ r,
-  left,
-  from h,
+  cases h with h₁ h₂,
+  { from or.inr h₁, },
+  { from or.inl h₂, },
 
 
 
