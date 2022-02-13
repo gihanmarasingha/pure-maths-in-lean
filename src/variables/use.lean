@@ -57,7 +57,7 @@ With a goal `⊢ ∃ (x : ℤ), x + 5 = 23`, typing `use 18` changes the goal to
 Begin with `assume y : ℤ`. This changes the goal to one of showing `f(y + 1) = f(y) ∨ f(y) = 0`.
 -/
 
-namespace exlean
+namespace exlean -- hide
 
 
 /- Theorem : no-side-bar

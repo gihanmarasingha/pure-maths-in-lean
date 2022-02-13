@@ -44,7 +44,7 @@ end
 Begin with `assume y : ℤ`. This changes the goal to one of showing `f(y + 1) = f(y) ∨ f(y) = 0`.
 -/
 
-namespace exlean
+namespace exlean -- hide
 
 
 /- Theorem : no-side-bar
