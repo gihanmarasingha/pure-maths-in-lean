@@ -39,6 +39,14 @@ Suppose `p` and `q` are propositions.
 Below, we have a Lean proof of the previous theorem. The symbol `∨` is typed `\or`.
 -/
 
+/- Axiom: or.inl
+  (h : p) : p ∨ q
+-/
+
+/- Axiom: or.inr
+  (h : q) : p ∨ q
+-/
+
 example (x y : ℤ) (h : x + y = 5) : (x > y) ∨ (x + y = 5) :=
 begin
   from or.inr h,

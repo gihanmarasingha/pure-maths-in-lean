@@ -3,7 +3,7 @@ import data.int.basic -- hide
 /-
 # Logic and Proof (And)
 
-## Level 3: And elimination
+## Level 4: And elimination
 
 What I've called 'decomposition' of a hypothesis `h : p ∧ q` is actually a combination of two
 more fundamental principles: _left and elimination_ and _right and elimination_
@@ -13,11 +13,13 @@ more fundamental principles: _left and elimination_ and _right and elimination_
 **Proof**: The result follows from right and elimination on $h$.
 -/
 
-/- Axiom: and.elim_right (h : p ∧ q) : q
+/- Axiom: and.elim_right
+  (h : p ∧ q) : q
 -/
 
 
-/- Axiom: and.elim_left (h : p ∧ q) : p
+/- Axiom: and.elim_left
+  (h : p ∧ q) : p
 -/
 
 

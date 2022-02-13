@@ -26,7 +26,7 @@ levels = [
 ]
 
 [[worlds]]
-name = "Logic and Proof (And)"
+name = "Logic (And)"
 id = 2
 levels = [
 	"src/logic_and_proof_and/from.lean",
@@ -37,11 +37,12 @@ levels = [
 	"src/logic_and_proof_and/have.lean",
 	"src/logic_and_proof_and/split.lean",
 	"src/logic_and_proof_and/and_introduction.lean",
+	"src/logic_and_proof_and/apply_wildcards.lean",
 	"src/logic_and_proof_and/and_summary.lean",
 ]
 
 [[worlds]]
-name = "Logic and Proof (Or)"
+name = "Logic (Or)"
 id = 3
 parents = [2]
 levels = [

@@ -5,7 +5,7 @@ import data.int.basic -- hide
 
 ## Level 8: And introduction
 
-### The introduction principle
+### An introduction principle
 
 The `split` tactic is useful when each of the constituents of a compound target are complicated.
 Via split, we create two new goals and work on each goal separately.

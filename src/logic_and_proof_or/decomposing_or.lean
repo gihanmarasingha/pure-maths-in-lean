@@ -1,19 +1,54 @@
-import data.int.basic -- hide
+import data.int.basic tactic -- hide
 
 /-
 # Logic and Proof (Or)
 
-## Level 3: Backward or introduction
+## Level 3: Decomposing or statements
+-/
+
+
+
+/-
+Let $x$ be a natural number (a non-negative integer). Suppose you are given the hypothesis
+$h : (x = 2) \lor (x = 3)$. What can you prove?
+
+You know *either* that $x = 2$ *or* you know $x = 3$ but you don't know which one holds.
+Let's label the two possibilities. Either $h_1 : x = 2$ or $h_2 : x = 3$.
+
+* On the assumpion $h_1 : x = 2$, you know $x ^ 2 + 6 = 2 ^ 2 + 6 = 10 = 5x$.
+* On the assumption $h_2 : x = 3$, you know $x ^ 2 + 6 = 3 ^ 2 + 6 = 5x$.
+
+In either case, you deduced $x ^ 2 + 6 = 5x$. Thus, it seems logical to say that
+$x ^ 2 + 6 = 5x$ follows from the original assumption $h : (x = 2) \lor (x = 3)$.
 -/
 
 /-
-In the last level, we saw this rather terse proof.
+### Or elimination
+
+Let $p$, $q$, and $r$ be propositions. Let $h : p \lor q$. The or elimination rule applied to $h$
+states that if (1) $r$ can be deduced from the assumption of $p$ and (2) if $r$ can be deduced from
+the assumption of $q$, then $r$ follows.
 -/
 
-example (a b : ℤ) (h : a = b) : (a = 5) ∨ ((a = b) ∨ (a = 7)) :=
+
+example (x : ℤ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 - 5 * x + 6 = 0 :=
 begin
-  from or.inr (or.inl h)
+  apply or.elim h,
+  { assume h₁ : x = 2,
+    rw h₁, refl, },
+  { assume h₂ : x = 3,
+    rw h₂, refl, },
 end
+
+
+example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
+begin
+  cases h with h₁ h₂,
+  { rw h₁,
+    show 2 ^ 2 + 6 = 5 * 2, refl, }, -- The case h₁ : x = 2
+  { rw h₂, refl, }, -- The case h₂ : x = 3
+end
+
 
 /-
 We also so a more readable version that requires the introduction of an additional hypothesis.

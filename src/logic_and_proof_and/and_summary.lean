@@ -40,6 +40,10 @@ Via `split`, Lean creates two new goals, one for each of the conditions of and i
 * `from` is used to give a hypothesis or other proof term that closes the goal.
 * `have` allows you to create an auxiliary goal. The result of the goal is added to the context.
 * `show` is used to indicate what you're trying to prove.
+
+### `apply` and mixed forward / backward proofs
+The `apply` tactic permits writing mixed forward / backward proofs, depending on the number
+of arguments given to the applied theorem.
 -/
 
 namespace exlean -- hide

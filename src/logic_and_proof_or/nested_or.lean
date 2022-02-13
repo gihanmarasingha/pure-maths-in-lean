@@ -45,7 +45,8 @@ namespace exlean -- hide
 /-
 ### Tasks
 
-1. Replace `sorry` below with a Lean proof, using `have` to produce an intermediate proof.
+1. Replace `sorry` below with a Lean proof, using `have` to produce an intermediate proof. Recall
+that `∨` is typed `\or`.
 2. On a piece of paper, state and give a handwritten proof of this result.
 3. (Bonus) Give a one-line proof of the result.
 -/
