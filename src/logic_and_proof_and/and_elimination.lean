@@ -3,7 +3,7 @@ import data.int.basic -- hide
 /-
 # Logic and Proof (And)
 
-## Level 4: And elimination
+## Level 3: And elimination
 
 What I've called 'decomposition' of a hypothesis `h : p ∧ q` is actually a combination of two
 more fundamental principles: _left and elimination_ and _right and elimination_

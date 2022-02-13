@@ -3,7 +3,7 @@ import data.int.basic -- hide
 /-
 # Logic and Proof (And)
 
-## Level 9: And summary
+## Level 10: And summary
 
 ### Elimination and introduction
 

@@ -115,13 +115,41 @@ If the target is to prove `p ∧ q` and the hypothesis `h` is a proof of `p ∧ 
 `show p ∧ q, from h` indicates the target to Lean (and the human reader!) and closes the goal.
 -/
 
+/-
+### Focussing with braces
+
+Dealing with many goals at once can be confusing. Braces can be used to separate goals.
+If you place your cursor within a brace, only the current goal is shown. It's good practice to
+create a `sorry` proof for each new goal and fill in each `sorry` in turn.
+
+```
+example (x y : ℤ) (h₁ : x > 0) (h₂ : x + y = 5) : (x > 0) ∧ (x + y = 5) :=
+begin
+  split,
+  { sorry, },
+  { sorry, },
+end
+```
+
+Filling in each `sorry` above leads to the following proof.
+-/
+
+example (x y : ℤ) (h₁ : x > 0) (h₂ : x + y = 5) :
+(x > 0) ∧ (x + y = 5) :=
+begin
+  split,
+  { show x > 0, from h₁, },
+  { show x + y = 5, from h₂, },
+end
+
+
 namespace exlean -- hide
 
 /-
 ### Task
 
-1. Replace `sorry` below with a Lean proof, adapting the proof of the example above. Your proof
-should use both the `split` and the `show` tactics.
+1. Complete the Lean proof below. Use `split`, `show`, and braces, as in the example above. Start
+by writing `sorry` within each brace.
 2. On a piece of paper, state and give a handwritten proof of this result.
 -/
 
@@ -134,8 +162,8 @@ follows.
 theorem split_and1 (h₁ : p) (h₂ : q) (h₃ : r) : r ∧ q :=
 begin
   split,
-  show r, from h₃,
-  show q, from h₂,
+  { show r, from h₃, },
+  { show q, from h₂, },
 
 end
 
