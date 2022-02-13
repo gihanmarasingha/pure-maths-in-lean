@@ -1,2 +1,2 @@
-cd html ; http-server ; cd ..
+cd html ; python3 -m http.server ; cd ..
 
