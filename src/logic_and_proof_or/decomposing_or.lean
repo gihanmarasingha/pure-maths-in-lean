@@ -38,9 +38,9 @@ We'll soon discuss the the new tactics `rw` and `norm_num`.
 example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
 begin
   cases h with h₁ h₂,
-  { rw h₁,                            -- The case h₁ : x = 2.
+  { rw (h₁ : x = 2),  -- The case h₁ : x = 2.
     show 2 ^ 2 + 6 = 5 * 2, norm_num, }, 
-  { rw h₂,                            -- The case h₂ : x = 3.
+  { rw (h₂ : x = 3),  -- The case h₂ : x = 3.
     show 3 ^ 2 + 6 = 5 * 3, norm_num, },
 end
 
@@ -70,6 +70,22 @@ When we prove the first goal, we use the rewrite tactic, `rw` in the form `rw h�
 We close this goal with the Lean tactic `norm_num`, suitable for proving various numerical
 goals.
 -/
+
+/-
+The proof above can be written more briefly by removing instances of `show` and the type annotations
+to `rw`. However, the resulting proof is harder to read.
+-/
+
+example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
+begin
+  cases h with h₁ h₂,
+  { rw h₁,
+    norm_num, }, 
+  { rw h₂,
+    norm_num, },
+end
+
+
 
 /- Tactic : rw
 If `h` is an equation of the form `p = q`, `rw h` rewrites replaces `p` in the target with `q`.
