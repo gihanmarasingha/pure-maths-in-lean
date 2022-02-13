@@ -61,6 +61,7 @@ id = 4
 parents = [3]
 levels = [
 	"src/variables/introduction.lean",
+	"src/variables/forall_introduction.lean",
 ]
 
 [[worlds]]

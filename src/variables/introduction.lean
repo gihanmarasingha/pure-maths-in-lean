@@ -1,4 +1,4 @@
-import data.int.basic tactic -- hide
+import tactic -- hide
 
 /-
 # Variables
@@ -97,15 +97,19 @@ end
 2. On a piece of paper, state and give a handwritten proof of this result.
 -/
 
-/- Hint: Starting the proof
-As in the example, you can use `cases h with h₁ h₂` to decompose the 'or' statement `h`.
-At later steps, you'll need to use the `rw` and `norm_num` tactics.
+
+/- Hint : Starting the proof
+As the target is an `∧` statement, you can start with a `split`, creating new goals for the
+left side and right side of the `∧`.
+
+You can close the first goal in a similar manner to the proof above
 -/
 
-/- Hint: Dealing with 'and'
-If you followed the hint above, in the second goal, you'll have an 'and' hypothesis
-`h₂ : (x = 3) ∧ (x > 0)` in the second goal. You can decompose this hypothesis using something like
-`cases h₂ with h₃ h₄`. Here, `h₃ : x = 3` and `h₄ : x > 0`.
+/- Hint : The second goal
+Proving the second goal requires a bit more thought. A single application of for all
+elimination won't suffice. Instead, you can close the second goal with two `rw`s (rewrites).
+Provide each `rw` with an equation of the form `f(a + 2) = f(a)` for an appropriate choice of `a`,
+by for all elimination.
 -/
 
 namespace exlean
@@ -120,9 +124,8 @@ theorem all_elim1 (h : ∀ x, f(x + 2) = f(x)) :
 begin
   split,
   { show f(2) = f(0), from h 0 },
-  { have h₂ : f(5) = f(3), from h 3,
-    rw h₂,
-    from h 1, }  
+  { rw h 3,
+    rw h 1, }  
 
 
 
