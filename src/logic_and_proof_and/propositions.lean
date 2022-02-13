@@ -44,6 +44,7 @@ end
 
 /-
 The same theorem can be be proved via and elimination.
+
 **Proof**: The result follows by right and elimination on $h$. ∎
 -/
 

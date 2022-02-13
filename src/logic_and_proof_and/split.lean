@@ -22,7 +22,7 @@ $(x > 0) \land (x + y = 5)$.
 /-
 The Lean tactic `split` can be used to split an 'and' goal. In the proof below, the text following
 each `--` is a _comment_. Lean ignores comments. Add comments to your Lean proofs to help explain
-your proof ot the reader.
+your proof to the reader.
 -/
 
 example (x y : ℤ) (h₁ : x > 0) (h₂ : x + y = 5) : (x > 0) ∧ (x + y = 5) :=
