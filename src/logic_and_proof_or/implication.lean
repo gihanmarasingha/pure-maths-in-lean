@@ -15,7 +15,7 @@ The statement $(x = 2) \to x ^ 2 = 4$ is an example of implication. It can be re
 
 To *prove* an implication $p \to q$ is to assume $p$ and derive $q$.
 
-**Theorem**: $(x = 2) \to x ^2 = 4$.
+**Theorem**: $(x = 2) \to (x ^2 = 4)$.
 
 **Proof**: Assume $h : x = 2$. We must prove $x ^ 2 = 4$. Rewriting with $h$, we must prove
 $2 ^ 2 = 4$. This follows by numerical calculation.
@@ -59,9 +59,9 @@ The remainder of the proof is identical to that of an example from an earlier le
 variables (a b : ℤ)
 
 /- Theorem : no-side-bar
-Let $a$ and $b$ be integers. Then $(a = b) \to (a = 5) \lor ((a = b) \lor (a = 7))$.
+Let $a$ and $b$ be integers. Then $(a = b) \to ((a = 5) \lor ((a = b) \lor (a = 7)))$.
 -/
-theorem implication_intro1 : (a = b) → (a = 5) ∨ ((a = b) ∨ (a = 7)) :=
+theorem impl_intro1 : (a = b) → ((a = 5) ∨ ((a = b) ∨ (a = 7))) :=
 begin
   assume h : a = b,
   right,
