@@ -10,7 +10,7 @@ more fundamental principles: _left and elimination_ and _right and elimination_
 
 **Theorem**: Let $x$ be an integer. Supose $h : (x > 0) \land (x ^ 2 = 16)$. Then $x ^ 2 = 16$.
 
-**Proof**: The result follows from right and elimination on $h$.
+**Proof**: The result follows from right and elimination on $h$. ∎
 -/
 
 /- Axiom: and.elim_right

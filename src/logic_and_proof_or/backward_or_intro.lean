@@ -32,7 +32,7 @@ A 'backward proof' of the above result avoids the introduction of additional hyp
 remaining readable.
 
 **Proof**: It suffices, by right or introduction, to prove $(a = b)\lor (a = 7)$.
-This follows from left or introduction on $h$.
+This follows from left or introduction on $h$. ∎
 
 Recall right or introduction takes $h : q$ and gives a proof of $p \lor q$. When we use 
 right or introduction backward, we replace the goal of proving $p \lor q$ with the goal of

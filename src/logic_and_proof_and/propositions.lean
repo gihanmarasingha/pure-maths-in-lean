@@ -15,7 +15,8 @@ Here's another example.
 
 **Theorem**: Let $y$ be an integer. Supose $h : (y \ne 2) \land (10 y = 5)$. Then $10y = 5$.
 
-**Proof**: Decomposing $h$ gives $h_1 : y \ne 2$ and $h_2 : 10y = 5$. The result follows from $h_2$.
+**Proof**: Decomposing $h$ gives $h_1 : y \ne 2$ and $h_2 : 10y = 5$. The result follows from
+$h_2$. ∎
 -/
 
 /-
@@ -30,7 +31,7 @@ We now give a generalisation of the above proof.
 
 **Theorem**: Let $p$ and $q$ be propositions. Suppose $h : p \land q$. Then $q$ follows.
 
-**Proof**: Decomposing $h$ gives $h_1 : p$ and $h_2 : q$. The result follows from $h_2$.
+**Proof**: Decomposing $h$ gives $h_1 : p$ and $h_2 : q$. The result follows from $h_2$. ∎
 
 The same thing can be written in Lean.
 -/
@@ -43,7 +44,7 @@ end
 
 /-
 The same theorem can be be proved via and elimination.
-**Proof**: The result follows by right and elimination on $h$.
+**Proof**: The result follows by right and elimination on $h$. ∎
 -/
 
 example (p q : Prop) (h : p ∧ q) : q :=

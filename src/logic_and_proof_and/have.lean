@@ -12,7 +12,7 @@ The next example isn't long, but illustrates the concept.
 
 **Theorem**: Let $p$ and $q$ be propositions. Suppose $h : p \land q$. Then $q$ follows.
 
-**Proof**: We have $h_2 : q$ by right and elimination on $h$. The result follows from $h_2$.
+**Proof**: We have $h_2 : q$ by right and elimination on $h$. The result follows from $h_2$. ∎
 -/
 
 /-

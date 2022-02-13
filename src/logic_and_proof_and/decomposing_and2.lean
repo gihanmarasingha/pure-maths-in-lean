@@ -10,7 +10,7 @@ import data.int.basic -- hide
 **Theorem**: Let $p$, $q$, and $r$ be propositions. Suppose $h : (p \land q) \land r$. Then $q$ follows.
 
 **Proof**: Decomposing $h$ gives $h_{pq} : p \land q$ and $h_r : r$.
-Decomposing $h_{pq}$ gives $h_p : p$ and $h_q : q$.
+Decomposing $h_{pq}$ gives $h_p : p$ and $h_q : q$. ∎
 
 The same proof can be written in Lean.
 -/

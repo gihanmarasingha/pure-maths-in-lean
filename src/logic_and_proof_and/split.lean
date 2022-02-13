@@ -15,7 +15,7 @@ $(x > 0) \land (x + y = 5)$.
 
 **Proof**: It suffices to prove (1) $x > 0$ and (2) $x + y = 5$.
 1. The target $x > 0$ follows from $h_1$.
-2. The target $x + y = 5$ follows from $h_2$.
+2. The target $x + y = 5$ follows from $h_2$. ∎
 -/
 
 

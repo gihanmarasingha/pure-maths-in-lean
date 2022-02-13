@@ -14,7 +14,8 @@ two new hypotheses $h₁ : p$ and $h₂ : q$.
 
 **Theorem**: Let $x$ be an integer. Supose $h : (x > 0) \land (x ^ 2 = 16)$. Then $x ^ 2 = 16$.
 
-**Proof**: Decomposing $h$ gives $h_1 : x > 0$ and $h_2 : x ^2 = 16$. The result follows from $h_2$.
+**Proof**: Decomposing $h$ gives $h_1 : x > 0$ and $h_2 : x ^2 = 16$. The result follows from
+$h_2$. ∎
 -/
 
 /-

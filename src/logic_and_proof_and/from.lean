@@ -36,7 +36,9 @@ In the simplest of theorems, the target is one of the hypotheses.
 In the theorem statement above, the target $\vdash x ^ 2 = 16$ can be deduced immediately from the
 hypothesis I have labelled $h_2$. You can write the proof as follows:
 
-**Proof**: The result follows from $h_2$.
+**Proof**: The result follows from $h_2$. ∎
+
+The symbol ∎ (read 'QED') indicates the end of a proof.
 
 ### Easy proofs in Lean using `from`
 

@@ -11,7 +11,7 @@ import data.int.basic -- hide
 $(a = 5) \lor ((a=b) \lor (a=7))$.
 
 **Proof**: We have $h_2 : (a=b)\lor (a=7)$ from left or introduction on $h$.
-We show $(a = 5) \lor ((a=b) \lor (a=7))$ from right or introduction on $h_2$.
+We show $(a = 5) \lor ((a=b) \lor (a=7))$ from right or introduction on $h_2$. ∎
 -/
 
 /-
@@ -28,7 +28,7 @@ end
 For a more succinct proof, we can skip the intermediate derivation of $(a=b) \lor (a=7)$.
 
 **Proof**: The result follows by right or introduction applied to the result of
-left or introduction on $h$.
+left or introduction on $h$. ∎
 
 This proof is shorter, but less readable. Here it is in Lean.
 -/

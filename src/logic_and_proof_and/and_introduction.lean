@@ -16,7 +16,7 @@ principle. This principle combines a proof of `p` with a proof of `q` to give a 
 **Theorem**: Let $x$ and $y$ be integers. Suppose $h_1 : x > 0$ and $h_2 : x + y = 5$. Then
 $(x > 0) \land (x + y = 5)$.
 
-**Proof**: The result follows by and introduction on $h_1$ and $h_2$.
+**Proof**: The result follows by and introduction on $h_1$ and $h_2$. ∎
 -/
 
 /-

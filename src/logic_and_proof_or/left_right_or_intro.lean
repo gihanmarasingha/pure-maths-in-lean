@@ -24,7 +24,7 @@ Let $p$ and $q$ be propositions.
 
 **Theorem**: Let $x$ and $y$ be integers. Suppose $h : x + y = 5$. Then $(x > y) \lor (x + y = 5)$.
 
-**Proof**: The result follows by right or introduction on $h$.
+**Proof**: The result follows by right or introduction on $h$. ∎
 -/
 
 /-

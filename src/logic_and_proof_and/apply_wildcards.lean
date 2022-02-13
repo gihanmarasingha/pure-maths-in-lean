@@ -23,7 +23,7 @@ A third approach is to combine both proof styles.
 Then $p \land (q \land r)$.
 
 **Proof**: Applying and introduction with $h_1$, it suffices to prove $q \land r$.
-This follows by and introduction on $h_2$ and $h_3$.
+This follows by and introduction on $h_2$ and $h_3$. ∎
 
 
 The first line of the proof above involves a partial application of and introduction. We provide
@@ -82,7 +82,7 @@ Consider the following result and its (handwritten) proof.
 Then $(p \land q) \land r$.
 
 **Proof**: Applying and introduction to $h_3$, it suffices to prove $p \land q$. This follows from
-and introduction on $h_1$ and $h_2$.
+and introduction on $h_1$ and $h_2$. ∎
 
 
 As a human, you are clever enough to realise that $h_3$ in the proof above is meant to be the

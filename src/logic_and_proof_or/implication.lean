@@ -18,7 +18,7 @@ To *prove* an implication $p \to q$ is to assume $p$ and derive $q$.
 **Theorem**: $(x = 2) \to (x ^2 = 4)$.
 
 **Proof**: Assume $h : x = 2$. We must prove $x ^ 2 = 4$. Rewriting with $h$, we must prove
-$2 ^ 2 = 4$. This follows by numerical calculation.
+$2 ^ 2 = 4$. This follows by numerical calculation. ∎
 
 ### Proving implications in Lean
 
