@@ -32,7 +32,7 @@ the assumption of $q$, then $r$ follows.
 ### The `cases` tactic for decomposing an or statement
 
 In Lean, one way to decompose an or statement is to use the `cases` tactic, as in the example below.
-For the moment, you can ignore the the new tactics `rw` and `norm_num`.
+We'll soon discuss the the new tactics `rw` and `norm_num`.
 -/
 
 example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
@@ -68,36 +68,76 @@ replaced with its right side, `h₂ : x = 3`.
 When we prove the first goal, we use the rewrite tactic, `rw` in the form `rw h₁` to replace
 `x` in the target with `2`. This leaves the goal of proving `2 ^ 2 + 6 = 5 * 2`.
 We close this goal with the Lean tactic `norm_num`, suitable for proving various numerical
-calculations.
+goals.
+-/
+
+/- Tactic : rw
+If `h` is an equation of the form `p = q`, `rw h` rewrites replaces `p` in the target with `q`.
+
+If `k` is in the context, `rw h at k` performs the rewrite at `k` instead of at the target.
+
+`rw ←h` will rewrite backward: every occurrence of `q` is replaced with `p`. Type `\l` to produce `←`.
+
+`rw [h1, h2, h3]` rewrites with multiple hypotheses (you aren't limited to three)!
+-/
+
+/- Tactic : norm_num
+
+The `norm_num` tactic proves numerical goals. For example, it will close the goal
+`⊢ 10 * 3 + 5 = 37 - 7`
+-/
+
+/-
+If you were to write the proof 'by hand', you might write the following:
+
+> By definition, it suffices to show there exists an integer `m` such that `10 = 5 * m`.
+> Take `2` for `m`. Then we must show `10 = 5 * 2`.
+> This is true by arithmetic.
 -/
 
 namespace exlean -- hide
+
 
 /-
 
 ### Tasks
 
-1. Replace `sorry` below with a Lean proof. Use the `cases` tactic to decompose the or statement `h`.
-proof more readable by using the `show` tactic each time the goal changes.
+1. Replace `sorry` below with a Lean proof, adapting the proof above.
 2. On a piece of paper, state and give a handwritten proof of this result.
-
 -/
 
-variables (p q : Prop)
+/- Hint: Starting the proof
+As in the example, you can use `cases h with h₁ h₂` to decompose the 'or' statement `h`.
+At later steps, you'll need to use the `rw` and `norm_num` tactics.
+-/
+
+/- Hint: Dealing with 'and'
+If you followed the hint above, in the second goal, you'll have an 'and' hypothesis
+`h₂ : (x = 3) ∧ (x > 0)` in the second goal. You can decompose this hypothesis using something like
+`cases h₂ with h₃ h₄`. Here, `h₃ : x = 3` and `h₄ : x > 0`.
+-/
+
+variable (x : ℕ)
 
 /- Theorem : no-side-bar
-Let $p$ and $q$. Suppose $h : p \lor q$. Then $q \lor p$ follows.
+Let $x$ be a natural number. Suppose
+$h : (x = 1) \lor ((x= 3) \land (x > 0))$, then $x ^2 + 3 = 4 x$.
 -/
-theorem or_elim_cases (h : p ∨ q) : q ∨ p :=
+theorem or_elim_cases (h : (x = 1) ∨ ((x = 3) ∧ (x > 0))) :
+x ^ 2 + 3 = 4 * x :=
 begin
   cases h with h₁ h₂,
-  { from or.inr h₁, },
-  { from or.inl h₂, },
+  { rw h₁,
+    show 1 ^ 2 + 3 = 4 * 1, norm_num, },
+  { cases h₂ with h₃ h₄,
+    rw h₃,
+    show 3 ^ 2 + 3 = 4 * 3, norm_num, },
 
 
 
 
 
 end
+
 
 end exlean -- hide
