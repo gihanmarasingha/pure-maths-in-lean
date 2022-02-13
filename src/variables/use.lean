@@ -3,7 +3,7 @@ import tactic -- hide
 /-
 # Variables
 
-## Level 3: Proving 'there exists' statements
+## Level 3: Proving 'there exists' statements with `use`
 -/
 
 /-
@@ -17,7 +17,7 @@ the property holds for $m$.
 
 Here is an example.
 
-**Theorem**: There exists a natural number $x$ such that $x ^ 2 + x = 6$,
+**Theorem**: There exists a natural number $x$ such that $x ^ 2 + x = 6$.
 
 **Proof**: Take $2$ for $x$. We must show $2 ^ 2 + 2 = 6$. This holds by numerical
 calculation. ∎
@@ -54,7 +54,8 @@ With a goal `⊢ ∃ (x : ℤ), x + 5 = 23`, typing `use 18` changes the goal to
 -/
 
 /- Hint: Starting the proof
-Begin with `assume y : ℤ`. This changes the goal to one of showing `f(y + 1) = f(y) ∨ f(y) = 0`.
+Do some work on paper to determine what value $m$ you should take for `x`. Then try
+`use `$m$
 -/
 
 namespace exlean -- hide
