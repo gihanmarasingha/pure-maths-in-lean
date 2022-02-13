@@ -23,6 +23,11 @@ $(x > 0) \land (x + y = 5)$.
 In Lean, if `h₁ : p` and `h₂ : q` then `and.intro h₁ h₂` is a proof of `p ∧ q`.
 -/
 
+
+/- Axiom: and.intro
+  (h₁ : p) (h₂ : q) : p ∧ q
+-/
+
 example (x y : ℤ) (h₁ : x > 0) (h₂ : x + y = 5) : (x > 0) ∧ (x + y = 5) :=
 begin
   from and.intro h₁ h₂,

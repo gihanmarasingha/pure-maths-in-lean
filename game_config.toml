@@ -52,6 +52,7 @@ levels = [
 	"src/logic_and_proof_or/decomposing_or.lean",
 	"src/logic_and_proof_or/implication.lean",
 	"src/logic_and_proof_or/or_elim.lean",
+	"src/logic_and_proof_or/or_summary.lean",
 ]
 
 [[worlds]]

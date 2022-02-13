@@ -23,7 +23,7 @@ $2 ^ 2 = 4$. This follows by numerical calculation. ∎
 ### Proving implications in Lean
 
 To prove `p → q` in Lean, start with `assume h : p` (replacing `h` with any other name). 
-You then need to prove `q`.
+You then need to prove `q`. The symbol `→` is typed `\r`.
 -/
 
 example (x : ℕ) : (x = 2) → (x ^ 2 = 4) :=

@@ -3,7 +3,7 @@ import data.int.basic tactic -- hide
 /-
 # Logic and Proof (Or)
 
-## Level 5: Or elimination (again)
+## Level 6: Or elimination (again)
 -/
 
 /-
@@ -39,6 +39,10 @@ The result follows by or elimination on $h$, $h_1$, and $h_2$. ∎
 The Lean or elimination theorem is called `or.elim`. For propositions, `p`, `q`, and `r`, if
 `h : p ∨ q`, `h₁ : p → r`, and `h₂ : q → r`, then `or.elim h h₁ h₂` is a proof of `r`.
 
+-/
+
+/- Axiom: or.elim
+  (h : p ∨ q) (h₁ : p → r) (h₂ : q → r) : r
 -/
 
 example (x : ℕ) (h : (x = 2) ∨ (x = 3)) : x ^ 2 + 6 = 5 * x :=
