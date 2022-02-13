@@ -40,10 +40,4 @@ by Kevin Buzzard.
 Leonardo de Moura.
 
 Mathlib, Lean's mathematical library, is developed by the <a href="https://leanprover-community.github.io/" target="blank">Lean community</a>.
-
-Here's some mathematics in MathJax, just to remind me that it's possible.
-First inline: \\(a^2 + b^2 = c^2\\). Now displayed:
-
-\\[ \int_{-\infty}^\infty  e^{-x^2} dx = \sqrt \pi. \\]
-
 -/
