@@ -112,7 +112,7 @@ Provide each `rw` with an equation of the form `f(a + 2) = f(a)` for an appropri
 by for all elimination.
 -/
 
-namespace exlean
+namespace exlean -- hide
 
 
 /- Theorem : no-side-bar
