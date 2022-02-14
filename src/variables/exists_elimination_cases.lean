@@ -93,7 +93,8 @@ namespace exlean -- hide
 
 /- Theorem : no-side-bar
 -/
-theorem exists_elim1 (h : ∃ (x : ℤ), f(2 * x) > 5) : ∃ (y : ℤ), f(2 * y - 10) > 5 :=
+theorem exists_elim1 (h : ∃ (x : ℤ), f(2 * x) > 5) :
+∃ (y : ℤ), f(2 * y - 10) > 5 :=
 begin
   cases h with m h₂,
   use m + 5,
