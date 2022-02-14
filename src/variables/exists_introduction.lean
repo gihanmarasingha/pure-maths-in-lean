@@ -20,7 +20,7 @@ such that the property holds for $x$.
 **Theorem**: There exists a natural number $x$ such that $x ^ 2 + x = 6$.
 
 **Proof**: By numerical calculation, we have $h : 2 ^ 2 + x = 6$. The result follows from exists
-introduction with $2$ and $h$.
+introduction with $2$ and $h$. ∎
 -/
 
 /-

@@ -64,6 +64,7 @@ levels = [
 	"src/variables/forall_introduction.lean",
 	"src/variables/use.lean",
 	"src/variables/exists_introduction.lean",
+	"src/variables/exists_elimination_cases.lean",
 ]
 
 [[worlds]]

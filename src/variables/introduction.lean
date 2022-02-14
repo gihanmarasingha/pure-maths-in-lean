@@ -74,7 +74,7 @@ $(f(2) > 4) \land (f(3) > 9)$.
 
 **Proof**: By and introduction, it suffices to prove (1) $f(2) > 4$ and (2) $f(3) > 9$.
 1. We show $f(2) > 4$ by for all elimination with $h$ and $2$.
-2. We show $f(3) > 9$ by for all elimination with $h$ and $3$.
+2. We show $f(3) > 9$ by for all elimination with $h$ and $3$. ∎
 
 The same result is proved in Lean as follows.
 -/
