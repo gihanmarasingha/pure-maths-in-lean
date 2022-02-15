@@ -65,7 +65,7 @@ to prove $\forall (x : X), P(x)$ is to assume $x : X$ and derive $P(x)$.
 Let $h$ be the assumption $\forall (x : X), P(x) \land Q(x)$.
 Then $\forall (y : X), Q(y) \land P(y)$.
 
-**Proof**: Assume $y$ : X$. We must show $Q(y) \land P(y)$.
+**Proof**: Assume $y : X$. We must show $Q(y) \land P(y)$.
 By for all elimination on $h$ and $y$, we have $P(y) \land Q(y)$.
 Decomposing this gives $h_1 : P(y)$ and $h_2 : Q(y)$.
 
