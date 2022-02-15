@@ -39,102 +39,52 @@ gives a proof of $P(a)$.
 
 ### Predicates and for all elimination in Lean
 
-
+In Lean `P : X → Prop` indicates that `P` is a predicate on a type `X`.
+Given the 'for all' statement `h : ∀ (x : X), P(x)`, given that `a` is a term of type `X`,
+we deduce `P(a)`. The proof of this in Lean is simply `h a`.
 -/
 
-example (X : Type) (P : X → Prop) (h : ∀ (x : X), P(x)) (a : X) :
-P(a) :=
+namespace exlean -- hide
+
+variables (X : Type*) (P Q : X → Prop)
+
+example (h : ∀ (x : X), P(x)) (a : X) : P(a) :=
 begin
   from h a,
 end
 
-
-
 /-
-Previously, you saw how to decompose an exists statement via the cases tactic. If `h` is the 
-and if `⊢ r` is the target, then `cases h with h₁ h₂` creates two new goals
-(1) to prove `r` under the assumption `h₁ : p` and (2) to prove `r` under the assumption `h₂ : q`.
+### For all introduction
 
-The `cases` tactic is a simple interface to the more fundamental exists elimination rule.
+Let $X$ be a type and let $P$ be a predicate on $X$. The 'for all introduction' rule asserts that
+to prove $\forall (x : X), P(x)$ is to assume $x : X$ and derive $P(x)$.
 
-### Exists elimination
+### Combining for all introduction and for all elimination
 
-Let $p$, $q$, and $r$ be propositions. Let $h : p ∨ q$, $H_1 : p \to r$, and $H_2 : q \to r$.
-Exists elimination on $h$, $H_1$, and $H_2$ gives a proof of $r$
+**Theorem**: Let $P$ and $Q$ be predicates on a type $X$.
+Let $h$ be the assumption $\forall (x : X), P(x) \land Q(x)$.
+Then $\forall (y : X), Q(y) \land P(y)$.
 
+**Proof**: Assume $y$ : X$. We must show $Q(y) \land P(y)$.
+By for all elimination on $h$ and $y$, we have $P(y) \land Q(y)$.
+Decomposing this gives $h_1 : P(y)$ and $h_2 : Q(y)$.
 
-In the last level, we saw how to *prove* an exists statment. What if you're given an 
-exists statement? What can you *do* with it?
+We show $Q(y) \land P(y)$ by and introduction on $h_2$ and $h_1$. ∎
 
-**Theorem**: Let $f : \mathbb Z \to \mathbb Z$. Let $h$ be the assumption that there exists
-an integer $x$ such that $f(x + 2) > 5$. Then there exists an integer $y$ such that $f(y) > 5$.
+Let's do this in Lean.
 
-**Proof**: Decomposing $h$ gives an integer $m$ and the hypothesis $h_2 : f(m + 2) > 5$. 
-Take $m + 2$ for $y$. We must show $f(m + 2) > 5$. This follows from $h_2$. ∎
-
-More formally, the statement of the theorem is: suppose $f : \mathbb Z \to \mathbb Z$ and suppose
-$h : \exists (x : \mathbb Z), f(x) > 5$. Then $\exists (y : \mathbb Z), f(y + 2) > 5$.
-
-An important observation about the proof above is that the assumption
-$h : \exists (x : \mathbb Z), f(x) > 5$ is *not the same* as asserting that $x$ *is* an integer
-for which $f(x) > 5$.
-
-The $x$ in the statement $h$ is to be thought of as a 'potential' quantity. We can replace it with
-any other variable name. Thus $h$ is *the same* as the assumption 
-$\exists (t : \mathbb Z), f(t) > 5$.
-
-When we decompose $h$, we commit to a name for this potential variable (in the proof above, $m$) and
-we commit to assertion about $m$ (in the proof above, $h_2 : f(m) > 5$).
+The line `have : P(y) ∧ Q(y), from h y` introduces a hypothesis
+called `this` into the context, where `this : P(y) ∧ Q(y)`.
 -/
 
-/-
-### The `cases` tactic
-
-The `cases` tactic performs this decomposition in Lean. Below, `cases h with m h₂` 
-replaces `h : ∃ (x : ℤ), f(x + 2) > 5` with `m : ℤ` and `h₂ : f(m + 2) > 5`.
--/
-
-variable (f : ℤ → ℤ)
-
-example (h : ∃ (x : ℤ), f(x + 2) > 5) : ∃ (y : ℤ), f(y) > 5 :=
+example (h : ∀ (x : X), P(x) ∧ Q(x)) : ∀ (y : X), Q(y) ∧ P(y) :=
 begin
-  cases h with m h₂,
-  use m + 2,
-  show f(m + 2) > 5, from h₂,
+  assume y : X,
+  have : P(y) ∧ Q(y), from h y,
+  cases this with h₁ h₂,
+  show Q(y) ∧ P(y), from and.intro h₂ h₁,
 end
 
-
-/-
-### Doing linear arithmetic in Lean
-
-**Theorem**: Let $f : \mathbb Z \to \mathbb Z$. Let $z$ be an integer. Let $h$ be the assumption
-that there exists an integer $x$ such that $f(x) > 5$. Then there exists an integer $y$ such that
-$f(y + z) > 5$.
-
-**Proof**: Decomposing $h$ gives an integer $m$ and the hypothesis $h_2 : f(m) > 5$. 
-Take $m - z$ for $y$. We must show $f((m - z) + z) > 5$. We rewrite this goal, by arithmetic,
-to one of showing $f(m) > 5$. This follows from $h_2$.
-
-Note that though one can prove $f((m-z) + z) > 5$ is equivalent to $f(m) > 5$, these two statements
-are not identical. It's for this reason that we need to perform arithmetic to show the former
-statement can be rewritten as the former.
-
-Lean proves arithmetic results using the tactic `linarith`.
--/
-
-/- Tactic: linarith
-`linarith` can prove linear equations and inequalities.
--/
-
-variable (z : ℤ)
-
-example (h : ∃ (x : ℤ), f(x) > 5) : ∃ (y : ℤ), f(y + z) > 5 :=
-begin
-  cases h with m h₂,
-  use m - z,
-  rw (show (m - z) + z = m, by linarith),
-  from h₂,
-end
 /-
 
 ### Tasks
@@ -143,17 +93,14 @@ end
 2. On a piece of paper, state and give a handwritten proof of this result.
 -/
 
-namespace exlean -- hide
-
 /- Theorem : no-side-bar
 -/
-theorem exists_elim1 (h : ∃ (x : ℤ), f(2 * x) > 5) :
-∃ (y : ℤ), f(2 * y - 10) > 5 :=
+theorem all_intro_elim2 (h : ∀ (x : X), P(x)) :
+∀ (z : X), Q(z) ∨ P(z) :=
 begin
-  cases h with m h₂,
-  use m + 5,
-  rw (show 2 * (m + 5) - 10 = 2 * m, by linarith),
-  from h₂,
+  assume z : X,
+  have : P(z), from h z,
+  from or.inr this,
 
 
 
