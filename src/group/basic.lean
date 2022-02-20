@@ -123,16 +123,7 @@ begin
   { rw [nat.mul_succ, pow_add, pow_succ', ih] }
 end
 
-lemma inv_inv : (a⁻¹)⁻¹ = a :=
-begin
-  calc (a⁻¹)⁻¹ = (a⁻¹)⁻¹ * 1        : by rw mul_one
-          ... = (a⁻¹)⁻¹ * (a⁻¹ * a) : by rw mul_left_inv
-          ... = ((a⁻¹)⁻¹ * a⁻¹) * a : by rw mul_assoc
-          ... = 1 * a               : by rw mul_left_inv
-          ... = a                   : by rw one_mul
-end
-
-lemma mul_right_inv : b * b⁻¹ = 1 :=
+/- lemma mul_right_inv : b * b⁻¹ = 1 :=
 begin
   calc b * b⁻¹ = (b⁻¹)⁻¹ * b⁻¹ : by rw inv_inv
   ... = 1                      : by rw mul_left_inv
@@ -145,7 +136,7 @@ begin
   ... = (a⁻¹ * a) * b   : by rw mul_assoc
   ... = 1 * b           : by rw mul_left_inv
   ... = b               : by rw one_mul
-end
+end -/
 
 example : a ^ 2 = a * a :=
 begin

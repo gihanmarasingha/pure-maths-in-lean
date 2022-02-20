@@ -73,7 +73,7 @@ name = "Groups"
 id = 5
 parents = [4]
 levels = [
-	"src/group/uniqueness_inverse.lean",
+	"src/group/inv_inv.lean",
 ]
 
 [[worlds]]
