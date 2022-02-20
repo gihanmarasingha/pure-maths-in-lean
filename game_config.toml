@@ -69,8 +69,16 @@ levels = [
 ]
 
 [[worlds]]
-name = "Strong Induction"
+name = "Groups"
 id = 5
+parents = [4]
+levels = [
+	"src/group/uniqueness_inverse.lean",
+]
+
+[[worlds]]
+name = "Strong Induction"
+id = 6
 parents = [1, 4]
 levels = [
 	"src/strong_induction/introduction.lean",
@@ -81,8 +89,8 @@ levels = [
 
 [[worlds]]
 name = "Divisibility"
-id = 6
-parents = [5]
+id = 7
+parents = [6]
 levels = [
 	"src/divisibility/dvd_definition.lean",
 	"src/divisibility/dvd_refl.lean",
@@ -110,8 +118,8 @@ levels = [
 
 [[worlds]]
 name = "Congruences"
-id = 7
-parents = [6]
+id = 8
+parents = [7]
 levels = [
 	"src/congruences/mod_def.lean",
 	"src/congruences/reduction1.lean",
