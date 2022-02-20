@@ -33,7 +33,7 @@ class group (G : Type u) extends has_mul G, has_one G, has_inv G :=
 
 open group
 
-attribute [simp] mul_one
+attribute [simp] mul_one one_mul
 
 variables {G : Type u} [group G] {a b : G}
 
@@ -294,5 +294,9 @@ begin
   { simp only [int.sub_eq_add_neg, int.mul_add, ihn, gpow_add],
     simp [int.mul_neg_eq_neg_mul_symm, gpow_neg, int.mul_one], },
 end
+
+@[simp] theorem one_gpow : ∀ (n : ℤ), (1 : G) ^ n = 1
+| (n : ℕ) := by rw [gpow_coe_nat, one_pow]
+| -[1+ n] := by rw [gpow_neg_succ_of_nat, one_pow, one_inv]
 
 end exlean

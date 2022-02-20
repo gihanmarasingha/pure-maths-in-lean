@@ -78,6 +78,7 @@ levels = [
 	"src/group/unique_inverse.lean",
 	"src/group/mul_inv_rev.lean",
 	"src/group/powers.lean",
+	"src/group/negative_powers.lean",
 ]
 
 [[worlds]]

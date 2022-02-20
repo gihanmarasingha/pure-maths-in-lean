@@ -17,9 +17,6 @@ variables {G: Type* } [group G] {a b c : G} {n m : ℕ} -- hide
 Exponentiation is defined to be repeated multiplication. That is, if $a$ is an element of a group
 $G$, then $a^0 := 1$ and $a^{n + 1} := a \ast a^n$, for a natural number $n$.
 
-Extending the definition, we take $a^{-n} := (a^{-1})^n$ for a natural number $n$. This defines
-$a^m$ for all integers $m$.
-
 The normal 'laws of indices' apply. That is, if $a : G$ and $n, m : \mathbb N$, then:
 * $a ^ 0 = 1$,
 * $a ^ 1 = a$,
@@ -67,7 +64,7 @@ $$
 \begin{align}
 a^{26} &= a ^ {7 \times 3 + 5} && \text{[trivially]} \\\\
 &= (a ^ 7) ^ 3 \ast a ^ 5 && \text{[by laws of indices]} \\\\
-&= (1 ^ 3) \ast a ^ 5  && \text{[by $h$]} \\\\
+&= 1 ^ 3 \ast a ^ 5  && \text{[by $h$]} \\\\
 & = a ^ 5. && \text{[by laws of indices and the identity axiom]}
 \end{align}
 $$
