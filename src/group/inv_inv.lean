@@ -111,8 +111,10 @@ The second line asserts `b = (b⁻¹ * b) = (b * b⁻¹) * b`, the proof of whic
 only the group axoims from Lean (in particular, you may not use the 'right inverse' property).
 
 * Complete the Lean 'proof by calculation' below. I've started you off with a suggested first
-line of the proof (albeit with a `sorry`). You'll need to add intermediate lines and replace all
-`sorry`s with proofs.
+line of the proof. You'll need to add intermediate lines and replace all
+`sorry`s with proofs. I suggest working from top to bottom, one line at a time. That way, you
+can check if your proof is 'structurally correct' as you'll have only a `sorry` warning rather
+than an error message after each line.
 -/
 
 /- Theorem : 
