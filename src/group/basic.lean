@@ -123,16 +123,6 @@ begin
   { rw [nat.mul_succ, pow_add, pow_succ', ih] }
 end
 
-/-
-lemma inv_eq_of_mul_eq_one (h : a * b = 1) : a⁻¹ = b :=
-begin
-  calc a⁻¹ = a⁻¹ * 1    : by rw mul_one
-  ... = a⁻¹ * (a * b)   : by rw h
-  ... = (a⁻¹ * a) * b   : by rw mul_assoc
-  ... = 1 * b           : by rw mul_left_inv
-  ... = b               : by rw one_mul
-end -/
-
 example : a ^ 2 = a * a :=
 begin
   rw pow_two,
