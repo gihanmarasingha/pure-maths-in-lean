@@ -6,8 +6,6 @@ import  group.basic -- hide
 ## Level 1: The group axioms; the inverse of an inverse
 -/
 
-
-
 /-
 A group $(G, \ast)$ is a type (or set) $G$ together with a binary operation $\ast : G \times G \to G$
 and a special element $e_G \in G$ satisfying the following properties (called the _group axioms_):
@@ -28,7 +26,10 @@ The group axioms in Lean are the following:
 * `mul_assoc : ∀ (a b c : G), (a * b) * c = a * (b * c)`
 * `mul_left_inv : ∀ (a : G), a⁻¹ * a = 1` (note `a⁻¹` is typed `a\-1`)
 
-Here they are in practice.
+If you forget them, you can refresh your memory using the 'Groups' drop-down in the
+'Theorem statements' drop-down menu on the left 
+
+Here are the group axioms in practice.
 -/
 
 namespace exlean -- hide
@@ -37,7 +38,25 @@ open group -- hide
 
 variables {G : Type*} [group G] {a b c : G} -- hide
 
+/- Axiom : mul_one
+(a : G) : a * 1 = a
+-/
+
+/- Axiom : one_mul
+(a : G) : 1 * a = a
+-/
+
+/- Axiom : mul_assoc
+(a b c : G) : a * (b * c) = (a * b) * c
+-/
+
+/- Axiom : mul_left_inv
+(a : G) : a⁻¹ * a = 1
+-/
+
 example : a * 1 = a := mul_one a
+
+example : 1 * a = a := one_mul a
 
 example : (a * b) * c = a * (b * c) := mul_assoc a b c
 
