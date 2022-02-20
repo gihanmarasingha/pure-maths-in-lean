@@ -70,7 +70,7 @@ b &= b \ast 1 && \text{[by identity axiom (mul one)]}\\\\
 &= b \ast (b^{-1} \ast b) && \text{[by left inverse]} \\\\
 & = (b \ast b^{-1}) \ast b && \text{[by associativity]} \\\\
 & = b^{-1} \ast b && \text{[by the hypothesis]} \\\\
-& = 1. && \text{[by left inverse]}\hfil\qed
+& = 1. && \text{[by left inverse]}
 \end{align}
 $$
 ∎
