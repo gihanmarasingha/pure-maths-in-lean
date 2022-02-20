@@ -34,7 +34,7 @@ This latter goal can be proved by calculation.
 /- Theorem : 
 $(a \ast b)^{-1} = b^{-1} \ast a^{-1}$.
 -/
-lemma mul_inv_rev : (a * b)⁻¹ = b⁻¹ * a⁻¹ :=
+theorem mul_inv_rev : (a * b)⁻¹ = b⁻¹ * a⁻¹ :=
 begin
   apply inv_eq_of_mul_eq_one,
   calc (a * b) * (b⁻¹ * a⁻¹)
