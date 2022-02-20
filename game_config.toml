@@ -77,6 +77,7 @@ levels = [
 	"src/group/mul_right_inv.lean",
 	"src/group/unique_inverse.lean",
 	"src/group/mul_inv_rev.lean",
+	"src/group/powers.lean",
 ]
 
 [[worlds]]

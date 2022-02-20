@@ -115,6 +115,7 @@ begin
   { rw [pow_succ, ih, one_mul], },
 end
 
+theorem pow_one (a : G) : a ^ 1 = a := by rw [← npow_eq_pow, npow_one]
 
 theorem pow_mul (a : G) (m n : ℕ) : a^(m * n) = (a^m)^n :=
 begin
