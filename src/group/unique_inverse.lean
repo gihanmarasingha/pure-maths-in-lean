@@ -1,4 +1,4 @@
-import  group.mul_right_inv -- hide
+import group.mul_right_inv -- hide
 
 /-
 # Groups
@@ -24,7 +24,7 @@ you'll prove an equivalent 'uniqueness of inverse' result.
 * By hand, write a proof that if $a, b$ are elements of a group $G$ and if $a \ast b = 1$, then
 $a^{-1}$ equals $b$. You will only need the group axioms.
 
-* Complete the Lean 'proof by calculation' below, using only the group axioms.
+* Write a Lean proof by calculation, using only the group axioms.
 -/
 
 /- Theorem : 
@@ -32,10 +32,6 @@ If $a \ast b = 1$, then $a^{-1} = b$.
 -/
 lemma inv_eq_of_mul_eq_one (h : a * b = 1) : a⁻¹ = b :=
 begin
-/- hint
-  calc a⁻¹ = sorry      : by sorry
-  ... = b               : by sorry
--/
   calc a⁻¹ = a⁻¹ * 1    : by rw mul_one
   ... = a⁻¹ * (a * b)   : by rw h
   ... = (a⁻¹ * a) * b   : by rw mul_assoc
