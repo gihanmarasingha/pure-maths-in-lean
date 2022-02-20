@@ -29,7 +29,7 @@ use any axioms or theorems proved in the previous level.
 -/
 
 /- Theorem : 
-The inverse of the inverse of $a$ is $a$.
+$b \ast b^{-1} = 1$.
 -/
 lemma mul_right_inv : b * b⁻¹ = 1 :=
 begin
