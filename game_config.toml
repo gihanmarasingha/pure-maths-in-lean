@@ -74,6 +74,7 @@ id = 5
 parents = [4]
 levels = [
 	"src/group/inv_inv.lean",
+	"src/group/mul_right_inv",
 ]
 
 [[worlds]]

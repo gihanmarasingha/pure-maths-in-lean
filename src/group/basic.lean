@@ -123,12 +123,7 @@ begin
   { rw [nat.mul_succ, pow_add, pow_succ', ih] }
 end
 
-/- lemma mul_right_inv : b * b⁻¹ = 1 :=
-begin
-  calc b * b⁻¹ = (b⁻¹)⁻¹ * b⁻¹ : by rw inv_inv
-  ... = 1                      : by rw mul_left_inv
-end
-
+/-
 lemma inv_eq_of_mul_eq_one (h : a * b = 1) : a⁻¹ = b :=
 begin
   calc a⁻¹ = a⁻¹ * 1    : by rw mul_one
