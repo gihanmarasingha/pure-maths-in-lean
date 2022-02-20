@@ -60,19 +60,25 @@ As we'll soon see, the right inverse property can be proved from the other prope
 Suppose $b$ is an element of $G$ such that for every $a : G, b \ast a = a$,
 then $b = 1$.
 
+We'll give a proof 'by calculation'. This is a series of equations, each with its own proof, 
+starting with the left-side and ending with the right-side of the desired equation $b = 1$.
+
 **Proof**:
 $$
 \begin{align}
-b &= b \ast 1 \\\\
-&= b \ast (b^{-1} \ast b) \\\\
-& = (b \ast b^{-1}) \ast b \\\\
-& = b^{-1} \ast b \\\\
-& = 1
+b &= b \ast 1 && \text{[by identity axiom (mul one)]}\\\\
+&= b \ast (b^{-1} \ast b) && \text{[by left inverse]} \\\\
+& = (b \ast b^{-1}) \ast b && \text{[by associativity]} \\\\
+& = b^{-1} \ast b && \text{[by the hypothesis]} \\\\
+& = 1. && \text{[by left inverse]}\hfil\qed
 \end{align}
 $$
-
+∎
 -/
 
+/-
+The Lean proof of this result is remarkably similar to the handwritten proof:
+-/
 
 /- Axiom : eq_one_of_self_mul_eq
 (h : ∀ (a : G), b * a = a) : b = 1
@@ -86,19 +92,43 @@ begin
   ... = 1             : by rw mul_left_inv
 end
 
+/-
+Above, `calc` indicates that we are starting a proof by calculation. The
+proof for each line of calculation is shown after the colon.
 
+Consider the following two lines from the proof.
+```
+  ... = b * (b⁻¹ * b) : by rw mul_left_inv
+  ... = (b * b⁻¹) * b : by rw mul_assoc
+```
+The second line asserts `b = (b⁻¹ * b) = (b * b⁻¹) * b`, the proof of which is: `by rw mul_assoc`
+-/
 
+/-
+### Tasks
+
+* By hand, write a proof that if $a$ is an element of a group $G$, then $(a^{-1})^{-1} = a$. Use
+only the group axoims from Lean (in particular, you may not use the 'right inverse' property).
+
+* Complete the Lean 'proof by calculation' below. I've started you off with a suggested first
+line of the proof (albeit with a `sorry`). You'll need to add intermediate lines and replace all
+`sorry`s with proofs.
+-/
 
 /- Theorem : 
 The inverse of the inverse of $a$ is $a$.
 -/
 theorem inv_inv : (a⁻¹)⁻¹ = a :=
 begin
-  calc (a⁻¹)⁻¹ = (a⁻¹)⁻¹ * 1        : by rw mul_one
-          ... = (a⁻¹)⁻¹ * (a⁻¹ * a) : by rw mul_left_inv
-          ... = ((a⁻¹)⁻¹ * a⁻¹) * a : by rw mul_assoc
-          ... = 1 * a               : by rw mul_left_inv
-          ... = a                   : by rw one_mul
+/- hint
+  calc (a⁻¹)⁻¹ = (a⁻¹)⁻¹ * 1  : by sorry
+  ... = a                     : by sorry
+-/
+  calc (a⁻¹)⁻¹ = (a⁻¹)⁻¹ * 1  : by rw mul_one
+  ... = (a⁻¹)⁻¹ * (a⁻¹ * a)   : by rw mul_left_inv
+  ... = ((a⁻¹)⁻¹ * a⁻¹) * a   : by rw mul_assoc
+  ... = 1 * a                 : by rw mul_left_inv
+  ... = a                     : by rw one_mul
 end
 
 end exlean -- hide
