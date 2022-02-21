@@ -12,7 +12,7 @@ namespace exlean -- hide
 
 open group -- hide
 
-variables {G : Type*} [group G] {a b c : G} -- hide
+variables {G : Type*} [group G] (a b c : G) -- hide
 
 
 /-

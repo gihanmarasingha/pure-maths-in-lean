@@ -1,9 +1,9 @@
-import  group.mul_inv_rev -- hide
+import  group.right_cancellation -- hide
 
 /-
 # Groups
 
-## Level 5: Powers
+## Level 8: Powers
 -/
 
 
@@ -37,6 +37,28 @@ Here are the laws of indices in Lean.
 
 They can be applied as follows.
 -/
+
+/- Axiom : pow_zero
+(a : G) : a ^ 0 = 1
+-/
+
+/- Axiom : pow_one
+(a : G) : a ^ 1 = a
+-/
+
+/- Axiom : one_pow
+(n : ℕ) : 1 ^ n = 1
+-/
+
+/- Axiom : pow_add
+(a : G) (n m : ℕ) : a ^ (n + m) = a ^ n * a ^ m
+-/
+
+/- Axiom : pow_mul
+(a : G) (n m : ℕ) : a ^ (n * m) = (a ^ n) ^ m
+-/
+
+
 
 example : a ^ 0 = 1 := pow_zero a
 

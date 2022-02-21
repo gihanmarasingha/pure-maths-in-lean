@@ -77,6 +77,9 @@ levels = [
 	"src/group/mul_right_inv.lean",
 	"src/group/unique_inverse.lean",
 	"src/group/mul_inv_rev.lean",
+	"src/group/left_cancellation.lean",
+	"src/group/injectivity_of_inverse.lean",
+	"src/group/right_cancellation.lean",
 	"src/group/powers.lean",
 	"src/group/negative_powers.lean",
 ]

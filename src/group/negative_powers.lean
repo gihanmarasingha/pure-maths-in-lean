@@ -1,9 +1,9 @@
-import  group.mul_inv_rev -- hide
+import group.powers -- hide
 
 /-
 # Groups
 
-## Level 6: Negative powers
+## Level 9: Negative powers
 -/
 
 
@@ -33,6 +33,18 @@ Taking `n` and `m` to be integers, the laws of indices in Lean are as follows.
 * `gpow_mul a n m : a ^ (n * m) = (a ^ n) ^ m`
 
 Here they are in action!
+-/
+
+/- Axiom : one_gpow
+(n : ℤ) : 1 ^ n = 1
+-/
+
+/- Axiom : gpow_add
+(a : G) (n m : ℤ) : a ^ (n + m) = a ^ n * a ^ m
+-/
+
+/- Axiom : gpow_mul
+(a : G) (n m : ℤ) : a ^ (n * m) = (a ^ n) ^ m
 -/
 
 example : (1 : G) ^ n = 1 := one_gpow n
@@ -102,7 +114,7 @@ the proof and make adjustments as necessary.
 If $a ^ 8 = 1$, then there exist natural numbers $q$ and $r$ such that $a ^ {39} = a ^ r$ and
 $0 \le r < 8$.
 -/
-lemma exists_pow_eq_of_poq_eq_one (h : a ^ (8 : ℤ) = 1) :
+lemma exists_pow_eq_of_poq_eq_one2 (h : a ^ (8 : ℤ) = 1) :
 ∃ (q r : ℤ), a ^ (-70 : ℤ) = a ^ r ∧ (0 ≤ r) ∧ (r < 8) :=
 begin
   use [-9, 2],

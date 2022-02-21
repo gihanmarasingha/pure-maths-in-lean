@@ -283,6 +283,9 @@ by { rw ← gpow_coe_nat, exact gpow_neg' n a }
 | 0       := by { change a ^ (0 : ℤ) = (a ^ (0 : ℤ))⁻¹, simp, }
 | -[1+ n] := by { rw [gpow_neg_succ_of_nat, inv_inv', ← gpow_coe_nat], refl }
 
+theorem gpow_neg_one (x : G) : x ^ (-1:ℤ) = x⁻¹ :=
+by { rw [← congr_arg has_inv.inv (pow_one x), gpow_neg, ← gpow_coe_nat], refl }
+
 lemma gpow_sub (a : G) (m n : ℤ) : a ^ (m - n) = a ^ m * (a ^ n)⁻¹ :=
 by rw [int.sub_eq_add_neg, gpow_add, gpow_neg]
 
@@ -298,5 +301,13 @@ end
 @[simp] theorem one_gpow : ∀ (n : ℤ), (1 : G) ^ n = 1
 | (n : ℕ) := by rw [gpow_coe_nat, one_pow]
 | -[1+ n] := by rw [gpow_neg_succ_of_nat, one_pow, one_inv]
+
+lemma inv_pow (n : ℕ) : (a ^ n)⁻¹ = (a⁻¹) ^ n :=
+begin
+  induction n with k ih,
+  { simp, },
+  { rw [pow_succ', mul_inv_rev', ih, pow_succ', pow_mul_comm'], },
+end
+
 
 end exlean
