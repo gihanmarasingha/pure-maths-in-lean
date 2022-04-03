@@ -30,7 +30,7 @@ Likwise `and.elim_left h` (or `h.left`) is a proof of `p`.
 
 example (x : ℤ) (h : (x > 0) ∧ (x * x = 16)) : x * x = 16 :=
 begin
-  exact and.elim_right h,
+  from and.elim_right h,
 end
 
 /-
@@ -38,7 +38,7 @@ The same proof can be given using an alternative notation.
 -/
 example (x : ℤ) (h : (x > 0) ∧ (x * x = 16)) : x * x = 16 :=
 begin
-  exact h.right,
+  from h.right,
 end
 
 namespace exlean -- hide
@@ -56,7 +56,7 @@ Let $x$ and $y$ be integers. Suppose $h : (x + y = 3) \land (x < 0)$. Then $x + 
 theorem and_elim1 (x y : ℤ) (h : x + y = 3 ∧ x < 0) :
 x + y = 3 :=
 begin
-  exact h.left,
+  from h.left,
 end
 
 end exlean -- hide
