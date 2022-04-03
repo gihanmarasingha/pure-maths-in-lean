@@ -1,4 +1,4 @@
-import group.basic data.nat.basic tactic.linarith
+import group.power_lemmas strong_induction.well_ordering_principle data.nat.basic tactic.linarith
 
 universe u
 

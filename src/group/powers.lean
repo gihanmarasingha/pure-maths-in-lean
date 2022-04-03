@@ -1,4 +1,4 @@
-import  group.right_cancellation -- hide
+import  group.right_cancellation group.power_lemmas -- hide
 
 /-
 # Groups
